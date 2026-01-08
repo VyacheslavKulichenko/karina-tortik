@@ -1,0 +1,188 @@
+📝 Как закоммитить проект в Git
+
+  Шаг 0: Проверим наличие .gitignore, если нет то создаём и настраиваем правильно.
+
+  Шаг 1: Инициализируйте Git репозиторий
+
+  Откройте терминал в папке проекта и выполните:
+
+  git init
+
+  Это создаст скрытую папку .git с историей версий.
+
+  ---
+  Шаг 2: Проверьте, что будет добавлено
+
+  git status
+
+  Вы увидите все файлы, которые Git готов отслеживать. Красным цветом будут показаны неотслеживаемые файлы.
+
+  Что НЕ будет закоммичено (благодаря .gitignore):
+  - ❌ node_modules/ — зависимости (скачаются при npm install)
+  - ❌ .next/ — build файлы Next.js
+  - ❌ .env файлы — секретные ключи
+  - ❌ .DS_Store — системные файлы Mac
+
+  Что БУДЕТ закоммичено:
+  - ✅ Исходный код (app/, components/, contexts/, lib/)
+  - ✅ Данные (data/)
+  - ✅ Статические файлы (public/)
+  - ✅ Конфигурационные файлы (package.json, tsconfig.json, next.config.ts)
+  - ✅ Документация (info/)
+
+  ---
+  Шаг 3: Добавьте все файлы в staging
+
+  git add .
+
+  Это подготовит все файлы к коммиту.
+
+  Или добавьте файлы выборочно:
+  git add app/ components/ data/ public/ package.json
+
+  ---
+  Шаг 4: Создайте первый коммит
+
+  git commit -m "Initial commit: Blayden portfolio template v0.1.0
+
+  - Next.js 15.5.2 with App Router
+  - TypeScript configuration
+  - Three home page variants (home-1, home-2, home-3)
+  - GSAP animations and Lenis smooth scroll
+  - Portfolio, services, resume data structure
+  - Contact form with Formspree integration
+  - Light/Dark theme support
+  - AI project context and documentation
+
+  🤖 Generated with Claude Code
+  Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+
+  ---
+  Шаг 5 (Опционально): Подключите к GitHub
+
+  5.1 Создайте репозиторий на GitHub
+
+  1. Зайдите на https://github.com
+  2. Нажмите New repository
+  3. Назовите: blayden-portfolio или my-portfolio
+  4. НЕ выбирайте "Initialize with README" (у вас уже есть код)
+  5. Создайте репозиторий
+
+  5.2 Свяжите локальный проект с GitHub
+
+  GitHub покажет команды, но вот готовые:
+
+  # Добавьте удаленный репозиторий (замените YOUR-USERNAME и REPO-NAME)
+  git remote add origin https://github.com/YOUR-USERNAME/REPO-NAME.git
+
+  # Переименуйте ветку в main (если нужно)
+  git branch -M main
+
+  # Загрузите код на GitHub
+  git push -u origin main
+
+  ---
+  🔄 Работа с Git дальше
+
+  Проверить статус
+
+  git status
+
+  Посмотреть изменения
+
+  git diff
+
+  Добавить изменённые файлы
+
+  git add .
+  # или конкретные файлы
+  git add data/portfolios.json components/homes/home-1/Hero.tsx
+
+  Создать коммит
+
+  git commit -m "Описание изменений"
+
+  Загрузить на GitHub
+
+  git push
+
+  Посмотреть историю
+
+  git log --oneline
+
+  ---
+  💡 Полезные команды
+
+  Отменить изменения в файле (до коммита)
+
+  git checkout -- имя-файла.tsx
+
+  Отменить последний коммит (оставить изменения)
+
+  git reset --soft HEAD~1
+
+  Создать новую ветку
+
+  git checkout -b feature/add-video-support
+
+  Переключиться на ветку
+
+  git checkout main
+
+  ---
+  📌 Рекомендации по коммитам
+
+  Хорошие сообщения коммитов:
+
+  ✅ "Add video player component for portfolio items"
+  ✅ "Update portfolios.json with new projects"
+  ✅ "Fix contact form validation for phone field"
+  ✅ "Refactor Hero component parallax animation"
+
+  Плохие сообщения:
+
+  ❌ "fix"
+  ❌ "asdfasdf"
+  ❌ "update"
+  ❌ "changes"
+
+  Структура коммита:
+
+  git commit -m "Краткое описание (50 символов макс)
+
+  Подробное описание что изменилось и почему.
+  Можно в несколько строк.
+
+  - Пункт 1
+  - Пункт 2"
+
+  ---
+  🎯 Что делать сейчас?
+
+  Выполните команды по порядку:
+
+  # 1. Перейдите в папку проекта
+  cd "D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden"
+
+  # 2. Инициализируйте Git
+  git init
+
+  # 3. Проверьте что будет добавлено
+  git status
+
+  # 4. Добавьте все файлы
+  git add .
+
+  # 5. Создайте первый коммит
+  git commit -m "Initial commit: Blayden portfolio template v0.1.0
+
+  - Next.js 15.5.2 with App Router
+  - Three home variants and preview page
+  - GSAP animations system
+  - Data-driven architecture
+  - AI context and documentation"
+
+  # 6. Проверьте что коммит создан
+  git log
+
+  Готово! Теперь у вас есть Git история проекта. 🎉

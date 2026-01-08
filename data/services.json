@@ -1,0 +1,88 @@
+{
+  "home1": [
+    {
+      "id": 1,
+      "title": "Digital art and graphic design",
+      "icon": "ph-thin ph-bezier-curve",
+      "text": "I use Adobe Photoshop, Fresco and Blender to create illustrations and 3D renders for my clients and stocks.",
+      "imgS": "/img/services/1200x1000_s01.webp",
+      "imgM": "/img/services/800x1000_s01.webp"
+    },
+    {
+      "id": 2,
+      "title": "Frontend\ndevelopment",
+      "icon": "ph-thin ph-code",
+      "text": "I work with HTML/CSS, Framer and WordPress.",
+      "imgS": "/img/services/1200x1000_s02.webp",
+      "imgM": "/img/services/800x1000_s02.webp"
+    },
+    {
+      "id": 3,
+      "title": "Brand\nidentity",
+      "icon": "ph-thin ph-cube",
+      "text": "I help my clients to develop a personality and brand voice, design the brand look and logo.",
+      "imgS": "/img/services/1200x1000_s03.webp",
+      "imgM": "/img/services/800x1000_s03.webp"
+    },
+    {
+      "id": 4,
+      "title": "SEO/Digital marketing solutions",
+      "icon": "ph-thin ph-graph",
+      "text": "Social media content plans, media monitoring, email and text messaging and search engine optimization.",
+      "imgS": "/img/services/1200x1000_s04.webp",
+      "imgM": "/img/services/800x1000_s04.webp"
+    }
+  ],
+  "home2": [
+    {
+      "id": 1,
+      "title": "Frontend\ndevelopment",
+      "text": "I work with HTML/CSS, Framer and WordPress.",
+      "src": "/img/services/1200x1200_s05.webp"
+    },
+    {
+      "id": 2,
+      "title": "Graphic\ndesign",
+      "text": "I use Adobe Fresco and Blender to create illustrations and 3D renders.",
+      "src": "/img/services/1200x1200_s06.webp"
+    },
+    {
+      "id": 3,
+      "title": "Brand\nidentity",
+      "text": "I help my clients to develop a personality and brand voice, design the brand look and logo.",
+      "src": "/img/services/1200x1200_s07.webp"
+    },
+    {
+      "id": 4,
+      "title": "Digital\nmarketing",
+      "text": "Social media content plans, media monitoring, email and text messaging and search engine optimization.",
+      "src": "/img/services/1200x1200_s08.webp"
+    }
+  ],
+  "home3": [
+    {
+      "id": 1,
+      "title": "Frontend\ndevelopment",
+      "text": "I work with HTML/CSS, Framer and WordPress.",
+      "src": "/img/services/1200x1200_s01.webp"
+    },
+    {
+      "id": 2,
+      "title": "Graphic\ndesign",
+      "text": "I use Adobe Fresco and Blender to create illustrations and 3D renders.",
+      "src": "/img/services/1200x1200_s02.webp"
+    },
+    {
+      "id": 3,
+      "title": "Brand\nidentity",
+      "text": "I help my clients to develop a personality and brand voice, design the brand look and logo.",
+      "src": "/img/services/1200x1200_s03.webp"
+    },
+    {
+      "id": 4,
+      "title": "Digital\nmarketing",
+      "text": "Social media content plans, media monitoring, email and text messaging and search engine optimization.",
+      "src": "/img/services/1200x1200_s04.webp"
+    }
+  ]
+}

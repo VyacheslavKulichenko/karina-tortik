@@ -1,0 +1,20 @@
+[
+  { "id": "s-dribbble", "name": "Dribbble", "href": "https://dribbble.com/" },
+  { "id": "s-behance", "name": "Behance", "href": "https://www.behance.net/" },
+  {
+    "id": "s-instagram",
+    "name": "Instagram",
+    "href": "https://www.instagram.com/"
+  },
+  {
+    "id": "s-pinterest",
+    "name": "Pinterest",
+    "href": "https://www.pinterest.com/"
+  },
+  {
+    "id": "s-linkedin",
+    "name": "Linkedin",
+    "href": "https://www.linkedin.com/"
+  },
+  { "id": "s-youtube", "name": "Youtube", "href": "https://www.youtube.com/" }
+]

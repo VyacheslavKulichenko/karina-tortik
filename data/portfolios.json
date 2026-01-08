@@ -1,0 +1,134 @@
+{
+  "home1": [
+    {
+      "id": 1,
+      "href": "/img/works/1400x1050_w01.webp",
+      "src": "/img/works/1400x1050_w01.webp",
+      "width": 1400,
+      "height": 1050,
+      "size": "1400x1050",
+      "title": "Designer Portfolio",
+      "category": "UI/UX design",
+      "description": "Mauris porttitor lobortis ligula, quis molestie lorem scelerisque eu. Morbi aliquam enim odio, a mollis ipsum tristique eu."
+    },
+    {
+      "id": 2,
+      "href": "/img/works/1100x1400_w02.webp",
+      "src": "/img/works/1100x1400_w02.webp",
+      "width": 1100,
+      "height": 1400,
+      "size": "1100x1400",
+      "title": "Idea Character",
+      "category": "AI Illustration",
+      "description": "Mauris porttitor lobortis ligula, quis molestie lorem scelerisque eu. Morbi aliquam enim odio, a mollis ipsum tristique eu.",
+      "opposite": true
+    },
+    {
+      "id": 3,
+      "href": "/img/works/1400x1400_w03.webp",
+      "src": "/img/works/1400x1400_w03.webp",
+      "width": 1400,
+      "height": 1400,
+      "size": "1400x1400",
+      "title": "Robot Character",
+      "category": "3D Render",
+      "description": "Mauris porttitor lobortis ligula, quis molestie lorem scelerisque eu. Morbi aliquam enim odio, a mollis ipsum tristique eu.",
+      "opposite": true
+    },
+    {
+      "id": 4,
+      "href": "/img/works/1400x1050_w04.webp",
+      "src": "/img/works/1400x1050_w04.webp",
+      "width": 1400,
+      "height": 1050,
+      "size": "1400x1050",
+      "title": "Infinity",
+      "category": "3D Illustration",
+      "description": "Mauris porttitor lobortis ligula, quis molestie lorem scelerisque eu. Morbi aliquam enim odio, a mollis ipsum tristique eu."
+    },
+    {
+      "id": 5,
+      "href": "/img/works/1400x1050_w05.webp",
+      "src": "/img/works/1400x1050_w05.webp",
+      "width": 1400,
+      "height": 1050,
+      "size": "1400x1050",
+      "title": "Designer Portfolio",
+      "category": "UI/UX design",
+      "description": "Mauris porttitor lobortis ligula, quis molestie lorem scelerisque eu. Morbi aliquam enim odio, a mollis ipsum tristique eu."
+    }
+  ],
+  "home2": [
+    {
+      "id": 1,
+
+      "title": "PX101 flexible speaker",
+      "style": "dark",
+      "portrait": "/img/works/work-single/600x800_w01-top.webp",
+      "landscape": "/img/works/work-single/1920x800_w01-01.webp"
+    },
+    {
+      "id": 2,
+
+      "title": "Reflection AI project",
+      "style": "light",
+      "portrait": "/img/works/work-single/600x800_w02-top.webp",
+      "landscape": "/img/works/work-single/1920x800_w02-01.webp"
+    },
+    {
+      "id": 3,
+
+      "title": "Blayden portfolio template",
+      "style": "light",
+      "portrait": "/img/works/work-single/600x800_w03-top.webp",
+      "landscape": "/img/works/work-single/1920x800_w03-01.webp"
+    },
+    {
+      "id": 4,
+
+      "title": "Anime style fantasy scenes",
+      "style": "light",
+      "portrait": "/img/works/work-single/600x800_w04-top.webp",
+      "landscape": "/img/works/work-single/1920x800_w04-01.webp"
+    }
+  ],
+  "home3": [
+    {
+      "id": 1,
+      "popupId": "#portfolio-popup-1",
+      "title": "Blayden portfolio template",
+      "style": "dark",
+      "portrait": "/img/works/work-single/600x800_w03-top.webp",
+      "landscape": "/img/works/1920x1080_w01.webp",
+
+      "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, nesciunt."
+    },
+    {
+      "id": 2,
+      "popupId": "#portfolio-popup-2",
+      "title": "Anime style fantasy scenes",
+      "style": "light",
+      "portrait": "/img/works/work-single/600x800_w04-top.webp",
+      "landscape": "/img/works/work-single/1920x800_w04-01.webp",
+      "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, nesciunt."
+    },
+    {
+      "id": 3,
+      "popupId": "#portfolio-popup-3",
+      "title": "PX101 flexible speaker",
+      "style": "dark",
+      "portrait": "/img/works/work-single/600x800_w01-top.webp",
+      "landscape": "/img/works/work-single/1920x800_w01-01.webp",
+      "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, nesciunt."
+    },
+    {
+      "id": 4,
+      "popupId": "#portfolio-popup-4",
+      "title": "Reflection AI project",
+      "style": "light",
+      "portrait": "/img/works/work-single/600x800_w02-top.webp",
+      "landscape": "/img/works/work-single/1920x800_w02-01.webp",
+      "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, nesciunt."
+    }
+  ]
+}

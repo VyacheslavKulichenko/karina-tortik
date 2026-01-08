@@ -1,0 +1,293 @@
+ У нас в проекте все изображения статичные. А у меня большая часть контента это видеофайлы со звуком, которые нужно
+показывать типа как сторис в инстаграм, с возможностью включить/отключить звук и кнопкой стоп/плэй и таймлайном. Мы сможем
+ такое добавить?
+Только пока не добавляй, сначала обсуждаем варианты как это лучше реализовать и с помощью чего.
+
+● Отличный вопрос! Да, это абсолютно реализуемо. Давайте обсудим разные подходы и выберем оптимальный для вашего проекта.
+
+  🎥 Варианты реализации видео-портфолио
+
+  Вариант 1: Нативный HTML5 Video + Custom Controls
+
+  Плюсы:
+  - Полный контроль над UI
+  - Нет зависимостей от библиотек
+  - Легковесное решение
+  - Работает со всеми форматами (MP4, WebM)
+
+  Минусы:
+  - Нужно самому писать controls (play/pause, volume, progress bar)
+  - Больше кода для кроссбраузерности
+
+  Подход:
+  <video
+    src="/video/portfolio-1.mp4"
+    poster="/img/thumbnails/video-1.jpg"  // Превью
+    controls={false}  // Отключаем нативные controls
+    playsInline  // Для iOS
+    muted  // Начинаем без звука
+  />
+
+  ---
+  Вариант 2: React Player (библиотека)
+
+  Библиотека: react-player (1.4M скачиваний/неделю)
+
+  Плюсы:
+  - Поддержка YouTube, Vimeo, локальных файлов
+  - Готовые controls можно кастомизировать
+  - Хорошая документация
+  - Легкая интеграция
+
+  Минусы:
+  - Дополнительная зависимость (~50KB)
+  - Меньше контроля над деталями
+
+  Установка:
+  npm install react-player
+
+  Использование:
+  import ReactPlayer from 'react-player';
+
+  <ReactPlayer
+    url="/video/portfolio-1.mp4"
+    playing={false}
+    controls={true}
+    light="/img/thumbnails/video-1.jpg"  // Lazy load
+    width="100%"
+    height="100%"
+  />
+
+  ---
+  Вариант 3: Video.js (мощный плеер)
+
+  Библиотека: video.js (индустриальный стандарт)
+
+  Плюсы:
+  - Профессиональное решение
+  - Множество плагинов
+  - Отличная поддержка форматов
+  - HLS, DASH streaming
+
+  Минусы:
+  - Тяжелее (~200KB)
+  - Сложнее для простых задач
+  - Нужна отдельная стилизация
+
+  ---
+  Вариант 4: Plyr (красивый легковесный плеер)
+
+  Библиотека: plyr (очень популярен для UI)
+
+  Плюсы:
+  - Красивые controls из коробки
+  - Легковесный (~30KB)
+  - Простая кастомизация
+  - Адаптивный
+
+  Минусы:
+  - React-обертка не официальная
+  - Меньше функций чем Video.js
+
+  ---
+  🎯 Мои рекомендации для вашего проекта:
+
+  Рекомендую: Вариант 1 (Native HTML5) + Вариант 4 (Plyr) в качестве альтернативы
+
+  Почему:
+
+  1. У вас уже есть GSAP и кастомные анимации — логично иметь полный контроль над video controls
+  2. Проект не использует тяжелых библиотек — сохраняем легковесность
+  3. Instagram-like UI — легко создать с нативным video + React state
+
+  ---
+  📐 Архитектура интеграции
+
+  Где хранить видео?
+
+  Вариант A: Локально в public/video/
+
+  public/
+    video/
+      portfolio/
+        project-1.mp4
+        project-2.mp4
+      thumbnails/
+        project-1.jpg  // Превью для lazy load
+        project-2.jpg
+
+  Плюсы: Просто, быстро для разработки
+  Минусы: Большой размер билда, медленная загрузка
+
+  Вариант B: CDN (Cloudflare, Vercel Blob, AWS S3)
+
+  {
+    "id": 1,
+    "type": "video",
+    "videoUrl": "https://cdn.yoursite.com/videos/project-1.mp4",
+    "thumbnail": "https://cdn.yoursite.com/thumbs/project-1.jpg",
+    "duration": 45
+  }
+
+  Плюсы: Быстрая загрузка, кэширование, не увеличивает размер проекта
+  Минусы: Нужен CDN сервис (но многие бесплатны)
+
+  Вариант C: YouTube/Vimeo (для публичных видео)
+
+  {
+    "id": 1,
+    "type": "video",
+    "videoUrl": "https://www.youtube.com/watch?v=...",
+    "provider": "youtube"
+  }
+
+  Плюсы: Бесплатный хостинг, автоматическая транскодировка
+  Минусы: Реклама (если не платный аккаунт), зависимость от платформы
+
+  ---
+  🔧 Интеграция с текущей структурой
+
+  1. Обновить структуру данных
+
+  data/portfolios.json:
+  {
+    "home1": [
+      {
+        "id": 1,
+        "type": "image",
+        "src": "/img/works/project-1.webp",
+        "width": 1920,
+        "height": 1080,
+        "title": "Static Design"
+      },
+      {
+        "id": 2,
+        "type": "video",
+        "videoUrl": "/video/portfolio/motion-design.mp4",
+        "thumbnail": "/video/thumbnails/motion-design.jpg",
+        "width": 1920,
+        "height": 1080,
+        "duration": 45,
+        "title": "Motion Design Reel",
+        "hasAudio": true
+      }
+    ]
+  }
+
+  2. Создать компонент VideoPlayer
+
+  components/video/VideoPlayer.tsx:
+  "use client";
+
+  type Props = {
+    src: string;
+    thumbnail: string;
+    autoPlay?: boolean;
+    muted?: boolean;
+  };
+
+  // Кастомный плеер с Instagram-like UI
+
+  3. Обновить Portfolios.tsx
+
+  Добавить условный рендеринг:
+  {item.type === 'image' ? (
+    <Image src={item.src} ... />
+  ) : (
+    <VideoPlayer src={item.videoUrl} ... />
+  )}
+
+  4. Обновить Lightbox
+
+  Текущий lightbox (yet-another-react-lightbox) поддерживает видео! Нужно только добавить:
+  import Video from "yet-another-react-lightbox/plugins/video";
+
+  <Lightbox
+    plugins={[Video]}
+    slides={[
+      { type: "image", src: "..." },
+      { type: "video", src: "...", poster: "..." }
+    ]}
+  />
+
+  ---
+  🎨 UI/UX Концепции
+
+  Instagram Stories Style:
+
+  1. Начальное состояние:
+    - Thumbnail с иконкой Play по центру
+    - При клике — открывается lightbox с видео
+  2. В lightbox:
+  ┌─────────────────────────┐
+  │  [<] Video Title    [X] │  ← Header
+  ├─────────────────────────┤
+  │                         │
+  │      VIDEO PLAYER       │
+  │                         │
+  │  ┌──────────────────┐   │  ← Controls overlay
+  │  │ ━━━━━━━●━━━━━━━ │   │  ← Progress bar
+  │  │  [▶] [🔊]  0:23  │   │  ← Play/Pause, Volume, Time
+  │  └──────────────────┘   │
+  └─────────────────────────┘
+  3. Функционал:
+    - Клик на видео = Play/Pause
+    - Клик на иконку звука = Mute/Unmute
+    - Таймлайн показывает прогресс
+    - Свайп/стрелки для навигации между видео
+
+  ---
+  📊 Оптимизация производительности
+
+  1. Lazy Loading (критично!)
+
+  // Не загружаем видео пока не нужно
+  <video preload="none" poster="thumbnail.jpg">
+
+  // Или используем Intersection Observer
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  2. Форматы видео
+
+  Предоставляйте несколько форматов:
+  <video>
+    <source src="video.webm" type="video/webm" />
+    <source src="video.mp4" type="video/mp4" />
+  </video>
+
+  Рекомендуемые настройки кодирования:
+  - Формат: MP4 (H.264) или WebM (VP9)
+  - Битрейт: 2-5 Mbps для 1080p
+  - Разрешение: 1920x1080 или 1280x720
+  - FPS: 30 или 24
+
+  3. Thumbnail generation
+
+  Автоматически генерировать превью из первого кадра:
+  ffmpeg -i video.mp4 -ss 00:00:01 -vframes 1 thumbnail.jpg
+
+  ---
+  🤔 Вопросы к вам:
+
+  1. Сколько видео планируете? (1-10, 10-50, 50+?)
+  2. Средняя длительность видео? (15 сек, 1 мин, 5 мин?)
+  3. Размер файлов? (примерно в MB)
+  4. Бюджет на хостинг? (бесплатный, до $10/мес, без ограничений)
+  5. Должны ли видео автоплей при скролле? (как в Instagram/TikTok)
+  6. Нужны субтитры?
+
+  ---
+  💡 Мой финальный совет:
+
+  Для старта рекомендую:
+
+  1. HTML5 Video + Custom Controls (легковесно, полный контроль)
+  2. Локальное хранение в public/video/ для первой версии
+  3. Lightbox с видео-поддержкой (уже есть библиотека)
+  4. Lazy loading обязательно
+
+  В будущем можно мигрировать на:
+  - CDN для видео (Cloudflare R2, Vercel Blob)
+  - Более продвинутый плеер если нужны фичи
+
+  Что думаете? Какой вариант ближе? Могу показать код реализации любого из подходов!

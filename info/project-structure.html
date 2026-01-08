@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Структура Проекта Blayden - Подробное Руководство</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        h4 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .info-box {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .theory-box {
+            background: #fff9e6;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #e6ffe6;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #e74c3c;
+        }
+
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .file-path {
+            background: #34495e;
+            color: #ecf0f1;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .folder-structure {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th {
+            background: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px 0;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 10px;
+        }
+
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        .badge-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .badge-success {
+            background: #27ae60;
+            color: white;
+        }
+
+        .badge-warning {
+            background: #f39c12;
+            color: white;
+        }
+
+        .badge-danger {
+            background: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📁 Структура Проекта Blayden</h1>
+        <p><strong>Подробное руководство для новичков в Next.js и React</strong></p>
+
+        <div class="info-box">
+            <h4>👋 Добро пожаловать!</h4>
+            <p>Это руководство создано специально для тех, кто только начинает изучать Next.js и React. Здесь вы найдете подробное объяснение каждой папки, файла и концепции, используемой в проекте Blayden.</p>
+            <p>Мы не просто расскажем ЧТО находится в проекте, но и объясним <strong>ПОЧЕМУ</strong> это так организовано и <strong>КАК</strong> это работает.</p>
+        </div>
+
+        <div class="toc">
+            <h2>📋 Содержание</h2>
+            <ul>
+                <li><a href="#intro">Введение в проект</a></li>
+                <li><a href="#nextjs-basics">Основы Next.js - Теория</a></li>
+                <li><a href="#project-overview">Общий обзор структуры</a></li>
+                <li><a href="#root-files">Корневые файлы проекта</a></li>
+                <li><a href="#app-folder">Папка app/ - Сердце приложения</a></li>
+                <li><a href="#components-folder">Папка components/ - Переиспользуемые компоненты</a></li>
+                <li><a href="#contexts-folder">Папка contexts/ - Глобальное состояние</a></li>
+                <li><a href="#data-folder">Папка data/ - Данные проекта</a></li>
+                <li><a href="#lib-folder">Папка lib/ - Утилиты и схемы</a></li>
+                <li><a href="#public-folder">Папка public/ - Статические файлы</a></li>
+                <li><a href="#patterns">Ключевые паттерны и концепции</a></li>
+                <li><a href="#best-practices">Best Practices проекта</a></li>
+            </ul>
+        </div>
+
+        <!-- КОНТЕНТ НАЧИНАЕТСЯ ЗДЕСЬ -->
+
+        <h2 id="intro">🚀 Введение в проект</h2>
+
+        <h3>Что такое Blayden?</h3>
+        <p>Blayden — это профессиональный шаблон портфолио-сайта, построенный на современном стеке технологий. Это не просто набор HTML страниц, а полноценное <strong>React-приложение</strong>, использующее фреймворк <strong>Next.js</strong> для создания быстрых и SEO-оптимизированных веб-сайтов.</p>
+
+        <h3>Технический стек проекта</h3>
+        <table>
+            <tr>
+                <th>Технология</th>
+                <th>Версия</th>
+                <th>Назначение</th>
+            </tr>
+            <tr>
+                <td><strong>Next.js</strong></td>
+                <td>15.5.2</td>
+                <td>Фреймворк для React с серверным рендерингом</td>
+            </tr>
+            <tr>
+                <td><strong>React</strong></td>
+                <td>19.1.0</td>
+                <td>Библиотека для создания пользовательских интерфейсов</td>
+            </tr>
+            <tr>
+                <td><strong>TypeScript</strong></td>
+                <td>5.x</td>
+                <td>Типизированная версия JavaScript</td>
+            </tr>
+            <tr>
+                <td><strong>GSAP</strong></td>
+                <td>3.13.0</td>
+                <td>Библиотека для анимаций (GreenSock Animation Platform)</td>
+            </tr>
+            <tr>
+                <td><strong>Lenis</strong></td>
+                <td>1.3.11</td>
+                <td>Плавная прокрутка страницы</td>
+            </tr>
+            <tr>
+                <td><strong>React Hook Form</strong></td>
+                <td>7.62.0</td>
+                <td>Управление формами</td>
+            </tr>
+            <tr>
+                <td><strong>Zod</strong></td>
+                <td>4.1.5</td>
+                <td>Валидация данных</td>
+            </tr>
+        </table>
+
+        <div class="success-box">
+            <h4>✅ Все версии актуальны на январь 2026!</h4>
+            <p>Проект использует самые современные версии всех библиотек. Next.js 15 вышел в октябре 2024 года и включает множество улучшений производительности.</p>
+        </div>
+
+        <h2 id="nextjs-basics">📚 Основы Next.js - Теория</h2>
+
+        <h3>Что такое Next.js и зачем он нужен?</h3>
+        <p>Представьте, что <strong>React</strong> — это конструктор Lego. Вы можете строить из него что угодно, но вам нужно самому решать множество вопросов: как организовать маршрутизацию, как оптимизировать изображения, как сделать сайт быстрым и SEO-friendly.</p>
+
+        <p><strong>Next.js</strong> — это как готовый набор инструкций и дополнительных деталей к этому конструктору. Он берет React и добавляет:</p>
+        <ul>
+            <li><strong>Файловую маршрутизацию</strong> — создаете файл, получаете страницу</li>
+            <li><strong>Серверный рендеринг</strong> — страницы формируются на сервере для быстрой загрузки</li>
+            <li><strong>Оптимизацию изображений</strong> — автоматическое сжатие и lazy loading</li>
+            <li><strong>API Routes</strong> — возможность создавать бэкенд прямо в проекте</li>
+            <li><strong>Автоматическое разделение кода</strong> — каждая страница загружает только нужный JavaScript</li>
+        </ul>
+
+        <div class="theory-box">
+            <h4>🎓 Теория: React vs Next.js</h4>
+            <p><strong>React (библиотека):</strong></p>
+            <ul>
+                <li>Только для создания UI компонентов</li>
+                <li>Рендеринг происходит в браузере (Client-Side Rendering)</li>
+                <li>Требует дополнительных библиотек для роутинга (React Router)</li>
+                <li>Сложнее настроить SEO</li>
+            </ul>
+            <p><strong>Next.js (фреймворк):</strong></p>
+            <ul>
+                <li>Полноценный фреймворк с маршрутизацией</li>
+                <li>Может рендерить на сервере (Server-Side Rendering)</li>
+                <li>Встроенная файловая маршрутизация</li>
+                <li>Отличное SEO из коробки</li>
+                <li>Множество оптимизаций производительности</li>
+            </ul>
+        </div>
+
+        <h3>App Router vs Pages Router</h3>
+        <p>В Next.js есть две системы маршрутизации:</p>
+
+        <div class="warning-box">
+            <h4>⚠️ Важно понимать!</h4>
+            <p><strong>Pages Router (старый подход)</strong> — использует папку <code>pages/</code></p>
+            <p><strong>App Router (новый подход)</strong> — использует папку <code>app/</code></p>
+            <p><strong>Наш проект использует App Router</strong> — это современный и рекомендуемый подход с Next.js 13+</p>
+        </div>
+
+        <h3>Ключевые концепции App Router</h3>
+
+        <h4>1. Server Components vs Client Components</h4>
+        <div class="theory-box">
+            <h4>🎓 Теория: Server и Client компоненты</h4>
+            <p>Это одна из самых важных концепций в Next.js 15!</p>
+
+            <p><strong>Server Components (по умолчанию):</strong></p>
+            <ul>
+                <li>Выполняются ТОЛЬКО на сервере</li>
+                <li>Не попадают в JavaScript bundle клиента (меньший размер!)</li>
+                <li>Могут напрямую обращаться к базе данных</li>
+                <li>Не могут использовать хуки React (useState, useEffect)</li>
+                <li>Не могут обрабатывать события (onClick, onChange)</li>
+            </ul>
+
+            <p><strong>Client Components:</strong></p>
+            <ul>
+                <li>Выполняются в браузере</li>
+                <li>Могут использовать все хуки React</li>
+                <li>Могут обрабатывать пользовательские события</li>
+                <li>Нужны для интерактивности</li>
+                <li>Помечаются директивой <code>"use client"</code> в начале файла</li>
+            </ul>
+
+            <pre><code>// Server Component (по умолчанию)
+export default function Page() {
+  return &lt;div&gt;Я рендерюсь на сервере!&lt;/div&gt;;
+}
+
+// Client Component
+"use client"; // ← эта директива делает компонент клиентским
+
+export default function InteractiveButton() {
+  const [count, setCount] = useState(0);
+  return &lt;button onClick={() =&gt; setCount(count + 1)}&gt;{count}&lt;/button&gt;;
+}</code></pre>
+        </div>
+
+        <h4>2. Файловая маршрутизация</h4>
+        <p>В Next.js с App Router структура папок определяет URL сайта:</p>
+
+        <div class="folder-structure">app/
+├── page.tsx              → yoursite.com/
+├── about/
+│   └── page.tsx         → yoursite.com/about
+└── blog/
+    ├── page.tsx         → yoursite.com/blog
+    └── [slug]/
+        └── page.tsx     → yoursite.com/blog/любой-slug</div>
+
+        <div class="info-box">
+            <h4>💡 Важные правила:</h4>
+            <ul>
+                <li><code>page.tsx</code> — это файл, который становится страницей</li>
+                <li>Папки без <code>page.tsx</code> НЕ создают маршрут</li>
+                <li><code>[slug]</code> — динамический сегмент (параметр в URL)</li>
+                <li><code>(folder)</code> — группирующая папка, НЕ влияет на URL</li>
+            </ul>
+        </div>
+
+        <h4>3. Специальные файлы в App Router</h4>
+        <table>
+            <tr>
+                <th>Файл</th>
+                <th>Назначение</th>
+            </tr>
+            <tr>
+                <td><code>page.tsx</code></td>
+                <td>Страница маршрута</td>
+            </tr>
+            <tr>
+                <td><code>layout.tsx</code></td>
+                <td>Общий макет для страниц (header, footer)</td>
+            </tr>
+            <tr>
+                <td><code>loading.tsx</code></td>
+                <td>UI состояния загрузки</td>
+            </tr>
+            <tr>
+                <td><code>error.tsx</code></td>
+                <td>UI состояния ошибки</td>
+            </tr>
+            <tr>
+                <td><code>not-found.tsx</code></td>
+                <td>UI для 404 страницы</td>
+            </tr>
+            <tr>
+                <td><code>template.tsx</code></td>
+                <td>Похож на layout, но пересоздается при навигации</td>
+            </tr>
+        </table>
+
+        <h4>4. Layouts (Макеты)</h4>
+        <div class="theory-box">
+            <h4>🎓 Что такое Layout?</h4>
+            <p>Layout — это обертка для страниц. Представьте, что у вас есть сайт с header и footer на каждой странице. Вместо того, чтобы копировать их код на каждую страницу, вы создаете layout один раз, и он автоматически применяется ко всем вложенным страницам.</p>
+
+            <pre><code>// app/layout.tsx
+export default function RootLayout({ children }) {
+  return (
+    &lt;html&gt;
+      &lt;body&gt;
+        &lt;Header /&gt;
+        {children} {/* ← сюда подставляется содержимое страницы */}
+        &lt;Footer /&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</code></pre>
+
+            <p><strong>Важно:</strong> Layouts НЕ перерендериваются при переходе между страницами! Это улучшает производительность.</p>
+        </div>
+
+        <h2 id="project-overview">🗂️ Общий обзор структуры проекта</h2>
+
+        <h3>Дерево проекта</h3>
+        <div class="folder-structure">blayden/
+├── 📁 app/                    ← Next.js App Router (страницы и маршруты)
+│   ├── (homes)/              ← Группа для трех вариантов главной страницы
+│   │   ├── home-1/
+│   │   ├── home-2/
+│   │   └── home-3/
+│   ├── preview/              ← Демо-страница (главная по умолчанию)
+│   ├── layout.tsx            ← Корневой layout для всего сайта
+│   └── page.tsx              ← Главная страница (перенаправляет на preview)
+│
+├── 📁 components/             ← Переиспользуемые React компоненты
+│   ├── animation/            ← Анимационные обертки (GSAP, параллакс)
+│   ├── headers/              ← Навигация, переключатель темы
+│   ├── homes/                ← Секции для home-1, home-2, home-3
+│   ├── modals/               ← Модальные окна (попапы)
+│   ├── preview/              ← Компоненты для preview страницы
+│   └── scroll/               ← Управление прокруткой и анимациями
+│
+├── 📁 contexts/               ← React Context (глобальное состояние)
+│   └── PortfolioContext.tsx  ← Управление состоянием модального окна портфолио
+│
+├── 📁 data/                   ← JSON файлы с контентом ⭐ ЗДЕСЬ МЕНЯТЬ ТЕКСТЫ!
+│   ├── portfolios.json       ← Проекты портфолио
+│   ├── resume.json           ← Образование, опыт, навыки
+│   ├── services.json         ← Услуги
+│   ├── socials.json          ← Ссылки на соцсети
+│   └── testimonials.json     ← Отзывы клиентов
+│
+├── 📁 lib/                    ← Утилиты и вспомогательные функции
+│   └── schemas/              ← Схемы валидации форм (Zod)
+│       └── contact.ts        ← Валидация контактной формы
+│
+├── 📁 public/                 ← Статические файлы ⭐ ЗДЕСЬ МЕНЯТЬ ИЗОБРАЖЕНИЯ!
+│   ├── css/                  ← Стили
+│   ├── fonts/                ← Шрифты (Font Awesome, Phosphor)
+│   ├── img/                  ← Все изображения
+│   │   ├── avatars/          ← Фото авторов отзывов
+│   │   ├── backgrounds/      ← Фоновые изображения
+│   │   ├── favicon/          ← Иконки сайта
+│   │   ├── icons/            ← Иконки инструментов (Photoshop, Figma)
+│   │   ├── marquee/          ← Изображения для бегущей строки
+│   │   ├── services/         ← Изображения для секции услуг
+│   │   ├── testimonials/     ← Фоны для отзывов
+│   │   └── works/            ← Работы портфолио
+│   ├── video/                ← Видео файлы
+│   └── resume-sample.pdf     ← Резюме для скачивания
+│
+├── 📄 package.json            ← Зависимости и скрипты проекта
+├── 📄 tsconfig.json           ← Конфигурация TypeScript
+├── 📄 next.config.ts          ← Конфигурация Next.js
+├── 📄 eslint.config.mjs       ← Конфигурация линтера
+└── 📄 README.md               ← Документация</div>
+
+        <div class="success-box">
+            <h4>✅ Как начать кастомизацию?</h4>
+            <ol>
+                <li><strong>Поменяйте тексты</strong> — откройте файлы в папке <code>data/</code></li>
+                <li><strong>Замените изображения</strong> — положите свои файлы в <code>public/img/</code></li>
+                <li><strong>Обновите метаданные</strong> — в <code>app/layout.tsx</code> измените title и description</li>
+                <li><strong>Настройте соцсети</strong> — отредактируйте <code>data/socials.json</code></li>
+                <li><strong>Добавьте резюме</strong> — замените <code>public/resume-sample.pdf</code> своим файлом</li>
+            </ol>
+        </div>
+
+        <h3>Как проект работает вместе?</h3>
+        <div class="info-box">
+            <h4>🔄 Поток данных в проекте:</h4>
+            <ol>
+                <li><strong>Пользователь заходит на сайт</strong> → Next.js загружает <code>app/layout.tsx</code></li>
+                <li><strong>Layout оборачивает страницу</strong> → применяет шрифты, провайдеры, глобальные компоненты</li>
+                <li><strong>Загружается страница</strong> (например, <code>app/(homes)/home-1/page.tsx</code>)</li>
+                <li><strong>Страница импортирует компоненты</strong> из <code>components/homes/home-1/</code></li>
+                <li><strong>Компоненты загружают данные</strong> из <code>data/*.json</code></li>
+                <li><strong>Изображения загружаются</strong> из <code>public/img/</code></li>
+                <li><strong>Анимации инициализируются</strong> через GSAP и Lenis</li>
+            </ol>
+        </div>
+
+        <h2 id="root-files">📄 Корневые файлы проекта</h2>
+
+        <h3>package.json</h3>
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\package.json</div>
+
+        <p>Это "сердце" любого Node.js проекта. Здесь перечислены все зависимости (библиотеки) и скрипты для запуска проекта.</p>
+
+        <h4>Основные секции:</h4>
+
+        <pre><code>{
+  "name": "blayden-nextjs",
+  "version": "1.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",      // Запуск в режиме разработки
+    "build": "next build --turbopack",  // Сборка для продакшена
+    "start": "next start",              // Запуск продакшн сервера
+    "lint": "eslint"                    // Проверка кода линтером
+  },
+  "dependencies": { /* ... */ }
+}</code></pre>
+
+        <div class="theory-box">
+            <h4>🎓 Что такое dependencies?</h4>
+            <p><strong>dependencies</strong> — это библиотеки, которые нужны проекту для работы в продакшене (на реальном сайте).</p>
+            <p><strong>devDependencies</strong> — библиотеки только для разработки (TypeScript типы, линтеры и т.д.).</p>
+        </div>
+
+        <h4>Как использовать package.json?</h4>
+        <table>
+            <tr>
+                <th>Команда</th>
+                <th>Что делает</th>
+                <th>Когда использовать</th>
+            </tr>
+            <tr>
+                <td><code>npm run dev</code></td>
+                <td>Запускает сервер разработки на localhost:3000</td>
+                <td>Во время разработки и тестирования</td>
+            </tr>
+            <tr>
+                <td><code>npm run build</code></td>
+                <td>Создает оптимизированную версию сайта</td>
+                <td>Перед деплоем на хостинг</td>
+            </tr>
+            <tr>
+                <td><code>npm start</code></td>
+                <td>Запускает продакшн сервер</td>
+                <td>На сервере после build</td>
+            </tr>
+            <tr>
+                <td><code>npm install</code></td>
+                <td>Устанавливает все зависимости</td>
+                <td>Первый раз после скачивания проекта</td>
+            </tr>
+        </table>
+
+        <div class="warning-box">
+            <h4>⚠️ Что НЕ нужно менять:</h4>
+            <ul>
+                <li>Версии зависимостей (если не уверены)</li>
+                <li>Названия скриптов</li>
+            </ul>
+            <h4>✅ Что можно менять:</h4>
+            <ul>
+                <li><code>"name"</code> — на название вашего проекта</li>
+                <li><code>"version"</code> — версию вашего проекта</li>
+            </ul>
+        </div>
+
+        <h3>tsconfig.json</h3>
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\tsconfig.json</div>
+
+        <p>Конфигурация TypeScript — языка, который добавляет типы к JavaScript.</p>
+
+        <h4>Ключевые настройки в проекте:</h4>
+        <pre><code>{
+  "compilerOptions": {
+    "target": "ES2017",              // На какую версию JS компилировать
+    "lib": ["dom", "ES2020"],        // Доступные API
+    "strict": true,                  // Строгая проверка типов
+    "paths": {
+      "@/*": ["./*"]                 // Алиас @ = корень проекта
+    }
+  }
+}</code></pre>
+
+        <div class="info-box">
+            <h4>💡 Что такое path alias?</h4>
+            <p>Вместо того чтобы писать:</p>
+            <pre><code>import Header from '../../../components/headers/Header1';</code></pre>
+            <p>Можно писать:</p>
+            <pre><code>import Header from '@/components/headers/Header1';</code></pre>
+            <p>Символ <code>@</code> всегда указывает на корень проекта. Это удобнее и читабельнее!</p>
+        </div>
+
+        <div class="success-box">
+            <h4>✅ Обычно этот файл не нужно менять</h4>
+            <p>Настройки подобраны оптимально для Next.js проекта.</p>
+        </div>
+
+        <h3>next.config.ts</h3>
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\next.config.ts</div>
+
+        <p>Конфигурация Next.js. В этом шаблоне используется минимальная конфигурация:</p>
+
+        <pre><code>import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+};
+
+export default nextConfig;</code></pre>
+
+        <div class="info-box">
+            <h4>🔧 Что можно добавить в next.config.ts?</h4>
+            <p>Когда будете кастомизировать, возможно понадобится:</p>
+            <pre><code>const nextConfig: NextConfig = {
+  // Разрешить загрузку изображений с внешних доменов
+  images: {
+    domains: ['example.com', 'cdn.yourdomain.com'],
+  },
+
+  // Редирект со старых URL
+  async redirects() {
+    return [
+      {
+        source: '/old-page',
+        destination: '/new-page',
+        permanent: true,
+      },
+    ];
+  },
+};</code></pre>
+        </div>
+
+        <h3>eslint.config.mjs</h3>
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\eslint.config.mjs</div>
+
+        <p>ESLint — это инструмент для проверки качества кода. Он находит ошибки, предупреждает о плохих практиках.</p>
+
+        <div class="theory-box">
+            <h4>🎓 Зачем нужен линтер?</h4>
+            <p>Линтер это как проверка орфографии, но для кода. Он помогает:</p>
+            <ul>
+                <li>Находить ошибки до запуска кода</li>
+                <li>Поддерживать единый стиль кодирования</li>
+                <li>Избегать распространенных проблем</li>
+            </ul>
+            <p>Например, если вы объявили переменную, но нигде не используете — ESLint предупредит вас.</p>
+        </div>
+
+        <div class="success-box">
+            <h4>✅ Запуск проверки кода:</h4>
+            <pre><code>npm run lint</code></pre>
+            <p>Эта команда проверит весь проект на ошибки и предупреждения.</p>
+        </div>
+
+        <h2 id="app-folder">📱 Папка app/ - Сердце приложения</h2>
+
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\app\</div>
+
+        <p>Это самая важная папка в Next.js проекте с App Router. Здесь находятся все страницы вашего сайта и их маршруты.</p>
+
+        <h3>Структура папки app/</h3>
+        <div class="folder-structure">app/
+├── (homes)/                ← Route Group (группирующая папка)
+│   ├── home-1/
+│   │   └── page.tsx       → /home-1
+│   ├── home-2/
+│   │   └── page.tsx       → /home-2
+│   └── home-3/
+│       └── page.tsx       → /home-3
+├── preview/
+│   └── page.tsx           → /preview
+├── layout.tsx             ← Root Layout (обертка для всех страниц)
+└── page.tsx               ← Главная страница /</div>
+
+        <div class="theory-box">
+            <h4>🎓 Что такое Route Groups?</h4>
+            <p>Папки в скобках <code>(homes)</code> — это Route Groups. Они нужны для организации файлов, но <strong>НЕ создают сегмент в URL</strong>.</p>
+            <p>Пример:</p>
+            <ul>
+                <li><code>app/home-1/page.tsx</code> → <code>/home-1</code></li>
+                <li><code>app/(homes)/home-1/page.tsx</code> → <code>/home-1</code> (тот же URL!)</li>
+            </ul>
+            <p>Route groups полезны, когда нужно сгруппировать связанные страницы в одной папке, но не хочется добавлять лишний сегмент в URL.</p>
+        </div>
+
+        <h3>app/layout.tsx — Корневой Layout</h3>
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\app\layout.tsx</div>
+
+        <p>Это самый важный файл проекта. Он оборачивает абсолютно все страницы сайта.</p>
+
+        <h4>Что делает этот файл?</h4>
+        <ol>
+            <li><strong>Подключает шрифт Urbanist</strong> через Google Fonts</li>
+            <li><strong>Импортирует глобальные стили</strong> (CSS файлы)</li>
+            <li><strong>Настраивает тему</strong> (светлая/темная)</li>
+            <li><strong>Оборачивает приложение провайдерами</strong> (Context API)</li>
+            <li><strong>Добавляет глобальные компоненты</strong> (плавная прокрутка, кнопка "наверх")</li>
+        </ol>
+
+        <h4>Ключевые части layout.tsx:</h4>
+
+        <pre><code>// 1. Импорт шрифта
+import { Urbanist } from "next/font/google";
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  variable: "--font-urbanist",  // CSS переменная
+});
+
+// 2. Метаданные (SEO)
+export const metadata: Metadata = {
+  title: "Blayden - Personal Portfolio & Resume React Nextjs Template",
+  description: "Blayden - Personal Portfolio & Resume React Nextjs Template",
+};
+
+// 3. Скрипт для темы (выполняется до загрузки React!)
+const setColorSchemeScript = `
+(function() {
+  try {
+    var scheme = localStorage.getItem('color-scheme') || 'light';
+    document.documentElement.setAttribute('color-scheme', scheme);
+  } catch(e) {}
+})();
+`;
+
+// 4. Root Layout компонент
+export default function RootLayout({ children }) {
+  return (
+    &lt;html lang="en" suppressHydrationWarning&gt;
+      &lt;head&gt;
+        &lt;script dangerouslySetInnerHTML={{ __html: setColorSchemeScript }} /&gt;
+      &lt;/head&gt;
+      &lt;body className={urbanist.variable}&gt;
+        &lt;PortfolioProvider&gt;
+          {children}                {/* ← Сюда подставляются страницы */}
+          &lt;LenisSmoothScroll /&gt;     {/* Плавная прокрутка */}
+          &lt;ScrollTop /&gt;             {/* Кнопка "наверх" */}
+          &lt;PortfolioPopup /&gt;        {/* Модальное окно портфолио */}
+          &lt;InitScroll /&gt;            {/* Инициализация GSAP анимаций */}
+        &lt;/PortfolioProvider&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</code></pre>
+
+        <div class="success-box">
+            <h4>✅ Как кастомизировать layout.tsx?</h4>
+
+            <h4>1. Изменить метаданные (SEO):</h4>
+            <pre><code>export const metadata: Metadata = {
+  title: "Иван Петров — Веб-разработчик",
+  description: "Портфолио фронтенд-разработчика. Создаю современные сайты на React и Next.js",
+};</code></pre>
+
+            <h4>2. Сменить шрифт:</h4>
+            <pre><code>// Вместо Urbanist используем Roboto
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  subsets: ["latin", "cyrillic"],  // Добавили кириллицу!
+  weight: ["400", "700"],           // Указали нужные начертания
+  variable: "--font-roboto",
+});</code></pre>
+
+            <h4>3. Изменить язык сайта:</h4>
+            <pre><code>&lt;html lang="ru"&gt;  {/* Было en, стало ru */}</code></pre>
+
+            <h4>4. Добавить Google Analytics:</h4>
+            <pre><code>&lt;head&gt;
+  &lt;script dangerouslySetInnerHTML={{ __html: setColorSchemeScript }} /&gt;
+  &lt;script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID"&gt;&lt;/script&gt;
+  &lt;script dangerouslySetInnerHTML={{ __html: `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_ID');
+  `}} /&gt;
+&lt;/head&gt;</code></pre>
+        </div>
+
+        <div class="theory-box">
+            <h4>🎓 Что такое {children}?</h4>
+            <p>В React <code>{children}</code> — это специальный prop, который содержит дочерние элементы компонента.</p>
+            <p>В случае с Layout, <code>{children}</code> — это содержимое текущей страницы:</p>
+            <ul>
+                <li>На <code>/home-1</code> → <code>children</code> будет содержимым <code>app/(homes)/home-1/page.tsx</code></li>
+                <li>На <code>/preview</code> → <code>children</code> будет содержимым <code>app/preview/page.tsx</code></li>
+            </ul>
+        </div>
+
+        <h3>app/page.tsx — Главная страница</h3>
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\app\page.tsx</div>
+
+        <p>Это главная страница сайта, доступная по адресу <code>/</code> (корень сайта).</p>
+        <p>В этом шаблоне она просто рендерит компонент PreviewPage — страницу-витрину всех трех вариантов home.</p>
+
+        <pre><code>import PreviewPage from "@/components/preview/PreviewPage";
+
+export default function page() {
+  return &lt;PreviewPage /&gt;;
+}</code></pre>
+
+        <div class="success-box">
+            <h4>✅ Как кастомизировать главную страницу?</h4>
+
+            <h4>Вариант 1: Использовать один из home вариантов</h4>
+            <p>Если вы хотите, чтобы по умолчанию открывался, например, home-1:</p>
+            <pre><code>import { redirect } from 'next/navigation';
+
+export default function page() {
+  redirect('/home-1');  // Перенаправляем на home-1
+}</code></pre>
+
+            <h4>Вариант 2: Создать свою уникальную главную</h4>
+            <pre><code>export default function page() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Моя уникальная главная страница&lt;/h1&gt;
+      &lt;p&gt;Добро пожаловать на мой сайт!&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+            <h4>Вариант 3: Удалить preview, оставить только один home</h4>
+            <ol>
+                <li>Удалите папку <code>app/preview/</code></li>
+                <li>Скопируйте содержимое <code>app/(homes)/home-1/page.tsx</code> в <code>app/page.tsx</code></li>
+                <li>Удалите папку <code>app/(homes)/</code>, если не нужны остальные варианты</li>
+            </ol>
+        </div>
+
+        <h3>app/(homes)/home-1/page.tsx — Первый вариант главной</h3>
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\app\(homes)\home-1\page.tsx</div>
+
+        <p>Это полноценная портфолио-страница с секциями: Hero, Portfolio, About, Services, Resume, Contact.</p>
+
+        <h4>Структура страницы:</h4>
+        <pre><code>import Header1 from "@/components/headers/Header1";
+import Logo from "@/components/headers/Logo";
+import ColorSwitcher from "@/components/headers/ColorSwitcher";
+import Hero from "@/components/homes/home-1/Hero";
+import Portfolios from "@/components/homes/home-1/Portfolios";
+// ... остальные импорты
+
+export const metadata: Metadata = {
+  title: "Home 1 — Blayden",
+  description: "Home 1 variant",
+};
+
+export default function page() {
+  return (
+    &lt;&gt;
+      &lt;Header1&gt;
+        &lt;Logo /&gt;
+        &lt;ColorSwitcher /&gt;
+      &lt;/Header1&gt;
+
+      &lt;main&gt;
+        &lt;Hero /&gt;
+        &lt;Portfolios /&gt;
+        &lt;About /&gt;
+        &lt;Services /&gt;
+        &lt;Resume /&gt;
+        &lt;Contact /&gt;
+      &lt;/main&gt;
+
+      &lt;BottomBackground /&gt;
+    &lt;/&gt;
+  );
+}</code></pre>
+
+        <div class="info-box">
+            <h4>💡 Понимание структуры:</h4>
+            <ul>
+                <li><strong>Header1</strong> — липкая навигация сверху</li>
+                <li><strong>Logo</strong> — логотип в хедере</li>
+                <li><strong>ColorSwitcher</strong> — переключатель темы (светлая/темная)</li>
+                <li><strong>&lt;main&gt;</strong> — основное содержимое страницы</li>
+                <li><strong>Hero</strong> — первый экран (приветствие, заголовок)</li>
+                <li><strong>Portfolios</strong> — галерея работ</li>
+                <li><strong>About</strong> — обо мне</li>
+                <li><strong>Services</strong> — услуги</li>
+                <li><strong>Resume</strong> — резюме, опыт, образование</li>
+                <li><strong>Contact</strong> — контактная форма</li>
+                <li><strong>BottomBackground</strong> — декоративный фон внизу страницы</li>
+            </ul>
+        </div>
+
+        <div class="success-box">
+            <h4>✅ Как кастомизировать home-1?</h4>
+
+            <h4>1. Убрать ненужные секции:</h4>
+            <p>Например, если вам не нужна секция Testimonials (отзывы):</p>
+            <pre><code>// Просто удалите импорт и использование компонента
+// import Testimonials from "@/components/homes/home-1/Testimonials"; ← удалить
+// &lt;Testimonials /&gt; ← удалить из JSX</code></pre>
+
+            <h4>2. Изменить порядок секций:</h4>
+            <p>Переместите компоненты в нужном порядке:</p>
+            <pre><code>&lt;main&gt;
+  &lt;Hero /&gt;
+  &lt;About /&gt;          {/* Сначала "обо мне" */}
+  &lt;Services /&gt;       {/* Потом услуги */}
+  &lt;Portfolios /&gt;     {/* Потом портфолио */}
+  &lt;Resume /&gt;
+  &lt;Contact /&gt;
+&lt;/main&gt;</code></pre>
+
+            <h4>3. Изменить метаданные страницы:</h4>
+            <pre><code>export const metadata: Metadata = {
+  title: "Иван Петров — Портфолио",
+  description: "Frontend-разработчик из Москвы. React, Next.js, TypeScript",
+};</code></pre>
+
+            <h4>4. Настроить навигацию:</h4>
+            <p>Header1 принимает массив пунктов меню:</p>
+            <pre><code>const menuItems = [
+  { href: "#home", caption: "Главная", icon: "ph ph-house-simple" },
+  { href: "#about", caption: "Обо мне", icon: "ph ph-user" },
+  { href: "#portfolio", caption: "Работы", icon: "ph ph-squares-four" },
+  { href: "#contact", caption: "Контакты", icon: "ph ph-envelope" },
+];
+
+&lt;Header1 menuItems={menuItems}&gt;
+  &lt;Logo /&gt;
+  &lt;ColorSwitcher /&gt;
+&lt;/Header1&gt;</code></pre>
+        </div>
+
+        <div class="warning-box">
+            <h4>⚠️ Важно про ID секций!</h4>
+            <p>Навигация работает через якорные ссылки (<code>#home</code>, <code>#portfolio</code> и т.д.). Убедитесь, что каждая секция имеет соответствующий <code>id</code> атрибут.</p>
+            <p>Например, компонент Hero должен иметь:</p>
+            <pre><code>&lt;section id="home"&gt;...&lt;/section&gt;</code></pre>
+            <p>Если поменяете <code>href</code> в меню, не забудьте поменять <code>id</code> в компоненте!</p>
+        </div>
+
+        <h3>app/(homes)/home-2/page.tsx и home-3/page.tsx</h3>
+
+        <p>Эти страницы устроены аналогично home-1, но используют другие варианты компонентов:</p>
+        <ul>
+            <li><strong>home-2</strong> — альтернативный дизайн с другой раскладкой Hero и галереи</li>
+            <li><strong>home-3</strong> — третий вариант с Typed.js эффектом печати и другой анимацией</li>
+        </ul>
+
+        <div class="success-box">
+            <h4>✅ Выбор варианта для работы:</h4>
+            <ol>
+                <li>Запустите проект: <code>npm run dev</code></li>
+                <li>Откройте <code>http://localhost:3000/preview</code></li>
+                <li>Посмотрите все три варианта</li>
+                <li>Выберите тот, что больше нравится</li>
+                <li>Скопируйте его содержимое в <code>app/page.tsx</code> или настройте редирект</li>
+                <li>Удалите остальные варианты, если не нужны</li>
+            </ol>
+        </div>
+
+        <h3>app/preview/page.tsx — Демо-страница</h3>
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\app\preview\page.tsx</div>
+
+        <p>Это страница-витрина, которая показывает все три варианта home и кнопку покупки шаблона.</p>
+
+        <div class="warning-box">
+            <h4>⚠️ Удалить перед публикацией!</h4>
+            <p>Эта страница нужна только для демонстрации шаблона. Когда будете делать свой сайт, удалите:</p>
+            <ul>
+                <li>Папку <code>app/preview/</code></li>
+                <li>Папку <code>components/preview/</code></li>
+                <li>Файл <code>public/css/main-demo.css</code></li>
+            </ul>
+        </div>
+
+        <h2 id="components-folder">🧩 Папка components/ - Переиспользуемые компоненты</h2>
+
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\components\</div>
+
+        <p>Здесь находятся все React компоненты проекта. Они организованы по функциональности и могут использоваться на разных страницах.</p>
+
+        <h3>Структура components/</h3>
+        <div class="folder-structure">components/
+├── animation/          ← Анимационные обертки и эффекты
+│   ├── HoverCursorEffect.tsx
+│   ├── MasonryGrid.tsx
+│   ├── Parallax.tsx
+│   ├── RevealText.tsx
+│   ├── StackCards.tsx
+│   └── VelocityMarquee.tsx
+├── headers/            ← Навигация и шапка сайта
+│   ├── ColorSwitcher.tsx
+│   ├── Header1.tsx
+│   └── Logo.tsx
+├── homes/              ← Секции для разных вариантов home
+│   ├── home-1/
+│   │   ├── About.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Portfolios.tsx
+│   │   ├── Resume.tsx
+│   │   ├── Services.tsx
+│   │   ├── Socials.tsx
+│   │   ├── Testimonials.tsx
+│   │   └── BottomBackground.tsx
+│   ├── home-2/         ← То же, но другие дизайны
+│   └── home-3/         ← И ещё варианты
+├── modals/             ← Модальные окна
+│   └── PortfolioPopup.tsx
+├── preview/            ← Компоненты для демо-страницы
+│   └── ...
+└── scroll/             ← Управление прокруткой
+    ├── InitScroll.tsx
+    ├── LenisSmoothScroll.tsx
+    └── ScrollTop.tsx</div>
+
+        <div class="theory-box">
+            <h4>🎓 Что такое компонент в React?</h4>
+            <p>Компонент — это переиспользуемая часть интерфейса. Это как кирпичик Lego, из которых строится весь сайт.</p>
+            <p>Например, кнопка — это компонент. Вместо того, чтобы писать HTML для кнопки каждый раз, вы создаете компонент Button и используете его везде:</p>
+            <pre><code>&lt;Button&gt;Нажми меня&lt;/Button&gt;
+&lt;Button&gt;Отправить&lt;/Button&gt;
+&lt;Button&gt;Скачать&lt;/Button&gt;</code></pre>
+            <p>Изменив компонент Button один раз, вы измените все кнопки на сайте!</p>
+        </div>
+
+        <h3>📂 components/animation/ — Анимационные компоненты</h3>
+
+        <p>Эта папка содержит компоненты-обертки, которые добавляют анимацию к вашему контенту.</p>
+
+        <h4>Parallax.tsx — Эффект параллакса</h4>
+        <div class="file-path">components/animation/Parallax.tsx</div>
+
+        <p><strong>Что это?</strong> Параллакс — это когда элемент двигается с другой скоростью при прокрутке, создавая эффект глубины.</p>
+
+        <h4>Как использовать:</h4>
+        <pre><code>import ParallaxItem from "@/components/animation/Parallax";
+import Image from "next/image";
+
+&lt;ParallaxItem speed={0.6}&gt;
+  &lt;Image src="/img/background.webp" alt="Фон" width={1920} height={1080} /&gt;
+&lt;/ParallaxItem&gt;</code></pre>
+
+        <div class="info-box">
+            <h4>💡 Параметр speed:</h4>
+            <ul>
+                <li><code>speed={0}</code> — элемент статичный, не двигается</li>
+                <li><code>speed={0.5}</code> — двигается медленнее прокрутки (создает глубину)</li>
+                <li><code>speed={1}</code> — двигается синхронно с прокруткой</li>
+                <li><code>speed={1.5}</code> — двигается быстрее прокрутки</li>
+            </ul>
+        </div>
+
+        <div class="success-box">
+            <h4>✅ Как настроить:</h4>
+            <p>Чем меньше значение speed (0.3-0.6), тем сильнее эффект "отставания" и глубины. Экспериментируйте!</p>
+        </div>
+
+        <h4>RevealText.tsx — Анимация появления текста</h4>
+        <div class="file-path">components/animation/RevealText.tsx</div>
+
+        <p><strong>Что это?</strong> Текст появляется посимвольно при прокрутке до него.</p>
+
+        <h4>Как использовать:</h4>
+        <pre><code>import RevealText from "@/components/animation/RevealText";
+
+&lt;RevealText as="h2" className="hero__title"&gt;
+  Frontend Developer
+&lt;/RevealText&gt;</code></pre>
+
+        <div class="info-box">
+            <h4>💡 Параметр as:</h4>
+            <p>Это полиморфный компонент — может рендериться как любой HTML тег:</p>
+            <ul>
+                <li><code>as="h1"</code> — заголовок первого уровня</li>
+                <li><code>as="h2"</code> — заголовок второго уровня</li>
+                <li><code>as="p"</code> — параграф</li>
+                <li><code>as="span"</code> — строковый элемент</li>
+            </ul>
+        </div>
+
+        <h4>VelocityMarquee.tsx — Бегущая строка</h4>
+        <div class="file-path">components/animation/VelocityMarquee.tsx</div>
+
+        <p><strong>Что это?</strong> Бесконечная горизонтальная прокрутка элементов. Скорость зависит от скорости прокрутки страницы.</p>
+
+        <h4>Как использовать:</h4>
+        <pre><code>import VelocityMarquee from "@/components/animation/VelocityMarquee";
+
+&lt;VelocityMarquee duration={20} direction="left"&gt;
+  &lt;div className="item"&gt;Элемент 1&lt;/div&gt;
+  &lt;div className="item"&gt;Элемент 2&lt;/div&gt;
+  &lt;div className="item"&gt;Элемент 3&lt;/div&gt;
+&lt;/VelocityMarquee&gt;</code></pre>
+
+        <table>
+            <tr>
+                <th>Параметр</th>
+                <th>Описание</th>
+                <th>По умолчанию</th>
+            </tr>
+            <tr>
+                <td><code>duration</code></td>
+                <td>Базовая длительность анимации (секунды)</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td><code>direction</code></td>
+                <td>Направление: "left" или "right"</td>
+                <td>"left"</td>
+            </tr>
+            <tr>
+                <td><code>pauseOnHover</code></td>
+                <td>Останавливать при наведении мыши</td>
+                <td>false</td>
+            </tr>
+        </table>
+
+        <h2 id="data-folder">📊 Папка data/ - Контент проекта</h2>
+
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\data\</div>
+
+        <div class="success-box">
+            <h4>⭐ ЭТО САМАЯ ВАЖНАЯ ПАПКА ДЛЯ КАСТОМИЗАЦИИ!</h4>
+            <p>Здесь находятся все тексты, описания, данные о ваших работах, опыте и услугах. Именно отсюда вы начнете адаптировать шаблон под себя.</p>
+        </div>
+
+        <h3>Список файлов:</h3>
+        <div class="folder-structure">data/
+├── portfolios.json       ← Ваши работы/проекты
+├── resume.json           ← Образование, опыт работы, навыки
+├── services.json         ← Услуги, которые вы предлагаете
+├── socials.json          ← Ссылки на соцсети
+└── testimonials.json     ← Отзывы клиентов</div>
+
+        <div class="theory-box">
+            <h4>🎓 Что такое JSON?</h4>
+            <p><strong>JSON (JavaScript Object Notation)</strong> — это текстовый формат для хранения данных. Представьте его как таблицу Excel, но в текстовом виде.</p>
+            <p>Пример:</p>
+            <pre><code>{
+  "name": "Иван",
+  "age": 25,
+  "skills": ["JavaScript", "React", "Next.js"]
+}</code></pre>
+            <p>Основные правила:</p>
+            <ul>
+                <li>Всё в фигурных скобках <code>{ }</code></li>
+                <li>Название поля в кавычках: <code>"name"</code></li>
+                <li>После названия двоеточие: <code>:</code></li>
+                <li>Текст обязательно в двойных кавычках: <code>"Иван"</code></li>
+                <li>Массивы в квадратных скобках: <code>[ ]</code></li>
+                <li>Между элементами запятая, после последнего — НЕТ!</li>
+            </ul>
+        </div>
+
+        <h3>portfolios.json — Ваши работы</h3>
+        <div class="file-path">data/portfolios.json</div>
+
+        <p>Этот файл содержит информацию о ваших проектах, которые отображаются в галерее портфолио.</p>
+
+        <h4>Структура файла:</h4>
+        <pre><code>{
+  "home1": [ /* Массив работ для home-1 */ ],
+  "home2": [ /* Массив работ для home-2 */ ],
+  "home3": [ /* Массив работ для home-3 */ ]
+}</code></pre>
+
+        <h4>Пример одной работы:</h4>
+        <pre><code>{
+  "id": 1,
+  "href": "/img/works/1400x1050_w01.webp",  // Путь к изображению
+  "src": "/img/works/1400x1050_w01.webp",   // То же самое
+  "width": 1400,                             // Ширина изображения
+  "height": 1050,                            // Высота изображения
+  "size": "1400x1050",                       // Размер (для CSS)
+  "title": "Designer Portfolio",             // Название проекта
+  "category": "UI/UX design",                // Категория
+  "description": "Описание проекта...",      // Описание
+  "opposite": true                           // Выравнивание текста (опционально)
+}</code></pre>
+
+        <div class="success-box">
+            <h4>✅ Как добавить свои работы:</h4>
+
+            <h4>Шаг 1: Подготовьте изображения</h4>
+            <ol>
+                <li>Соберите скриншоты/фото своих работ</li>
+                <li>Оптимизируйте их (рекомендуемая ширина: 1400-1920px)</li>
+                <li>Конвертируйте в WebP формат (через <a href="https://squoosh.app/" target="_blank">squoosh.app</a>)</li>
+                <li>Назовите файлы понятно: <code>project-1.webp</code>, <code>project-2.webp</code></li>
+                <li>Положите в <code>public/img/works/</code></li>
+            </ol>
+
+            <h4>Шаг 2: Откройте portfolios.json</h4>
+            <pre><code>// Найдите секцию "home1" (или ту, которую используете)
+"home1": [
+  {
+    "id": 1,
+    "href": "/img/works/project-1.webp",
+    "src": "/img/works/project-1.webp",
+    "width": 1920,
+    "height": 1080,
+    "size": "1920x1080",
+    "title": "Сайт для кофейни",
+    "category": "Веб-дизайн",
+    "description": "Создал лендинг для местной кофейни. Увеличил конверсию на 30%."
+  }
+]</code></pre>
+        </div>
+
+        <h3>socials.json — Социальные сети</h3>
+        <div class="file-path">data/socials.json</div>
+
+        <div class="success-box">
+            <h4>✅ Как настроить:</h4>
+            <pre><code>[
+  {
+    "id": "s-github",
+    "name": "GitHub",
+    "href": "https://github.com/ваш-username"
+  },
+  {
+    "id": "s-linkedin",
+    "name": "LinkedIn",
+    "href": "https://linkedin.com/in/ваш-профиль"
+  }
+]</code></pre>
+        </div>
+
+        <h2 id="public-folder">🖼️ Папка public/ - Статические файлы</h2>
+
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\public\</div>
+
+        <p>Это папка для всех статических файлов: изображений, шрифтов, CSS, видео. Все файлы отсюда доступны по прямым URL.</p>
+
+        <div class="theory-box">
+            <h4>🎓 Как работает папка public в Next.js?</h4>
+            <p>Файлы в <code>public/</code> доступны напрямую из корня сайта:</p>
+            <ul>
+                <li><code>public/img/logo.png</code> → <code>yoursite.com/img/logo.png</code></li>
+                <li><code>public/resume.pdf</code> → <code>yoursite.com/resume.pdf</code></li>
+            </ul>
+            <p><strong>Важно:</strong> В коде всегда используйте путь от корня, начиная с <code>/</code></p>
+            <pre><code>// ✅ Правильно
+&lt;Image src="/img/photo.webp" /&gt;
+
+// ❌ Неправильно
+&lt;Image src="public/img/photo.webp" /&gt;</code></pre>
+        </div>
+
+        <h3>Структура public/</h3>
+        <div class="folder-structure">public/
+├── css/                    ← Стили проекта
+│   ├── main.css           ← Основные стили
+│   ├── main-demo.css      ← Стили для демо-страницы
+│   ├── plugins.css        ← Стили библиотек
+│   └── styles.css         ← Главный файл стилей
+├── fonts/                  ← Шрифты иконок
+│   ├── Fontawesome/       ← Font Awesome иконки
+│   └── Phosphor/          ← Phosphor иконки (используются в проекте)
+├── img/                    ← ⭐ ЗДЕСЬ ВСЕ ИЗОБРАЖЕНИЯ!
+│   ├── avatars/           ← Фото авторов отзывов (400x400)
+│   ├── backgrounds/       ← Фоновые изображения для Hero секции
+│   ├── demo/              ← Изображения для демо-страницы (удалить)
+│   ├── favicon/           ← Иконки сайта для браузера и устройств
+│   ├── icons/             ← SVG иконки инструментов (Figma, Photoshop и т.д.)
+│   ├── marquee/           ← Изображения для бегущей строки
+│   ├── services/          ← Фото для секции услуг
+│   ├── testimonials/      ← Фоновые изображения для отзывов (1400x1200)
+│   └── works/             ← Изображения портфолио работ
+│       └── work-single/   ← Детальные изображения проектов
+├── video/                  ← Видео файлы
+│   └── video-1.mp4
+└── resume-sample.pdf       ← Резюме для скачивания</div>
+
+        <h3>📁 public/img/ — Подробная структура изображений</h3>
+
+        <h4>img/avatars/ — Фото для отзывов</h4>
+        <div class="file-path">public/img/avatars/</div>
+
+        <p><strong>Формат:</strong> 400x400px, WebP</p>
+        <p><strong>Назначение:</strong> Фотографии авторов отзывов</p>
+
+        <div class="success-box">
+            <h4>✅ Как заменить:</h4>
+            <ol>
+                <li>Подготовьте квадратное фото (400x400px)</li>
+                <li>Сконвертируйте в WebP через <a href="https://squoosh.app/" target="_blank">squoosh.app</a></li>
+                <li>Назовите файл: <code>client-1.webp</code>, <code>client-2.webp</code></li>
+                <li>Положите в <code>public/img/avatars/</code></li>
+                <li>Укажите путь в <code>data/testimonials.json</code>:</li>
+            </ol>
+            <pre><code>"avatar": "/img/avatars/client-1.webp"</code></pre>
+        </div>
+
+        <h4>img/backgrounds/ — Фоновые изображения</h4>
+        <div class="file-path">public/img/backgrounds/</div>
+
+        <p><strong>Форматы:</strong> Разные размеры для адаптивности</p>
+        <p><strong>Назначение:</strong> Фоны для Hero секции с параллакс эффектом</p>
+
+        <table>
+            <tr>
+                <th>Размер</th>
+                <th>Назначение</th>
+                <th>Пример названия</th>
+            </tr>
+            <tr>
+                <td>1920x1200</td>
+                <td>Десктоп</td>
+                <td>hero-bg-desktop.webp</td>
+            </tr>
+            <tr>
+                <td>1200x1600</td>
+                <td>Планшет вертикальный</td>
+                <td>hero-bg-tablet.webp</td>
+            </tr>
+            <tr>
+                <td>800x1200</td>
+                <td>Мобильный</td>
+                <td>hero-bg-mobile.webp</td>
+            </tr>
+        </table>
+
+        <div class="success-box">
+            <h4>✅ Как поменять фоны Hero секции:</h4>
+            <ol>
+                <li>Откройте <code>components/homes/home-1/Hero.tsx</code></li>
+                <li>Найдите компоненты <code>&lt;ParallaxItem&gt;</code></li>
+                <li>Замените пути к изображениям:</li>
+            </ol>
+            <pre><code>&lt;ParallaxItem speed={0.6}&gt;
+  &lt;Image
+    src="/img/backgrounds/мой-фон.webp"  {/* ← Ваше изображение */}
+    alt="Фон"
+    width={1920}
+    height={1200}
+  /&gt;
+&lt;/ParallaxItem&gt;</code></pre>
+        </div>
+
+        <h4>img/favicon/ — Иконки сайта</h4>
+        <div class="file-path">public/img/favicon/</div>
+
+        <p><strong>Что здесь:</strong></p>
+        <ul>
+            <li><code>favicon.ico</code> — иконка в табе браузера</li>
+            <li><code>apple-touch-icon.png</code> — иконка для iOS (180x180)</li>
+            <li><code>android-chrome-192x192.png</code> — для Android (192x192)</li>
+            <li><code>android-chrome-512x512.png</code> — для Android (512x512)</li>
+            <li><code>site.webmanifest</code> — манифест PWA приложения</li>
+        </ul>
+
+        <div class="success-box">
+            <h4>✅ Как создать свои иконки:</h4>
+            <ol>
+                <li>Создайте квадратное изображение вашего логотипа (512x512px)</li>
+                <li>Используйте генератор: <a href="https://realfavicongenerator.net/" target="_blank">realfavicongenerator.net</a></li>
+                <li>Загрузите изображение</li>
+                <li>Скачайте сгенерированный пакет</li>
+                <li>Замените файлы в <code>public/img/favicon/</code></li>
+                <li>Добавьте мета-теги в <code>app/layout.tsx</code> в секцию <code>&lt;head&gt;</code></li>
+            </ol>
+            <pre><code>&lt;head&gt;
+  &lt;link rel="icon" href="/img/favicon/favicon.ico" /&gt;
+  &lt;link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png" /&gt;
+  &lt;link rel="manifest" href="/img/favicon/site.webmanifest" /&gt;
+&lt;/head&gt;</code></pre>
+        </div>
+
+        <h4>img/works/ — Портфолио работы</h4>
+        <div class="file-path">public/img/works/</div>
+
+        <p><strong>Конвенция именования:</strong> <code>{ширина}x{высота}_w{номер}.webp</code></p>
+        <p>Примеры: <code>1400x1050_w01.webp</code>, <code>1100x1400_w02.webp</code></p>
+
+        <div class="info-box">
+            <h4>💡 Почему такие названия?</h4>
+            <p>Размер в названии помогает быстро понять пропорции изображения для правильной раскладки в Masonry Grid.</p>
+        </div>
+
+        <div class="success-box">
+            <h4>✅ Как добавить свои работы:</h4>
+            <ol>
+                <li>Подготовьте скриншоты проектов</li>
+                <li>Оптимальные размеры:
+                    <ul>
+                        <li>Горизонтальные: 1400x1050 или 1920x1080</li>
+                        <li>Вертикальные: 1100x1400 или 1200x1600</li>
+                        <li>Квадратные: 1400x1400</li>
+                    </ul>
+                </li>
+                <li>Конвертируйте в WebP</li>
+                <li>Называйте: <code>project-name.webp</code> (можно без размера в названии)</li>
+                <li>Положите в <code>public/img/works/</code></li>
+                <li>Укажите путь в <code>data/portfolios.json</code></li>
+            </ol>
+        </div>
+
+        <h4>img/works/work-single/ — Детальные изображения</h4>
+        <p>Дополнительные изображения для модального окна проекта.</p>
+
+        <h3>📁 public/css/ — Стили проекта</h3>
+
+        <div class="warning-box">
+            <h4>⚠️ Важно!</h4>
+            <p>Этот проект использует <strong>обычный CSS</strong>, а не CSS Modules или Tailwind. Все стили глобальные.</p>
+        </div>
+
+        <h4>Основные CSS файлы:</h4>
+        <table>
+            <tr>
+                <th>Файл</th>
+                <th>Назначение</th>
+            </tr>
+            <tr>
+                <td><code>styles.css</code></td>
+                <td>Главный файл, импортирует все остальные</td>
+            </tr>
+            <tr>
+                <td><code>main.css</code></td>
+                <td>Основные стили страниц</td>
+            </tr>
+            <tr>
+                <td><code>plugins.css</code></td>
+                <td>Стили для библиотек (Swiper, Lightbox)</td>
+            </tr>
+            <tr>
+                <td><code>main-demo.css</code></td>
+                <td>Стили для демо-страницы (удалить перед публикацией)</td>
+            </tr>
+        </table>
+
+        <div class="success-box">
+            <h4>✅ Как изменить цвета проекта:</h4>
+            <p>Откройте <code>public/css/main.css</code> и найдите CSS переменные в начале файла:</p>
+            <pre><code>:root {
+  --color-primary: #3498db;    /* Основной цвет */
+  --color-text: #333333;       /* Цвет текста */
+  --color-bg: #ffffff;         /* Цвет фона */
+  /* ... остальные переменные */
+}
+
+[color-scheme="dark"] {
+  --color-text: #ffffff;       /* Цвет текста в темной теме */
+  --color-bg: #1a1a1a;         /* Цвет фона в темной теме */
+  /* ... */
+}</code></pre>
+            <p>Измените значения HEX цветов на свои. Все элементы автоматически перекрасятся!</p>
+        </div>
+
+        <h3>📁 public/fonts/ — Шрифты иконок</h3>
+
+        <p>В проекте доступны две библиотеки иконок:</p>
+
+        <h4>Phosphor Icons (используется в проекте)</h4>
+        <div class="file-path">public/fonts/Phosphor/</div>
+
+        <p><strong>Варианты начертаний:</strong></p>
+        <ul>
+            <li><code>ph-thin</code> — тонкие линии</li>
+            <li><code>ph-light</code> — легкие</li>
+            <li><code>ph</code> — обычные (regular)</li>
+            <li><code>ph-bold</code> — жирные</li>
+            <li><code>ph-fill</code> — заливка</li>
+            <li><code>ph-duotone</code> — двухцветные</li>
+        </ul>
+
+        <h4>Как использовать иконки:</h4>
+        <pre><code>&lt;i className="ph ph-house-simple"&gt;&lt;/i&gt;      {/* Домик */}
+&lt;i className="ph-bold ph-user"&gt;&lt;/i&gt;         {/* Пользователь жирный */}
+&lt;i className="ph-thin ph-envelope"&gt;&lt;/i&gt;     {/* Конверт тонкий */}</code></pre>
+
+        <p>Найти иконки: <a href="https://phosphoricons.com/" target="_blank">phosphoricons.com</a></p>
+
+        <h4>Font Awesome (опционально)</h4>
+        <div class="file-path">public/fonts/Fontawesome/</div>
+
+        <p>Также доступен, если нужны иконки из Font Awesome:</p>
+        <pre><code>&lt;i className="fab fa-github"&gt;&lt;/i&gt;           {/* GitHub */}
+&lt;i className="fas fa-heart"&gt;&lt;/i&gt;            {/* Сердечко */}</code></pre>
+
+        <h3>📄 public/resume-sample.pdf — Резюме</h3>
+        <div class="file-path">public/resume-sample.pdf</div>
+
+        <div class="success-box">
+            <h4>✅ Как добавить свое резюме:</h4>
+            <ol>
+                <li>Создайте PDF вашего резюме</li>
+                <li>Назовите файл: <code>resume.pdf</code> или <code>cv.pdf</code></li>
+                <li>Положите в <code>public/</code> (можно прямо в корень, не в подпапку)</li>
+                <li>Найдите кнопку "Download CV" в компоненте и измените путь:</li>
+            </ol>
+            <pre><code>&lt;a href="/resume.pdf" download className="btn"&gt;
+  Скачать резюме
+&lt;/a&gt;</code></pre>
+            <p>Теперь при клике будет скачиваться ваше резюме!</p>
+        </div>
+
+        <h2 id="lib-folder">🔧 Папка lib/ - Утилиты и схемы</h2>
+
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\lib\</div>
+
+        <p>Здесь хранятся вспомогательные функции и схемы валидации.</p>
+
+        <h3>lib/schemas/contact.ts — Схема валидации формы</h3>
+        <div class="file-path">lib/schemas/contact.ts</div>
+
+        <p>Этот файл определяет правила валидации для контактной формы с помощью библиотеки Zod.</p>
+
+        <h4>Код схемы:</h4>
+        <pre><code>import { z } from "zod";
+
+export const contactSchema = z.object({
+  Name: z.string().min(2, "Имя должно содержать минимум 2 символа"),
+  Company: z.string().optional(),
+  "E-mail": z.string().email("Некорректный email адрес"),
+  Phone: z.string().optional(),
+  Message: z.string().min(5, "Сообщение слишком короткое"),
+});
+
+export type ContactForm = z.infer&lt;typeof contactSchema&gt;;</code></pre>
+
+        <div class="theory-box">
+            <h4>🎓 Что такое Zod?</h4>
+            <p><strong>Zod</strong> — это библиотека для валидации данных в TypeScript.</p>
+
+            <p><strong>Основные методы:</strong></p>
+            <ul>
+                <li><code>z.string()</code> — строка</li>
+                <li><code>.min(5)</code> — минимум 5 символов</li>
+                <li><code>.max(100)</code> — максимум 100 символов</li>
+                <li><code>.email()</code> — проверка формата email</li>
+                <li><code>.optional()</code> — поле необязательное</li>
+                <li><code>z.number()</code> — число</li>
+                <li><code>z.boolean()</code> — булево значение</li>
+            </ul>
+
+            <p><strong>Как это работает:</strong></p>
+            <ol>
+                <li>Вы описываете правила в схеме Zod</li>
+                <li>React Hook Form использует эту схему</li>
+                <li>При вводе данных форма проверяет их на соответствие правилам</li>
+                <li>Если данные невалидны — показывается ошибка</li>
+            </ol>
+        </div>
+
+        <div class="success-box">
+            <h4>✅ Как изменить валидацию формы:</h4>
+
+            <h4>Пример 1: Сделать поле "Телефон" обязательным</h4>
+            <pre><code>Phone: z.string().min(10, "Введите корректный телефон"),  // Было optional()</code></pre>
+
+            <h4>Пример 2: Добавить новое поле "Тема сообщения"</h4>
+            <pre><code>export const contactSchema = z.object({
+  Name: z.string().min(2, "Имя должно содержать минимум 2 символа"),
+  Company: z.string().optional(),
+  "E-mail": z.string().email("Некорректный email адрес"),
+  Phone: z.string().optional(),
+  Subject: z.string().min(3, "Укажите тему"),  // ← Новое поле
+  Message: z.string().min(5, "Сообщение слишком короткое"),
+});</code></pre>
+
+            <h4>Пример 3: Изменить сообщения об ошибках</h4>
+            <pre><code>Name: z.string().min(2, "Слишком короткое имя, введите полное"),
+"E-mail": z.string().email("Это не похоже на email адрес"),</code></pre>
+
+            <p><strong>После изменения схемы:</strong> Не забудьте добавить новое поле в форму в <code>components/homes/home-1/Contact.tsx</code>!</p>
+        </div>
+
+        <h2 id="contexts-folder">🌐 Папка contexts/ - Глобальное состояние</h2>
+
+        <div class="file-path">D:\3. My Projects\3.Front-end\Nexst.JS\1.blayden\blayden\contexts\</div>
+
+        <h3>PortfolioContext.tsx — Управление модальным окном</h3>
+        <div class="file-path">contexts/PortfolioContext.tsx</div>
+
+        <p>Этот файл создает глобальное состояние для управления модальным окном портфолио.</p>
+
+        <div class="theory-box">
+            <h4>🎓 Что такое React Context?</h4>
+            <p><strong>Context</strong> — это способ передачи данных через дерево компонентов без необходимости передавать props на каждом уровне.</p>
+
+            <p><strong>Аналогия:</strong> Представьте, что Context — это Wi-Fi роутер. Вместо того, чтобы тянуть кабель к каждому устройству (передавать props), вы создаете роутер (Context), и все устройства (компоненты) могут к нему подключиться.</p>
+
+            <p><strong>Когда использовать Context:</strong></p>
+            <ul>
+                <li>Данные нужны многим компонентам на разных уровнях</li>
+                <li>Тема оформления (светлая/темная)</li>
+                <li>Информация о текущем пользователе</li>
+                <li>Состояние модальных окон</li>
+                <li>Язык интерфейса</li>
+            </ul>
+        </div>
+
+        <h4>Как работает PortfolioContext:</h4>
+        <pre><code>// 1. Создание контекста
+const PortfolioContext = createContext&lt;PortfolioContextType | undefined&gt;(undefined);
+
+// 2. Провайдер оборачивает приложение (в app/layout.tsx)
+export function PortfolioProvider({ children }) {
+  const [selectedPortfolio, setSelectedPortfolio] = useState(null);
+
+  return (
+    &lt;PortfolioContext.Provider value={{ selectedPortfolio, setSelectedPortfolio }}&gt;
+      {children}
+    &lt;/PortfolioContext.Provider&gt;
+  );
+}
+
+// 3. Хук для удобного использования
+export function usePortfolio() {
+  const context = useContext(PortfolioContext);
+  if (!context) {
+    throw new Error("usePortfolio must be used within PortfolioProvider");
+  }
+  return context;
+}</code></pre>
+
+        <h4>Использование в компонентах:</h4>
+        <pre><code>// В галерее портфолио
+import { usePortfolio } from "@/contexts/PortfolioContext";
+
+function Portfolios() {
+  const { setSelectedPortfolio } = usePortfolio();
+
+  const openModal = (item) => {
+    setSelectedPortfolio(item);  // Открыть попап с этой работой
+  };
+
+  return (
+    &lt;div onClick={() =&gt; openModal(portfolioItem)}&gt;
+      {/* ... */}
+    &lt;/div&gt;
+  );
+}
+
+// В модальном окне
+function PortfolioPopup() {
+  const { selectedPortfolio, setSelectedPortfolio } = usePortfolio();
+
+  const closeModal = () => {
+    setSelectedPortfolio(null);  // Закрыть попап
+  };
+
+  if (!selectedPortfolio) return null;
+
+  return (
+    &lt;div className="popup"&gt;
+      &lt;button onClick={closeModal}&gt;Закрыть&lt;/button&gt;
+      &lt;h2&gt;{selectedPortfolio.title}&lt;/h2&gt;
+      {/* ... */}
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+        <div class="info-box">
+            <h4>💡 Дополнительная логика в контексте:</h4>
+            <p>Context также добавляет/удаляет класс <code>popup-active</code> на элемент <code>&lt;html&gt;</code>, когда попап открыт. Это позволяет CSS заблокировать прокрутку страницы:</p>
+            <pre><code>html.popup-active {
+  overflow: hidden;  /* Запретить прокрутку */
+}</code></pre>
+        </div>
+
+        <div class="success-box">
+            <h4>✅ Как создать свой Context:</h4>
+            <p>Например, создадим контекст для управления языком интерфейса:</p>
+
+            <ol>
+                <li>Создайте файл <code>contexts/LanguageContext.tsx</code></li>
+            </ol>
+
+            <pre><code>"use client";
+import { createContext, useContext, useState } from "react";
+
+type Language = "ru" | "en";
+
+type LanguageContextType = {
+  language: Language;
+  setLanguage: (lang: Language) =&gt; void;
+};
+
+const LanguageContext = createContext&lt;LanguageContextType | undefined&gt;(undefined);
+
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const [language, setLanguage] = useState&lt;Language&gt;("ru");
+
+  return (
+    &lt;LanguageContext.Provider value={{ language, setLanguage }}&gt;
+      {children}
+    &lt;/LanguageContext.Provider&gt;
+  );
+}
+
+export function useLanguage() {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used within LanguageProvider");
+  }
+  return context;
+}</code></pre>
+
+            <ol start="2">
+                <li>Добавьте провайдер в <code>app/layout.tsx</code>:</li>
+            </ol>
+
+            <pre><code>import { LanguageProvider } from "@/contexts/LanguageContext";
+
+&lt;LanguageProvider&gt;
+  &lt;PortfolioProvider&gt;
+    {children}
+  &lt;/PortfolioProvider&gt;
+&lt;/LanguageProvider&gt;</code></pre>
+
+            <ol start="3">
+                <li>Используйте в компонентах:</li>
+            </ol>
+
+            <pre><code>import { useLanguage } from "@/contexts/LanguageContext";
+
+function Header() {
+  const { language, setLanguage } = useLanguage();
+
+  return (
+    &lt;button onClick={() =&gt; setLanguage(language === "ru" ? "en" : "ru")}&gt;
+      {language === "ru" ? "EN" : "RU"}
+    &lt;/button&gt;
+  );
+}</code></pre>
+        </div>
+
+        <h2 id="patterns">🎯 Ключевые паттерны и концепции</h2>
+
+        <h3>1. Server Components vs Client Components</h3>
+
+        <div class="theory-box">
+            <h4>🎓 Когда использовать Server Components:</h4>
+            <ul>
+                <li>Страницы без интерактивности</li>
+                <li>Компоненты, которые только отображают данные</li>
+                <li>Компоненты, которым нужен доступ к базе данных (в этом проекте не используется)</li>
+            </ul>
+            <p><strong>Пример:</strong> Страница в <code>app/(homes)/home-1/page.tsx</code> — это Server Component.</p>
+
+            <h4>🎓 Когда использовать Client Components:</h4>
+            <ul>
+                <li>Нужны хуки React (useState, useEffect, useRef)</li>
+                <li>Обработка событий (onClick, onChange)</li>
+                <li>Использование браузерных API (localStorage, window, IntersectionObserver)</li>
+                <li>Анимации (GSAP требует доступ к DOM)</li>
+            </ul>
+            <p><strong>Пример:</strong> Все компоненты в <code>components/</code> — это Client Components с директивой <code>"use client"</code>.</p>
+        </div>
+
+        <h3>2. Паттерн "Данные в JSON"</h3>
+
+        <p>Проект четко разделяет <strong>данные</strong> и <strong>представление</strong>:</p>
+
+        <table>
+            <tr>
+                <th>Данные (что показывать)</th>
+                <th>Представление (как показывать)</th>
+            </tr>
+            <tr>
+                <td><code>data/portfolios.json</code></td>
+                <td><code>components/homes/home-1/Portfolios.tsx</code></td>
+            </tr>
+            <tr>
+                <td><code>data/services.json</code></td>
+                <td><code>components/homes/home-1/Services.tsx</code></td>
+            </tr>
+            <tr>
+                <td><code>data/resume.json</code></td>
+                <td><code>components/homes/home-1/Resume.tsx</code></td>
+            </tr>
+        </table>
+
+        <div class="success-box">
+            <h4>✅ Преимущества этого подхода:</h4>
+            <ul>
+                <li>Менять контент = менять только JSON, не трогая код</li>
+                <li>Легко добавлять новые языки (создать <code>data-en/</code> папку)</li>
+                <li>Контент-менеджер может редактировать JSON без знания React</li>
+                <li>Можно легко подключить CMS в будущем</li>
+            </ul>
+        </div>
+
+        <h3>3. Полиморфные компоненты</h3>
+
+        <p>Компоненты вроде <code>RevealText</code> и <code>HoverCursorEffect</code> могут рендериться как любой HTML элемент.</p>
+
+        <pre><code>// Может быть заголовком
+&lt;RevealText as="h1"&gt;Заголовок&lt;/RevealText&gt;
+
+// Может быть параграфом
+&lt;RevealText as="p"&gt;Текст&lt;/RevealText&gt;
+
+// Может быть ссылкой
+&lt;HoverCursorEffect as="a" href="#contact"&gt;Контакт&lt;/HoverCursorEffect&gt;</code></pre>
+
+        <div class="info-box">
+            <h4>💡 Как это работает?</h4>
+            <p>Используются TypeScript Generics и ComponentPropsWithoutRef для типобезопасности:</p>
+            <pre><code>type Props&lt;T extends ElementType&gt; = {
+  as?: T;
+  children: ReactNode;
+} & ComponentPropsWithoutRef&lt;T&gt;;</code></pre>
+        </div>
+
+        <h3>4. GSAP Анимации - Правильный подход</h3>
+
+        <h4>Всегда используйте cleanup:</h4>
+        <pre><code>useLayoutEffect(() => {
+  const ctx = gsap.context(() => {
+    // Ваши анимации
+    gsap.to(element, { ... });
+  }, containerRef);
+
+  return () => ctx.revert();  // ← ВАЖНО! Очистка при размонтировании
+}, []);</code></pre>
+
+        <h4>Используйте useLayoutEffect для анимаций:</h4>
+        <p><code>useLayoutEffect</code> выполняется <strong>синхронно</strong> после изменений DOM, но до отрисовки браузера. Это предотвращает "мигание" элементов.</p>
+
+        <h4>Обновление ScrollTrigger при изменении контента:</h4>
+        <pre><code>const handleRefresh = () => {
+  // Перестроить анимации при изменении размера/контента
+};
+
+ScrollTrigger.addEventListener("refresh", handleRefresh);
+return () => ScrollTrigger.removeEventListener("refresh", handleRefresh);</code></pre>
+
+        <h3>5. Next.js Image Optimization</h3>
+
+        <p>Проект использует компонент <code>&lt;Image&gt;</code> из Next.js для оптимизации изображений:</p>
+
+        <pre><code>import Image from "next/image";
+
+&lt;Image
+  src="/img/works/project-1.webp"
+  alt="Описание проекта"
+  width={1920}
+  height={1080}
+  loading="lazy"  // Ленивая загрузка
+/&gt;</code></pre>
+
+        <div class="success-box">
+            <h4>✅ Что делает Next.js Image:</h4>
+            <ul>
+                <li>Автоматически генерирует responsive версии изображения</li>
+                <li>Конвертирует в современные форматы (WebP, AVIF)</li>
+                <li>Ленивая загрузка (изображения загружаются при прокрутке к ним)</li>
+                <li>Предотвращает layout shift (резкое смещение контента)</li>
+                <li>Оптимизирует размер под устройство пользователя</li>
+            </ul>
+        </div>
+
+        <h3>6. CSS Custom Properties для тем</h3>
+
+        <p>Весь проект использует CSS переменные для управления цветами:</p>
+
+        <pre><code>/* Определение переменных */
+:root {
+  --color-primary: #3498db;
+  --color-bg: #ffffff;
+}
+
+[color-scheme="dark"] {
+  --color-bg: #1a1a1a;
+}
+
+/* Использование */
+.section {
+  background-color: var(--color-bg);
+}</code></pre>
+
+        <p>Это позволяет менять всю цветовую схему сайта в одном месте!</p>
+
+        <h2 id="best-practices">✨ Best Practices проекта</h2>
+
+        <h3>1. Структура компонентов</h3>
+
+        <div class="success-box">
+            <h4>✅ Хорошо организовано:</h4>
+            <ul>
+                <li>Один компонент = один файл</li>
+                <li>Название файла = название компонента (PascalCase)</li>
+                <li>Компоненты сгруппированы по функциональности</li>
+                <li>Повторно используемые компоненты вынесены в отдельные папки</li>
+            </ul>
+        </div>
+
+        <h3>2. TypeScript типизация</h3>
+
+        <p>Проект использует сильную типизацию:</p>
+
+        <ul>
+            <li>Типы для пропсов компонентов</li>
+            <li>Типы для данных из JSON (через <code>z.infer</code>)</li>
+            <li>Типы для Context API</li>
+            <li>Generics для полиморфных компонентов</li>
+        </ul>
+
+        <h3>3. Производительность</h3>
+
+        <table>
+            <tr>
+                <th>Оптимизация</th>
+                <th>Как реализовано</th>
+            </tr>
+            <tr>
+                <td>Code Splitting</td>
+                <td>Next.js автоматически разделяет код по страницам</td>
+            </tr>
+            <tr>
+                <td>Lazy Loading</td>
+                <td>Динамические импорты для тяжелых библиотек (Isotope)</td>
+            </tr>
+            <tr>
+                <td>Image Optimization</td>
+                <td>Next.js Image component + WebP формат</td>
+            </tr>
+            <tr>
+                <td>CSS Optimization</td>
+                <td>CSS переменные вместо повторяющихся значений</td>
+            </tr>
+            <tr>
+                <td>Server Components</td>
+                <td>Страницы рендерятся на сервере</td>
+            </tr>
+        </table>
+
+        <h3>4. Доступность (Accessibility)</h3>
+
+        <ul>
+            <li>Семантичные HTML теги (<code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;nav&gt;</code>)</li>
+            <li>Alt атрибуты для всех изображений</li>
+            <li>Клавиатурная навигация работает</li>
+            <li>Иконки с текстовыми подписями</li>
+        </ul>
+
+        <h2>🚀 Пошаговая инструкция по кастомизации</h2>
+
+        <h3>Шаг 1: Установка и запуск</h3>
+        <pre><code># 1. Установите зависимости
+npm install
+
+# 2. Запустите проект в режиме разработки
+npm run dev
+
+# 3. Откройте в браузере
+http://localhost:3000/preview</code></pre>
+
+        <h3>Шаг 2: Выбор варианта home</h3>
+        <ol>
+            <li>Посмотрите все три варианта на preview странице</li>
+            <li>Выберите тот, что больше нравится (например, home-1)</li>
+            <li>Откройте <code>app/page.tsx</code></li>
+            <li>Настройте редирект на выбранный вариант или скопируйте содержимое</li>
+        </ol>
+
+        <h3>Шаг 3: Изменение текстов и контента</h3>
+        <ol>
+            <li><strong>Основная информация:</strong> <code>data/portfolios.json</code> — замените примеры работ своими</li>
+            <li><strong>Резюме:</strong> <code>data/resume.json</code> — добавьте свое образование и опыт</li>
+            <li><strong>Услуги:</strong> <code>data/services.json</code> — опишите свои услуги</li>
+            <li><strong>Соцсети:</strong> <code>data/socials.json</code> — укажите ссылки на профили</li>
+            <li><strong>Отзывы:</strong> <code>data/testimonials.json</code> — добавьте отзывы клиентов</li>
+        </ol>
+
+        <h3>Шаг 4: Замена изображений</h3>
+        <ol>
+            <li>Подготовьте изображения в WebP формате</li>
+            <li>Положите в соответствующие папки:
+                <ul>
+                    <li><code>public/img/works/</code> — портфолио</li>
+                    <li><code>public/img/backgrounds/</code> — фоны</li>
+                    <li><code>public/img/avatars/</code> — фото для отзывов</li>
+                </ul>
+            </li>
+            <li>Обновите пути в JSON файлах</li>
+        </ol>
+
+        <h3>Шаг 5: Настройка метаданных</h3>
+        <ol>
+            <li>Откройте <code>app/layout.tsx</code></li>
+            <li>Измените <code>title</code> и <code>description</code></li>
+            <li>Смените язык с <code>en</code> на <code>ru</code> если нужно</li>
+            <li>Подключите Google Analytics если требуется</li>
+        </ol>
+
+        <h3>Шаг 6: Настройка контактной формы</h3>
+        <ol>
+            <li>Зарегистрируйтесь на <a href="https://formspree.io/" target="_blank">formspree.io</a></li>
+            <li>Создайте форму и скопируйте ID</li>
+            <li>Откройте <code>components/homes/home-1/Contact.tsx</code></li>
+            <li>Вставьте ID в <code>useForm("ВАШ_ID")</code></li>
+            <li>Измените контактную информацию в компоненте</li>
+        </ol>
+
+        <h3>Шаг 7: Удаление демо-контента</h3>
+        <ol>
+            <li>Удалите папку <code>app/preview/</code></li>
+            <li>Удалите папку <code>components/preview/</code></li>
+            <li>Удалите <code>public/css/main-demo.css</code></li>
+            <li>Удалите <code>public/img/demo/</code></li>
+        </ol>
+
+        <h3>Шаг 8: Сборка и деплой</h3>
+        <pre><code># 1. Соберите проект
+npm run build
+
+# 2. Проверьте production версию локально
+npm start
+
+# 3. Задеплойте на Vercel (рекомендуется для Next.js)
+# Или используйте любой другой хостинг</code></pre>
+
+        <div class="success-box">
+            <h4>✅ Чеклист перед публикацией:</h4>
+            <ul>
+                <li>☐ Все тексты заменены на свои</li>
+                <li>☐ Все изображения заменены на свои</li>
+                <li>☐ Метаданные обновлены (title, description)</li>
+                <li>☐ Favicon заменен на свой</li>
+                <li>☐ Контактная форма настроена и протестирована</li>
+                <li>☐ Ссылки на соцсети работают</li>
+                <li>☐ Резюме PDF добавлено и ссылка работает</li>
+                <li>☐ Демо-контент удален</li>
+                <li>☐ Проект собирается без ошибок (<code>npm run build</code>)</li>
+                <li>☐ Проверен на мобильных устройствах</li>
+            </ul>
+        </div>
+
+        <h2>💡 Полезные ресурсы</h2>
+
+        <h3>Документация:</h3>
+        <ul>
+            <li><a href="https://nextjs.org/docs" target="_blank">Next.js Documentation</a></li>
+            <li><a href="https://react.dev/" target="_blank">React Documentation</a></li>
+            <li><a href="https://www.typescriptlang.org/docs/" target="_blank">TypeScript Handbook</a></li>
+        </ul>
+
+        <h3>Инструменты:</h3>
+        <ul>
+            <li><a href="https://squoosh.app/" target="_blank">Squoosh</a> — конвертация изображений в WebP</li>
+            <li><a href="https://realfavicongenerator.net/" target="_blank">Favicon Generator</a> — генератор favicon</li>
+            <li><a href="https://formspree.io/" target="_blank">Formspree</a> — обработка форм</li>
+            <li><a href="https://phosphoricons.com/" target="_blank">Phosphor Icons</a> — иконки</li>
+            <li><a href="https://jsonlint.com/" target="_blank">JSONLint</a> — валидация JSON</li>
+        </ul>
+
+        <h3>Анимации:</h3>
+        <ul>
+            <li><a href="https://gsap.com/docs/v3/" target="_blank">GSAP Documentation</a></li>
+            <li><a href="https://lenis.darkroom.engineering/" target="_blank">Lenis Smooth Scroll</a></li>
+        </ul>
+
+        <h2>🎓 Заключение</h2>
+
+        <p>Вы изучили профессиональный Next.js проект с современной архитектурой:</p>
+
+        <ul>
+            <li><strong>App Router</strong> — новейший подход к маршрутизации в Next.js</li>
+            <li><strong>Server/Client Components</strong> — оптимальное разделение логики</li>
+            <li><strong>TypeScript</strong> — типобезопасность на всех уровнях</li>
+            <li><strong>Zod валидация</strong> — runtime проверка данных</li>
+            <li><strong>GSAP анимации</strong> — профессиональные scroll-эффекты</li>
+            <li><strong>Separation of Concerns</strong> — данные отдельно от представления</li>
+        </ul>
+
+        <div class="success-box">
+            <h4>✅ Следующие шаги:</h4>
+            <ol>
+                <li>Запустите проект и изучите его в действии</li>
+                <li>Начните с изменения простых вещей (тексты, цвета)</li>
+                <li>Постепенно переходите к более сложным задачам</li>
+                <li>Экспериментируйте с анимациями и компонентами</li>
+                <li>Не бойтесь ошибаться — Git позволяет вернуться назад!</li>
+            </ol>
+        </div>
+
+        <div class="info-box">
+            <h4>💬 Вопросы?</h4>
+            <p>Если что-то непонятно:</p>
+            <ul>
+                <li>Перечитайте соответствующий раздел этой документации</li>
+                <li>Загляните в официальную документацию Next.js</li>
+                <li>Изучите код компонента — он хорошо структурирован</li>
+                <li>Попробуйте изменить что-то и посмотрите, что произойдет</li>
+            </ul>
+        </div>
+
+        <p style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; font-size: 1.2em;">
+            <strong>Удачи в изучении Next.js и создании своего портфолио! 🚀</strong>
+        </p>
+
+    </div>
+</body>
+</html>

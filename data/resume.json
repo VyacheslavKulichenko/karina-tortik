@@ -1,0 +1,136 @@
+{
+  "home1": {
+    "education": [
+      {
+        "id": 1,
+        "date": "2015 - 2016",
+        "title": "Drawing Concentration",
+        "source": "New York Academy of Art",
+        "sourceUrl": "#",
+        "description": "Intensive drawing courses that present the fundamental principles of drawing."
+      },
+      {
+        "id": 2,
+        "date": "2019 - 2021",
+        "title": "UI/UX Design Specialization",
+        "source": "California Institute of Arts",
+        "sourceUrl": "#",
+        "description": "Research, design, and prototype effective, visually-driven websites and apps."
+      },
+      {
+        "id": 3,
+        "date": "2022",
+        "title": "UI/UX Designer",
+        "source": "Coursera",
+        "sourceUrl": "#",
+        "description": "This course is about how to complete the design process from beginning to end."
+      }
+    ],
+    "experience": [
+      {
+        "id": 1,
+        "date": "2018 - 2019",
+        "title": "Illustrator",
+        "source": "Mix Design agency",
+        "description": "Created original images for a range of digital and printed products."
+      },
+      {
+        "id": 2,
+        "date": "2019 - 2021",
+        "title": "Graphic designer",
+        "source": "",
+        "description": "Worked on branding and marketing materials for multiple clients."
+      }
+    ],
+    "tools": [
+      { "id": 1, "src": "/img/icons/icon-photoshop.svg", "alt": "Photoshop" },
+      { "id": 2, "src": "/img/icons/icon-figma.svg", "alt": "Figma" },
+      {
+        "id": 3,
+        "src": "/img/icons/icon-illustrator.svg",
+        "alt": "Illustrator"
+      },
+      { "id": 4, "src": "/img/icons/icon-scketch.svg", "alt": "Sketch" },
+      { "id": 5, "src": "/img/icons/icon-blender.svg", "alt": "Blender" },
+      { "id": 6, "src": "/img/icons/icon-html.svg", "alt": "HTML" },
+      { "id": 7, "src": "/img/icons/icon-css.svg", "alt": "CSS" },
+      { "id": 8, "src": "/img/icons/icon-notion.svg", "alt": "Notion" }
+    ]
+  },
+  "home2": {
+    "education": [
+      {
+        "id": 1,
+        "date": "2016 - 2018",
+        "title": "Design Fundamentals",
+        "source": "Art School",
+        "sourceUrl": "#",
+        "description": "Fundamentals of visual design and composition."
+      },
+      {
+        "id": 2,
+        "date": "2019 - 2020",
+        "title": "Interaction Design",
+        "source": "Design Institute",
+        "sourceUrl": "#",
+        "description": "Human-centered design and prototyping."
+      }
+    ],
+    "experience": [
+      {
+        "id": 1,
+        "date": "2017 - 2018",
+        "title": "Junior Designer",
+        "source": "Studio X",
+        "description": "Worked on illustrations and simple UI tasks."
+      },
+      {
+        "id": 2,
+        "date": "2019 - 2021",
+        "title": "UI/UX Designer",
+        "source": "Company Y",
+        "description": "Led product-facing design work."
+      }
+    ],
+    "tools": [
+      { "id": 1, "src": "/img/icons/icon-photoshop.svg", "alt": "Photoshop" },
+      { "id": 2, "src": "/img/icons/icon-figma.svg", "alt": "Figma" },
+      {
+        "id": 3,
+        "src": "/img/icons/icon-illustrator.svg",
+        "alt": "Illustrator"
+      },
+      { "id": 4, "src": "/img/icons/icon-scketch.svg", "alt": "Sketch" }
+    ]
+  },
+  "home3": {
+    "education": [
+      {
+        "id": 1,
+        "date": "2014 - 2015",
+        "title": "Visual Arts",
+        "source": "Academy A",
+        "sourceUrl": "#",
+        "description": "Basics of art and composition."
+      }
+    ],
+    "experience": [
+      {
+        "id": 1,
+        "date": "2018 - 2020",
+        "title": "Product Designer",
+        "source": "Startup Z",
+        "description": "Responsible for end-to-end product design."
+      }
+    ],
+    "tools": [
+      { "id": 1, "src": "/img/icons/icon-photoshop.svg", "alt": "Photoshop" },
+      { "id": 2, "src": "/img/icons/icon-figma.svg", "alt": "Figma" },
+      {
+        "id": 3,
+        "src": "/img/icons/icon-illustrator.svg",
+        "alt": "Illustrator"
+      }
+    ]
+  }
+}

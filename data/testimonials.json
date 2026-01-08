@@ -1,0 +1,22 @@
+[
+  {
+    "id": "t1",
+    "author": "Alex Tomato",
+    "position": "Brand Manager",
+    "company": "Instant Design",
+    "avatar": "/img/avatars/400x400_t01.webp",
+    "image": "/img/testimonials/1400x1200_t01.webp",
+    "quote": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+    "link": "#"
+  },
+  {
+    "id": "t2",
+    "author": "Jenny Lemon",
+    "position": "SEO",
+    "company": "Creative People",
+    "avatar": "/img/avatars/400x400_t02.webp",
+    "image": "/img/testimonials/1400x1200_t02.webp",
+    "quote": "Ut wisi enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+    "link": "#"
+  }
+]
