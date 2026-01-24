@@ -1,6 +1,7 @@
 {
-  "name": "blayden-nextjs",
+  "name": "natasha-cv",
   "version": "1.1.0",
+  "author": "Slava",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",

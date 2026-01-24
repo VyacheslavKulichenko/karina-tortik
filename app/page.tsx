@@ -10,8 +10,8 @@ import Resume from "@/components/homes/home-3/Resume";
 import Services from "@/components/homes/home-3/Services";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Blayden - Personal Portfolio & Resume React Nextjs Template",
-  description: "Blayden - Personal Portfolio & Resume React Nextjs Template",
+  title: "Natasha-CV",
+  description: "Natasha - Personal Portfolio & Resume",
 };
 export default function page() {
   return (

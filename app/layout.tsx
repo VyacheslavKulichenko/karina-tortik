@@ -14,8 +14,9 @@ const urbanist = Urbanist({
 });
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Blayden - Personal Portfolio & Resume React Nextjs Template",
-  description: "Blayden - Personal Portfolio & Resume React Nextjs Template",
+  title: "Natasha-CV",
+  description: "Natasha - Personal Portfolio & Resume",
+  authors: [{ name: "Slava" }],
 };
 
 const setColorSchemeScript = `
