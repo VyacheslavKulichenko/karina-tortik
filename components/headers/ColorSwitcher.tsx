@@ -10,10 +10,10 @@ export default function ThemeSwitcherButton({
   const [colorScheme, setColorScheme] = useState<"light" | "dark">(() => {
     if (typeof window !== "undefined") {
       return (
-        (localStorage.getItem("color-scheme") as "light" | "dark") || "light"
+        (localStorage.getItem("color-scheme") as "light" | "dark") || "dark"
       );
     }
-    return "light";
+    return "dark";
   });
   useEffect(() => {
     setShowSwitcher(true);

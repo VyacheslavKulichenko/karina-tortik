@@ -1,10 +1,8 @@
 "use client";
 import StackCards from "@/components/animation/StackCards";
-import { usePortfolio } from "@/contexts/PortfolioContext";
 
 import { home3 } from "@/data/portfolios.json";
 export default function Portfolios() {
-  const { setSelectedPortfolio } = usePortfolio();
   return (
     <section
       id="portfolio"
@@ -25,8 +23,7 @@ export default function Portfolios() {
                     {home3.map((item, index) => (
                       <div
                         key={index}
-                        onClick={() => setSelectedPortfolio(item)}
-                        className={`portfolio-stack__inner popup-trigger portfolio-item-${
+                        className={`portfolio-stack__inner portfolio-item-${
                           index + 1
                         }`}
                         style={{ backgroundImage: `url(${item.landscape})` }}
