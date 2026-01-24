@@ -41,12 +41,7 @@ export default function About() {
                     <div className="row g-0 justify-content-between">
                       <div className="col-12 col-md-8 col-lg-7 col-xxl-8 grid-item about-descr pre-title">
                         <p className="about-descr__text type-basic-160lh animate-in-up">
-                          I wonder if I&apos;ve been changed in the night? Let
-                          me think. Was I the same when I got up this morning? I
-                          almost think I can remember feeling a little
-                          different. But if I&apos;m not the same, the next
-                          question is &apos;Who in the world am I?&apos; Ah,
-                          that&apos;s the great puzzle!
+                            My job isn&apos;t just to design, but to understand what the client really wants, because sometimes it&apos;s hard to convey everything in words, and that&apos;s where my ability to sense the client&apos;s mood and wishes comes in handy, and I then translate them into stunning designs!
                         </p>
                         <div className="btn-group about-descr__btnholder animate-in-up">
                           <HoverCursorEffect
@@ -62,15 +57,15 @@ export default function About() {
                       </div>
                       <div className="col-12 col-md-4 col-xxl-3 grid-item about-info pre-title">
                         <div className="about-info__item animate-in-up">
-                          <h6>Alex Walker</h6>
+                          <h6>Natasha</h6>
                         </div>
                         <div className="about-info__item animate-in-up">
                           <h6>
                             <a
                               className="link-inline text-link"
-                              href="tel:+12127089400"
+                              href="tel:+380952083069"
                             >
-                              +1 212-708-9400
+
                             </a>
                           </h6>
                         </div>
@@ -78,7 +73,7 @@ export default function About() {
                           <h6>
                             <a
                               className="link-inline text-link"
-                              href="mailto:example@example.com?subject=Message%20from%20your%20site"
+                              href="mailto:natasha@example.com?subject=Message%20from%20your%20site"
                             >
                               hello@yourdomain.com
                             </a>
@@ -91,7 +86,7 @@ export default function About() {
                               href="https://maps.app.goo.gl/xMJXTEUeHkv6kYRQ6"
                               target="_blank"
                             >
-                              Odesa, Ukraine
+                              Kharkov, Ukraine
                             </a>
                           </h6>
                         </div>

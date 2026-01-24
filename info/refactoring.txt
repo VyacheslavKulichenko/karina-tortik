@@ -1,0 +1,84 @@
+ Где меняется текст стартовой страницы, вот этот текст: Hello! I am Alex Walker
+UI/UX designer3D ArtistIllustrator3D Artist| и Design, tech & some magic?
+
+● Сейчас покажу где меняется этот текст:
+
+● Read(components\homes\home-3\Hero.tsx)
+  ⎿  Read 25 lines
+
+● Read(components\homes\home-3\TypedText.tsx)
+  ⎿  Read 38 lines
+
+● Вот где меняется текст:
+
+  1. Файл components/homes/home-3/Hero.tsx
+
+  Строка 54: Design, tech &amp; some magic - заголовок h1
+  <h1 className="headline__title loading__item hero-animate-in-up">
+    Design, tech &amp; some magic
+  </h1>
+
+  Строка 61: Hello! I am Alex Walker - подзаголовок
+  <p className="headline__subtitle hero-animate-in-up space-top animated-type loading__item">
+    Hello! I am Alex Walker
+    <br />
+    <TypedText />
+  </p>
+
+  2. Файл components/homes/home-3/TypedText.tsx
+
+  Строки 30-32: Анимированный текст (UI/UX designer, 3D Artist, Illustrator)
+  <span id="typed-strings">
+    <b>UI/UX designer</b>
+    <b>3D Artist</b>
+    <b>Illustrator</b>
+  </span>
+
+  Это три текста, которые меняются в анимации. Можете добавить больше строк или изменить существующие.
+==========================================================================================
+
+ Где находится вот этот текст: Here we must run as fast as we can, just to stay in place. And if you wish to go anywhere you must run twice as fast as that.
+
+● Read(components\homes\home-3\Hero.tsx)
+  ⎿  Read 20 lines
+
+● Этот текст находится в файле components/homes/home-3/Hero.tsx
+
+  Строки 317-319:
+  <RevealText as="blockquote" className=" animate-in-up">
+    Here we must run as fast as we can, just to stay in
+    place. And if you wish to go anywhere you must run twice
+    as fast as that.
+  </RevealText>
+
+  Это цитата (blockquote), которая отображается с анимацией через компонент RevealText. Она находится в секции "Media Content" под движущимися блоками (marquee).
+
+==========================================================================================
+*****************************************************************************************
+
+ Где находится текст: I wonder if I've been changed in the night? Let me think. Was I the same when I got up this morning? I almost think I can remember
+feeling a little different. But if I'm not the same, the next question is 'Who in the world am I?' Ah, that's the great puzzle!
+
+
+● Этот текст находится в файле components/homes/home-3/About.tsx
+
+  Строки 43-50:
+  <p className="about-descr__text type-basic-160lh animate-in-up">
+    I wonder if I&apos;ve been changed in the night? Let
+    me think. Was I the same when I got up this morning? I
+    almost think I can remember feeling a little
+    different. But if I&apos;m not the same, the next
+    question is &apos;Who in the world am I?&apos; Ah,
+    that&apos;s the great puzzle!
+  </p>
+
+  Это текст в секции "About Me" (О себе). Обратите внимание, что &apos; - это HTML-код для апострофа (').
+
+<p className="about-descr__text type-basic-160lh animate-in-up">
+                          I wonder if I&apos;ve been changed in the night? Let
+                          me think. Was I the same when I got up this morning? I
+                          almost think I can remember feeling a little
+                          different. But if I&apos;m not the same, the next
+                          question is &apos;Who in the world am I?&apos; Ah,
+                          that&apos;s the great puzzle!
+                        </p>

@@ -2,7 +2,6 @@ import RevealText from "@/components/animation/RevealText";
 import Image from "next/image";
 import resume from "@/data/resume.json";
 import React from "react";
-import Testimonials from "./Testimonials";
 
 export default function Resume() {
   return (
@@ -31,7 +30,7 @@ export default function Resume() {
                 <div className="content__block section-tagline-title">
                   <div className="block__descr">
                     <RevealText as="h2" className=" animate-in-up">
-                      The digital
+                      The design
                       <br />
                       journey
                     </RevealText>
@@ -172,20 +171,6 @@ export default function Resume() {
                   {/* Tools Cards End */}
                 </div>
                 {/* Content Block - Tools Cards End */}
-                {/* Content Block - Testimonials Start */}
-                <div className="content__block">
-                  {/* Section Subtitle Start */}
-                  <div className="block__subtitle">
-                    <p className="tagline-chapter animate-in-up">
-                      My client&apos;s stories
-                    </p>
-                  </div>
-                  {/* Section Subtitle End */}
-                  {/* Testimonials Slider Start */}
-                  <Testimonials />
-                  {/* Testimonials Slider End */}
-                </div>
-                {/* Content Block - Testimonials End */}
               </div>
             </div>
             {/* Inner Section Content End */}

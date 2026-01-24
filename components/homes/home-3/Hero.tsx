@@ -46,19 +46,19 @@ export default function Hero() {
                 id="headline"
                 className="headline headline-95-desktop d-flex align-items-start flex-column loading-wrap"
               >
-                <h1
+                <h3
                   data-duration="0.7"
                   data-delay="200"
                   className="headline__title loading__item hero-animate-in-up"
                 >
-                  Design, tech &amp; some magic
-                </h1>
+                  Привет), сделал тебе презентационный сайт &amp; CV
+                </h3>
                 <p
                   data-duration="0.7"
                   data-delay="500"
                   className="headline__subtitle hero-animate-in-up space-top animated-type loading__item"
                 >
-                  Hello! I am Alex Walker
+                  Hello! I am Natasha
                   <br />
                   <TypedText />
                 </p>
@@ -314,9 +314,9 @@ export default function Hero() {
                   <div className="row g-0">
                     <div className="col-12">
                       <RevealText as="blockquote" className=" animate-in-up">
-                        Here we must run as fast as we can, just to stay in
-                        place. And if you wish to go anywhere you must run twice
-                        as fast as that.
+                          I can professionally create any turnkey design for your
+                          website or web app. I also develop designs for mobile apps
+                          of any complexity and with a user-friendly experience.
                       </RevealText>
                     </div>
                   </div>

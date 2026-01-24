@@ -295,7 +295,7 @@ export default function Contact() {
                             <div className="row g-0">
                               <div className="col-12 col-lg-3 contact-data__item grid-item">
                                 <a
-                                  href="#home"
+                                  href="https://t.me/nara_web"
                                   className="footer-logo logo-text animate-in-up"
                                 >
                                   {/* logo icon */}
@@ -345,7 +345,7 @@ export default function Contact() {
                                     </g>
                                   </svg>
                                   {/* logo text */}
-                                  <span>Blayden*</span>
+                                  <span>@Nara_web*</span>
                                 </a>
                               </div>
                               <div className="col-12 col-md-4 col-lg-3 contact-data__item grid-item">
@@ -358,9 +358,9 @@ export default function Contact() {
                                     href="https://maps.app.goo.gl/CGucvMFbkYuZiprv6"
                                     target="_blank"
                                   >
-                                    Kyiv, Ukraine
+                                    Kharkov, Ukraine
                                     <br />
-                                    02000
+
                                   </a>
                                 </p>
                               </div>
@@ -371,16 +371,16 @@ export default function Contact() {
                                 <p className="contact-data__text small type-basic-160lh">
                                   <a
                                     className="link-small-160lh animate-in-up"
-                                    href="tel:+12127089400"
+                                    href="tel:+380952083089"
                                   >
-                                    +1 212-708-9400
+                                    +38095-208-30-89
                                   </a>
                                   <br />
                                   <a
                                     className="link-small-160lh animate-in-up"
-                                    href="tel:+15104570211"
+                                    href=""
                                   >
-                                    +1 510-457-0211
+
                                   </a>
                                 </p>
                               </div>
@@ -391,7 +391,7 @@ export default function Contact() {
                                 <p className="contact-data__text small type-basic-160lh">
                                   <a
                                     className="link-small-160lh animate-in-up"
-                                    href="mailto:example@example.com?subject=Message%20from%20your%20site"
+                                    href="mailto:example@example.com"
                                   >
                                     hello@example.com
                                   </a>

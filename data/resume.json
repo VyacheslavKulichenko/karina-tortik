@@ -3,15 +3,15 @@
     "education": [
       {
         "id": 1,
-        "date": "2015 - 2016",
-        "title": "Drawing Concentration",
-        "source": "New York Academy of Art",
+        "date": "2017 - 2020",
+        "title": "UI/UX Design Specialization",
+        "source": "Kharkov Academy of Art",
         "sourceUrl": "#",
-        "description": "Intensive drawing courses that present the fundamental principles of drawing."
+        "description": "Intensive drawing courses that present the fundamental principles of UI/UX Designg."
       },
       {
         "id": 2,
-        "date": "2019 - 2021",
+        "date": "2020 - 2022",
         "title": "UI/UX Design Specialization",
         "source": "California Institute of Arts",
         "sourceUrl": "#",
@@ -29,14 +29,14 @@
     "experience": [
       {
         "id": 1,
-        "date": "2018 - 2019",
+        "date": "2023 - 2024",
         "title": "Illustrator",
         "source": "Mix Design agency",
         "description": "Created original images for a range of digital and printed products."
       },
       {
         "id": 2,
-        "date": "2019 - 2021",
+        "date": "2024 - 2026",
         "title": "Graphic designer",
         "source": "",
         "description": "Worked on branding and marketing materials for multiple clients."
