@@ -10,13 +10,6 @@ export default function PortfolioPopup() {
   const popupRef = useRef<HTMLDivElement | null>(null); // .popup
 
   useEffect(() => {
-    if (selectedPortfolio) {
-      console.log('Modal received portfolio:', selectedPortfolio);
-      console.log('Modal videoFolder:', selectedPortfolio.videoFolder);
-    }
-  }, [selectedPortfolio]);
-
-  useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const target = e.target as Node | null;
       const content = contentRef.current;

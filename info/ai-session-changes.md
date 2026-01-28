@@ -329,3 +329,51 @@ natasha-cv/
 
 **Последнее обновление:** 2026-01-26
 **Автор изменений:** Slava (через AI ассистента)
+
+
+**Последнее обновление:** 2026-01-28
+● Отлично! Все задачи выполнены успешно.
+
+Итоговое резюме изменений:
+
+✅ Что было сделано:
+
+1. Структура данных:
+- Добавлено поле videoFolder в data/portfolios.json для каждого проекта
+- Обновлен тип Portfolio в contexts/PortfolioContext.tsx
+
+2. Модальное окно (components/modals/PortfolioPopup.tsx):
+- Изменена структура: теперь фото и видео чередуются (фото1→видео1→фото2→видео2→...)
+- Добавлена условная проверка videoFolder для предотвращения ошибок
+- Использован обычный <img> тег вместо next/image для файлов из папки /video/
+
+3. Стили (public/css/main.css):
+- Добавлены CSS правила для img и video в контейнере .project__illustration
+- Установлено правильное соотношение сторон 3:4
+- Видео и фото теперь имеют одинаковый размер
+
+4. Компонент Portfolios (components/homes/home-3/Portfolios.tsx):
+- Изменен способ импорта JSON на default import
+- Убраны debug логи
+
+📂 Структура медиа в модальном окне:
+
+1. Верхняя картинка (portrait + landscape)
+2. Заголовок проекта
+3. Дата
+4. Фото 1 (/video/{videoFolder}/1.jpg)
+5. Видео 1 (/video/{videoFolder}/1.mp4)
+6. Фото 2 (/video/{videoFolder}/2.jpg)
+7. Видео 2 (/video/{videoFolder}/2.mp4)
+8. Фото 3 (/video/{videoFolder}/3.jpg)
+9. Видео 3 (/video/{videoFolder}/3.mp4)
+10. Фото 4 (/video/{videoFolder}/4.jpg)
+11. Видео 4 (/video/{videoFolder}/4.mp4)
+
+ℹ️ Об ошибках в консоли:
+
+Ошибки runtime.lastError: Could not establish connection - это ошибки расширений браузера (React DevTools и др.), они не влияют на работу приложения.
+
+Все работает корректно! 🎉
+
+
