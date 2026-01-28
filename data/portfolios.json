@@ -100,7 +100,7 @@
       "style": "light",
       "portrait": "/img/works/work-single/600x800_w03-top.webp",
       "landscape": "/img/works/1920x1080_w01.webp",
-
+      "videoFolder": "video-current-time",
       "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, nesciunt."
     },
     {
@@ -110,6 +110,7 @@
       "style": "light",
       "portrait": "/img/works/work-single/600x800_w04-top.webp",
       "landscape": "/img/works/work-single/1920x800_w04-01.webp",
+      "videoFolder": "video-25",
       "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, nesciunt."
     },
     {
@@ -119,6 +120,7 @@
       "style": "dark",
       "portrait": "/img/works/work-single/600x800_w01-top.webp",
       "landscape": "/img/works/work-single/1920x800_w01-01.webp",
+      "videoFolder": "video-24",
       "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, nesciunt."
     },
     {
@@ -128,6 +130,7 @@
       "style": "light",
       "portrait": "/img/works/work-single/600x800_w02-top.webp",
       "landscape": "/img/works/work-single/1920x800_w02-01.webp",
+      "videoFolder": "video-23",
       "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, nesciunt."
     }
   ]

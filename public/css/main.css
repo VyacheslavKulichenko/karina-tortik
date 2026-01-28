@@ -36,7 +36,7 @@
  *  22. Features Stacking Cards
  *  23. Features Services
  *  24. Features Resume
- *  25. Features Tools
+ *  video-25. Features Tools
  *  26. Features Testimonials
  *  27. Features Slider
  *  28. Features Accordion
@@ -4758,6 +4758,16 @@ form textarea:required:valid {
   -moz-border-radius: var(--_radius);
   border-radius: var(--_radius);
   overflow: hidden;
+}
+
+.project__illustration img,
+.project__illustration video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  background-color: #000;
 }
 
 .project__data {

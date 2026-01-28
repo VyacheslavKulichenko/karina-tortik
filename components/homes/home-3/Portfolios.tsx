@@ -1,8 +1,23 @@
 "use client";
 import StackCards from "@/components/animation/StackCards";
+import { usePortfolio, type Portfolio } from "@/contexts/PortfolioContext";
 
-import { home3 } from "@/data/portfolios.json";
+import portfoliosData from "@/data/portfolios.json";
+
+const home3 = portfoliosData.home3;
 export default function Portfolios() {
+  const { setSelectedPortfolio } = usePortfolio();
+
+  // Debug: check imported data
+  console.log('home3 data:', home3);
+  console.log('First item videoFolder:', home3[0]?.videoFolder);
+
+  const handlePortfolioClick = (item: Portfolio) => {
+    console.log('Portfolio clicked:', item);
+    console.log('videoFolder:', item.videoFolder);
+    setSelectedPortfolio(item);
+  };
+
   return (
     <section
       id="portfolio"
@@ -23,7 +38,8 @@ export default function Portfolios() {
                     {home3.map((item, index) => (
                       <div
                         key={index}
-                        className={`portfolio-stack__inner portfolio-item-${
+                        onClick={() => handlePortfolioClick(item)}
+                        className={`portfolio-stack__inner popup-trigger portfolio-item-${
                           index + 1
                         }`}
                         style={{ backgroundImage: `url(${item.landscape})` }}

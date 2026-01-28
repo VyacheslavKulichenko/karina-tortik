@@ -8,6 +8,7 @@ export type Portfolio = {
   style?: string;
   portrait?: string;
   landscape?: string;
+  videoFolder?: string;
 };
 
 type PortfolioContextValue = {

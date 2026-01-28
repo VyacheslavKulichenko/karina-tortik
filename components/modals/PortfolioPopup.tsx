@@ -1,5 +1,4 @@
 "use client";
-import HoverCursorEffect from "@/components/animation/HoverCursorEffect";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
@@ -9,6 +8,13 @@ export default function PortfolioPopup() {
 
   const contentRef = useRef<HTMLDivElement | null>(null); // .mfp-content
   const popupRef = useRef<HTMLDivElement | null>(null); // .popup
+
+  useEffect(() => {
+    if (selectedPortfolio) {
+      console.log('Modal received portfolio:', selectedPortfolio);
+      console.log('Modal videoFolder:', selectedPortfolio.videoFolder);
+    }
+  }, [selectedPortfolio]);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -107,273 +113,61 @@ export default function PortfolioPopup() {
                                       {/* project data single item */}
                                       <div className="col-12 col-md-6 grid-item pdata__item">
                                         <p className="data__title tagline-chapter small type-basic-160lh">
-                                          Type
-                                        </p>
-                                        <p className="data__descr small type-basic-160lh">
-                                          3D model
-                                        </p>
-                                      </div>
-                                      {/* project data single item */}
-                                      <div className="col-12 col-md-6 grid-item pdata__item">
-                                        <p className="data__title tagline-chapter small type-basic-160lh">
                                           Date
                                         </p>
                                         <p className="data__descr small type-basic-160lh">
                                           27.05.2024
                                         </p>
                                       </div>
-                                      {/* project data single item */}
-                                      <div className="col-12 col-md-6 grid-item pdata__item">
-                                        <p className="data__title tagline-chapter small type-basic-160lh">
-                                          Role
-                                        </p>
-                                        <p className="data__descr small type-basic-160lh">
-                                          Product designer
-                                        </p>
-                                      </div>
-                                      {/* project data single item */}
-                                      <div className="col-12 col-md-6 grid-item pdata__item">
-                                        <p className="data__title tagline-chapter small type-basic-160lh">
-                                          Client
-                                        </p>
-                                        <p className="data__descr small type-basic-160lh">
-                                          Editorial
-                                        </p>
-                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                                <div className="col-12 col-xl-8 grid-item">
-                                  <p className="type-basic-160lh">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Voluptates sequi
-                                    laudantium quasi beatae, modi, explicabo quo
-                                    voluptas quae enim culpa ipsum, quas nisi
-                                    doloribus! Id aliquam error corrupti
-                                    inventore sapiente. Lorem ipsum dolor sit
-                                    amet consectetur adipisicing elit.
-                                    Voluptates sequi laudantium quasi beatae,
-                                    modi, explicabo quo voluptas quae enim culpa
-                                    ipsum, quas nisi doloribus!
-                                  </p>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         {/* Project Block - Description End */}
-                        {/* Project Block - Illustration Fullwidth Start */}
-                        <div className="project__block no-margin">
-                          <div className="project__illustration-xl">
-                            <Image
-                              alt="Project Illustration"
-                              src="/img/works/work-single/1920x800_w01-02.webp"
-                              width={1920}
-                              height={800}
-                            />
-                          </div>
-                        </div>
-                        {/* Project Block - Illustration Fullwidth End */}
-                        {/* Project Block - The Challenge Start */}
-                        <div className="project__block pre-grid-items">
-                          <div className="project__descr">
-                            <div className="container-fluid p-0">
-                              <div className="row g-0">
-                                <div className="col-12 col-xl-4">
-                                  <p className="project__subtitle tagline-chapter">
-                                    The challenge
-                                  </p>
-                                </div>
-                                <div className="col-12 col-xl-8">
-                                  <p className="type-basic-160lh">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Voluptates sequi
-                                    laudantium quasi beatae, modi, explicabo quo
-                                    voluptas quae enim culpa ipsum, quas nisi
-                                    doloribus! Id aliquam error corrupti
-                                    inventore sapiente.
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        {/* Project Block - The Challenge End */}
-                        {/* Project Block - Illustrations Grid Start */}
-                        <div className="project__block grid-block no-margin">
-                          <div className="project__illustrations">
-                            <div className="container-fluid p-0">
-                              <div className="row g-0">
-                                <div className="col-12 col-md-6 col-xl-3 grid-item">
-                                  <div className="project__illustration">
-                                    <Image
-                                      alt="Work Illustration"
-                                      src="/img/works/work-single/600x800_w01-01.webp"
-                                      width={600}
-                                      height={800}
-                                    />
-                                  </div>
-                                </div>
-                                <div className="col-12 col-md-6 col-xl-3 grid-item">
-                                  <div className="project__illustration">
-                                    <Image
-                                      alt="Work Illustration"
-                                      src="/img/works/work-single/600x800_w01-02.webp"
-                                      width={600}
-                                      height={800}
-                                    />
-                                  </div>
-                                </div>
-                                <div className="col-12 col-md-6 col-xl-3 grid-item">
-                                  <div className="project__illustration">
-                                    <Image
-                                      alt="Work Illustration"
-                                      src="/img/works/work-single/600x800_w01-03.webp"
-                                      width={600}
-                                      height={800}
-                                    />
-                                  </div>
-                                </div>
-                                <div className="col-12 col-md-6 col-xl-3 grid-item">
-                                  <div className="project__illustration">
-                                    <Image
-                                      alt="Work Illustration"
-                                      src="/img/works/work-single/600x800_w01-04.webp"
-                                      width={600}
-                                      height={800}
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        {/* Project Block - Illustrations Grid End */}
-                        {/* Project Block - My Solution Start */}
-                        <div className="project__block">
-                          <div className="project__descr">
-                            <div className="container-fluid p-0">
-                              <div className="row g-0">
-                                <div className="col-12 col-xl-4">
-                                  <p className="project__subtitle tagline-chapter">
-                                    My solution
-                                  </p>
-                                </div>
-                                <div className="col-12 col-xl-8">
-                                  <p className="type-basic-160lh">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Voluptates sequi
-                                    laudantium quasi beatae, modi, explicabo quo
-                                    voluptas quae enim culpa ipsum, quas nisi
-                                    doloribus! Id aliquam error corrupti
-                                    inventore sapiente. Voluptates sequi
-                                    laudantium quasi beatae, modi, explicabo quo
-                                    voluptas quae enim culpa ipsum.
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        {/* Project Block - My Solution End */}
-                        {/* Project Block - Illustration Fullwidth Start */}
-                        <div className="project__block no-margin">
-                          <div className="project__illustration-xl">
-                            <Image
-                              alt="Project Illustration"
-                              src="/img/works/work-single/1920x800_w01-03.webp"
-                              width={1920}
-                              height={800}
-                            />
-                          </div>
-                        </div>
-                        {/* Project Block - Illustration Fullwidth End */}
-                        {/* Project Block - Client's Feedback Start */}
-                        <div className="project__block normal-size no-margin-bottom">
-                          <div className="project__descr">
-                            <div className="container-fluid p-0">
-                              <div className="row g-0">
-                                <div className="col-12 col-xl-4">
-                                  <p className="project__subtitle image-top-subtitle tagline-chapter">
-                                    Client&apos;s feedback
-                                  </p>
-                                </div>
-                                <div className="col-12 col-xl-8">
-                                  <div className="project__feedback">
-                                    <div className="feedback__fauthor d-flex">
-                                      <div className="fauthor__avatar">
-                                        <Image
-                                          alt="Review Author"
-                                          src="/img/avatars/400x400_t01.webp"
-                                          width={400}
-                                          height={400}
-                                        />
-                                      </div>
-                                      <div className="fauthor__info d-flex flex-column justify-content-center">
-                                        <h4 className="fauthor__name">
-                                          Alex Tomato
-                                        </h4>
-                                        <p className="fauthor__position small">
-                                          Brand Manager in
-                                          <a
-                                            className="link-small-underline"
-                                            href="https://1.envato.market/EKA9WD"
-                                            target="_blank"
-                                          >
-                                            Mix Design
-                                          </a>
-                                        </p>
-                                        <div className="fauthor__rating d-flex">
-                                          <i className="ph-fill ph-star" />
-                                          <i className="ph-fill ph-star" />
-                                          <i className="ph-fill ph-star" />
-                                          <i className="ph-fill ph-star" />
-                                          <i className="ph-fill ph-star" />
+                        {/* Project Block - Media Grid (Photos & Videos Alternating) Start */}
+                        {selectedPortfolio?.videoFolder && (
+                          <div className="project__block grid-block no-margin">
+                            <div className="project__illustrations">
+                              <div className="container-fluid p-0">
+                                <div className="row g-0">
+                                  {[1, 2, 3, 4].map((num) => (
+                                    <React.Fragment key={num}>
+                                      {/* Photo */}
+                                      <div className="col-12 col-md-6 col-xl-3 grid-item">
+                                        <div className="project__illustration">
+                                          <img
+                                            alt={`Work Illustration ${num}`}
+                                            src={`/video/${selectedPortfolio.videoFolder}/${num}.jpg`}
+                                          />
                                         </div>
                                       </div>
-                                    </div>
-                                    <div className="feedback__descr">
-                                      <p className="type-basic-160lh">
-                                        Lorem ipsum dolor sit amet, consectetuer
-                                        adipiscing elit, sed diam nonummy nibh
-                                        euismod tincidunt ut laoreet dolore
-                                        magna aliquam erat volutpat. Ut wisi
-                                        enim ad minim veniam, quis nostrud.
-                                      </p>
-                                    </div>
-                                  </div>
+                                      {/* Video */}
+                                      <div className="col-12 col-md-6 col-xl-3 grid-item">
+                                        <div className="project__illustration">
+                                          <video
+                                            controls
+                                            preload="metadata"
+                                            playsInline
+                                          >
+                                            <source
+                                              src={`/video/${selectedPortfolio.videoFolder}/${num}.mp4`}
+                                              type="video/mp4"
+                                            />
+                                            Your browser does not support the video tag.
+                                          </video>
+                                        </div>
+                                      </div>
+                                    </React.Fragment>
+                                  ))}
                                 </div>
                               </div>
                             </div>
                           </div>
-                          {/* project divider line */}
-                          <div className="project__divider" />
-                        </div>
-                        {/* Project Block - Client's Feedback End */}
-                        {/* Project Block - Project Link Start */}
-                        <div className="project__block small-size">
-                          <div className="container-fluid p-0">
-                            <div className="row g-0">
-                              <div className="col-12 d-flex justify-content-center">
-                                <HoverCursorEffect
-                                  as="a"
-                                  className="btn btn-circle-text hover-circle"
-                                  href="#"
-                                  target="_blank"
-                                  emZIndex="0"
-                                >
-                                  <span
-                                    className="btn-caption"
-                                    style={{ zIndex: 1 }}
-                                  >
-                                    Project page
-                                  </span>
-                                </HoverCursorEffect>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        {/* Project Block - Project Link End */}
+                        )}
+                        {/* Project Block - Media Grid End */}
                       </div>
                     </div>
                   </div>
