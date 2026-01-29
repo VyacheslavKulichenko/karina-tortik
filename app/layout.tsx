@@ -7,6 +7,7 @@ import LenisSmoothScroll from "@/components/scroll/LenisSmoothScroll";
 import { PortfolioProvider } from "@/contexts/PortfolioContext";
 import PortfolioPopup from "@/components/modals/PortfolioPopup";
 import ScrollTop from "@/components/scroll/ScrollTop";
+import IntroVideo from "@/components/IntroVideo";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -45,6 +46,8 @@ export default function RootLayout({
       </head>
       <body className={urbanist.variable}>
         <PortfolioProvider>
+          {/* Intro video overlay */}
+          <IntroVideo />
           {children}
           <LenisSmoothScroll />
           <ScrollTop />
