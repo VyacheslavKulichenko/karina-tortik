@@ -4789,7 +4789,7 @@ button#next-logo,
 /* Hero Photo Styles */
 .hero-photo-container {
   margin-bottom: 4rem;
-  margin-top: 2.3rem;
+  margin-top: 2.1rem;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   position: relative;
@@ -4814,9 +4814,35 @@ button#next-logo,
   padding-top: 0;
 }
 
+/* Desktop: add top spacing to intro container */
+@media only screen and (min-width: 1200px) {
+  .main__intro.intro-95-desktop {
+    padding-top: 10rem !important;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .hero-photo-container {
     margin-bottom: 2rem;
+  }
+}
+
+/* Desktop: center photo and fit by height */
+@media only screen and (min-width: 768px) {
+  .hero-photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 70vh;
+    max-height: 800px;
+    padding-top: 12rem;
+  }
+
+  .hero-photo {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
   }
 }
 
