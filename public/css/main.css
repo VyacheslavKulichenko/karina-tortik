@@ -2480,6 +2480,7 @@ form textarea:required:valid {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 5;
 }
 .intro__background.intro-bg-01 img,
 .intro__background.intro-bg-02 img {
@@ -2524,6 +2525,7 @@ form textarea:required:valid {
   background-position: center;
   -moz-background-size: cover;
   background-size: cover;
+  z-index: 1;
 }
 
 .intro-bg-01__01 {
@@ -2613,7 +2615,7 @@ form textarea:required:valid {
 
 .intro-bg-02__01 {
   top: auto;
-  bottom: -60px;
+  bottom: 40px;
   right: 0;
   width: 160px;
   height: auto;
@@ -2621,7 +2623,7 @@ form textarea:required:valid {
 @media only screen and (min-width: 768px) {
   .intro-bg-02__01 {
     top: auto;
-    bottom: -100px;
+    bottom: 50px;
     right: 0;
     width: 260px;
     height: auto;
@@ -2630,7 +2632,7 @@ form textarea:required:valid {
 @media only screen and (min-width: 992px) {
   .intro-bg-02__01 {
     top: auto;
-    bottom: -80px;
+    bottom: 100px;
     right: 0;
     width: 340px;
     height: auto;
@@ -2639,7 +2641,7 @@ form textarea:required:valid {
 @media only screen and (min-width: 1200px) {
   .intro-bg-02__01 {
     top: auto;
-    bottom: 80px;
+    bottom: 200px;
     right: 0;
     width: 330px;
     height: auto;
@@ -2648,7 +2650,7 @@ form textarea:required:valid {
 @media only screen and (min-width: 1400px) {
   .intro-bg-02__01 {
     top: auto;
-    bottom: 100px;
+    bottom: 250px;
     right: 0;
     width: 350px;
     height: auto;
@@ -2657,7 +2659,7 @@ form textarea:required:valid {
 @media only screen and (min-width: 1600px) {
   .intro-bg-02__01 {
     top: auto;
-    bottom: 60px;
+    bottom: 230px;
     right: 0;
     width: 530px;
     height: auto;
@@ -3054,6 +3056,8 @@ form textarea:required:valid {
 
 .main__media {
   position: relative;
+  z-index: 20;
+  background-color: var(--color-bg-1);
 }
 .main__media.media-grid-bottom {
   padding-bottom: 2.5rem;
@@ -4788,6 +4792,8 @@ button#next-logo,
   margin-top: 2.3rem;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
+  position: relative;
+  z-index: 1;
 }
 
 .hero-photo {
@@ -5929,6 +5935,7 @@ button#next-logo,
   width: 100%;
   position: relative;
   height: 460px;
+  z-index: 10;
 }
 @media only screen and (min-width: 768px) {
   .portfolio-stack {
