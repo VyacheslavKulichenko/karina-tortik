@@ -4774,6 +4774,46 @@ form textarea:required:valid {
   position: relative;
 }
 
+/* Hide Next.js dev indicators */
+button#next-logo,
+#devtools-indicator,
+[data-nextjs-toast],
+[data-nextjs-dev-tools-button] {
+  display: none !important;
+}
+
+/* Hero Photo Styles */
+.hero-photo-container {
+  margin-bottom: 4rem;
+  margin-top: 2.3rem;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.hero-photo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Minimal top spacing for headline */
+.headline.headline-95-desktop {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* Remove extra spacing from intro */
+.main__intro.intro-95-desktop {
+  padding-top: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .hero-photo-container {
+    margin-bottom: 2rem;
+  }
+}
+
 @media only screen and (min-width: 1600px) {
   .pdata__item {
     padding-top: 0.4rem;

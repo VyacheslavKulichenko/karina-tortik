@@ -46,13 +46,21 @@ export default function Hero() {
                 id="headline"
                 className="headline headline-95-desktop d-flex align-items-start flex-column loading-wrap"
               >
-                <h3
+                {/* Hero Photo */}
+                <div
+                  className="hero-photo-container"
                   data-duration="0.7"
-                  data-delay="200"
-                  className="headline__title loading__item hero-animate-in-up"
+                  data-delay="100"
                 >
-                  Привет), сделал тебе презентационный сайт &amp; CV
-                </h3>
+                  <Image
+                    src="/img/hero-photo.png"
+                    alt="Natasha"
+                    width={400}
+                    height={533}
+                    priority
+                    className="hero-photo"
+                  />
+                </div>
                 <p
                   data-duration="0.7"
                   data-delay="500"
