@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Logo() {
   return (
     <div
@@ -5,8 +7,17 @@ export default function Logo() {
       data-duration="1.2"
       data-delay="300"
     >
-      <a href="https://t.me/nara_web" className="logo__link">
-        {/* logo icon */}
+      <a href="#" className="logo__link">
+        {/* logo icon - NEW: cat.webp image */}
+        <Image
+          src="/img/cat.webp"
+          alt="Logo"
+          width={40}
+          height={40}
+          className="logo-image"
+        />
+
+        {/* logo icon - OLD: SVG (commented out for backup)
         <svg
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
@@ -15,7 +26,7 @@ export default function Logo() {
           enableBackground="new 0 0 50 50"
           xmlSpace="preserve"
         >
-      
+
           <path
             className="mxd-background"
             d="M33.4,50H16.7C7.5,50,0,42.5,0,33.3V16.7C0,7.5,7.5,0,16.7,0h16.7C42.5,0,50,7.5,50,16.7v16.7
@@ -43,8 +54,10 @@ export default function Logo() {
             />
           </g>
         </svg>
+        */}
+
         {/* logo text */}
-        <span className="logo-text">@Nara_web*</span>
+        <span className="logo-text">Darina*</span>
       </a>
     </div>
   );

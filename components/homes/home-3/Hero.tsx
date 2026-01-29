@@ -66,7 +66,7 @@ export default function Hero() {
                   data-delay="500"
                   className="headline__subtitle hero-animate-in-up space-top animated-type loading__item"
                 >
-                  Hello! I am Natasha
+                  Hello! I am Darina
                   <br />
                   <TypedText />
                 </p>

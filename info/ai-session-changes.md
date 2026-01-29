@@ -200,7 +200,7 @@ natasha-cv/
 ### Стартовая страница (Hero)
 **Файл:** `components/homes/home-3/Hero.tsx`
 - **Строка 54:** "Design, tech & some magic"
-- **Строка 61:** "Hello! I am Natasha"
+- **Строка 61:** "Hello! I am Darina"
 - **Строка 317-319:** Цитата "Here we must run as fast as we can..."
 
 ### TypedText (анимированный текст)
