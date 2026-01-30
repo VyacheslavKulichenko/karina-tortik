@@ -19,35 +19,44 @@ const ImageWithFullscreen = ({ src, alt }: { src: string; alt: string }) => {
       <Image
         alt={alt}
         src={src}
-        width={800}
-        height={600}
-        style={{ width: '100%', height: 'auto', display: 'block' }}
-      />
-      {/* Custom fullscreen button */}
-      <button
-        onClick={handleFullscreenClick}
+        width={isFullscreen ? 1920 : 800}
+        height={isFullscreen ? 1440 : 600}
         style={{
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
-          width: '44px',
-          height: '44px',
-          background: 'rgba(0, 0, 0, 0.6)',
-          border: '1px solid rgba(255, 255, 255, 0.3)',
-          borderRadius: '50%',
-          color: 'white',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '20px',
-          zIndex: 10,
-          backdropFilter: 'blur(4px)',
+          width: isFullscreen ? 'auto' : '100%',
+          height: isFullscreen ? 'auto' : 'auto',
+          maxWidth: '100%',
+          maxHeight: isFullscreen ? '100vh' : 'none',
+          display: 'block',
+          objectFit: 'contain'
         }}
-        aria-label="Toggle fullscreen"
-      >
-        ⛶
-      </button>
+      />
+      {/* Custom fullscreen button - only show in normal mode */}
+      {!isFullscreen && (
+        <button
+          onClick={handleFullscreenClick}
+          style={{
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            width: '44px',
+            height: '44px',
+            background: 'rgba(0, 0, 0, 0.6)',
+            border: '1px solid rgba(255, 255, 255, 0.3)',
+            borderRadius: '50%',
+            color: 'white',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '20px',
+            zIndex: 10,
+            backdropFilter: 'blur(4px)',
+          }}
+          aria-label="Toggle fullscreen"
+        >
+          ⛶
+        </button>
+      )}
     </div>
   );
 
@@ -98,31 +107,32 @@ const ImageWithFullscreen = ({ src, alt }: { src: string; alt: string }) => {
                   objectFit: 'contain',
                 }}
               />
-              {/* Close button in fullscreen */}
-              <button
-                onClick={handleFullscreenClick}
-                style={{
-                  position: 'absolute',
-                  top: '10px',
-                  right: '10px',
-                  width: '40px',
-                  height: '40px',
-                  background: 'rgba(0, 0, 0, 0.7)',
-                  border: 'none',
-                  borderRadius: '4px',
-                  color: 'white',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '20px',
-                  zIndex: 10,
-                }}
-                aria-label="Close fullscreen"
-              >
-                ✕
-              </button>
             </div>
+            {/* Close button for fullscreen mode */}
+            <button
+              onClick={handleFullscreenClick}
+              style={{
+                position: 'fixed',
+                top: '20px',
+                right: '20px',
+                width: '44px',
+                height: '44px',
+                background: 'rgba(0, 0, 0, 0.6)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: '50%',
+                color: 'white',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '24px',
+                zIndex: 1000000,
+                backdropFilter: 'blur(4px)',
+              }}
+              aria-label="Close fullscreen"
+            >
+              ✕
+            </button>
           </div>,
           document.body
         )}
@@ -198,31 +208,33 @@ const VideoWithFullscreen = ({ src }: { src: string }) => {
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      {/* Custom fullscreen button */}
-      <button
-        onClick={handleFullscreenClick}
-        style={{
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
-          width: '44px',
-          height: '44px',
-          background: 'rgba(0, 0, 0, 0.6)',
-          border: '1px solid rgba(255, 255, 255, 0.3)',
-          borderRadius: '50%',
-          color: 'white',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '20px',
-          zIndex: 10,
-          backdropFilter: 'blur(4px)',
-        }}
-        aria-label="Toggle fullscreen"
-      >
-        ⛶
-      </button>
+      {/* Custom fullscreen button - only show in normal mode */}
+      {!isPortalFullscreen && (
+        <button
+          onClick={handleFullscreenClick}
+          style={{
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            width: '44px',
+            height: '44px',
+            background: 'rgba(0, 0, 0, 0.6)',
+            border: '1px solid rgba(255, 255, 255, 0.3)',
+            borderRadius: '50%',
+            color: 'white',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '20px',
+            zIndex: 10,
+            backdropFilter: 'blur(4px)',
+          }}
+          aria-label="Toggle fullscreen"
+        >
+          ⛶
+        </button>
+      )}
     </div>
   );
 
@@ -260,6 +272,31 @@ const VideoWithFullscreen = ({ src }: { src: string }) => {
             }}
           >
             {videoElement}
+            {/* Close button for fullscreen mode */}
+            <button
+              onClick={handleFullscreenClick}
+              style={{
+                position: 'fixed',
+                top: '20px',
+                right: '20px',
+                width: '44px',
+                height: '44px',
+                background: 'rgba(0, 0, 0, 0.6)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: '50%',
+                color: 'white',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '24px',
+                zIndex: 1000000,
+                backdropFilter: 'blur(4px)',
+              }}
+              aria-label="Close fullscreen"
+            >
+              ✕
+            </button>
           </div>,
           document.body
         )}
