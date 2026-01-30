@@ -1,22 +1,22 @@
-   ▲ Next.js 15.5.9 (Turbopack)
-   Creating an optimized production build ...
- ✓ Finished writing to disk in 29ms
- ✓ Compiled successfully in 8.1s
-   Linting and checking validity of types ...
-./components/IntroVideo.tsx
-41:20  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
-./components/modals/PortfolioPopup.tsx
-130:43  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
-info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
-Failed to compile.
-./components/IntroVideo.tsx:86:20
-Type error: Argument of type 'false' is not assignable to parameter of type 'SetStateAction<true>'.
-  84 |     setIsClosing(true);
-  85 |     setTimeout(() => {
-> 86 |       setIsVisible(false);
-     |                    ^
-  87 |     }, 300);
-  88 |   };
-  89 |
-Next.js build worker exited with code: 1 and signal: null
-Error: Command "npm run build" exited with 1
+Next.js 15.5.2 (outdated)Turbopack (https://nextjs.org/docs/messages/version-staleness)
+Runtime TypeError
+Fullscreen is not supported
+Call Stack9
+handleFullscreenClick
+file://D:/3. My Projects/3.Front-end/Nexst.JS/1.blayden/blayden/.next/static/chunks/_abe649ad._.js (315:23)
+executeDispatch
+file://D:/3. My Projects/3.Front-end/Nexst.JS/1.blayden/blayden/.next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js (8965:13)
+runWithFiberInDEV
+file://D:/3. My Projects/3.Front-end/Nexst.JS/1.blayden/blayden/.next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js (886:74)
+processDispatchQueue
+file://D:/3. My Projects/3.Front-end/Nexst.JS/1.blayden/blayden/.next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js (8991:41)
+<unknown>
+file://D:/3. My Projects/3.Front-end/Nexst.JS/1.blayden/blayden/.next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js (9286:13)
+batchedUpdates$1
+file://D:/3. My Projects/3.Front-end/Nexst.JS/1.blayden/blayden/.next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js (2211:44)
+dispatchEventForPluginEventSystem
+file://D:/3. My Projects/3.Front-end/Nexst.JS/1.blayden/blayden/.next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js (9067:9)
+dispatchEvent
+file://D:/3. My Projects/3.Front-end/Nexst.JS/1.blayden/blayden/.next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js (11224:37)
+dispatchDiscreteEvent
+file://D:/3. My Projects/3.Front-end/Nexst.JS/1.blayden/blayden/.next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js (11206:64)

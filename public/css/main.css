@@ -4967,6 +4967,8 @@ button#next-logo,
 
 .mfp-wrap {
   position: fixed !important;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
 }
 
 .mfp-fade {
@@ -4974,8 +4976,8 @@ button#next-logo,
 }
 
 .mfp-fade .mfp-container {
-  position: fixed;
-  overflow-y: scroll;
+  position: absolute;
+  overflow-y: auto;
 }
 
 .mfp-bg {
@@ -5082,10 +5084,7 @@ button#next-logo,
 /* content at start */
 .mfp-fade.mfp-wrap .mfp-content {
   opacity: 0;
-  -webkit-transform: translateY(3rem);
-  -moz-transform: translateY(3rem);
-  -ms-transform: translateY(3rem);
-  transform: translateY(3rem);
+  margin-top: 3rem;
   -webkit-transition: all 0.3s var(--_animbezier);
   -moz-transition: all 0.3s var(--_animbezier);
   transition: all 0.3s var(--_animbezier);
@@ -5094,19 +5093,13 @@ button#next-logo,
 /* content animate it */
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
   opacity: 1;
-  -webkit-transform: translateY(0);
-  -moz-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
+  margin-top: 0;
 }
 
 /* content animate out */
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
   opacity: 0;
-  -webkit-transform: translateY(3rem);
-  -moz-transform: translateY(3rem);
-  -ms-transform: translateY(3rem);
-  transform: translateY(3rem);
+  margin-top: 3rem;
 }
 
 /* ------------------------------------------------*/
@@ -7240,4 +7233,104 @@ button#next-logo,
 
 /* ------------------------------------------------*/
 /* Logo Image Styles End */
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Fixed Close Button for Portfolio Modal Start */
+/* ------------------------------------------------*/
+
+/* Responsive positioning for mobile */
+@media only screen and (max-width: 768px) {
+  .portfolio-popup-wrap .mfp-close {
+    right: 1.5rem !important;
+    top: 1.5rem !important;
+  }
+}
+
+/* ------------------------------------------------*/
+/* Fixed Close Button for Portfolio Modal End */
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Video Fullscreen Fix Start */
+/* ------------------------------------------------*/
+
+/* Ensure video and ALL its parent containers don't create stacking context that blocks fullscreen */
+.popup,
+.popup__container,
+.project,
+.project__block,
+.project__illustrations,
+.project__illustration,
+.project__illustration video {
+  contain: none !important;
+  isolation: auto !important;
+}
+
+/* Remove clip-path and masks that block fullscreen */
+.popup,
+.mfp-content,
+.project__illustration video {
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+/* Hide standard fullscreen button and overflow menu (3 dots) */
+.project__illustration video::-webkit-media-controls-fullscreen-button {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.project__illustration video::-webkit-media-controls-overflow-button {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.project__illustration video::-webkit-media-controls-panel-container {
+  overflow: visible !important;
+}
+
+.project__illustration video::-webkit-media-controls-enclosure {
+  overflow: visible !important;
+}
+
+/* For Firefox */
+.project__illustration video::-moz-media-controls-fullscreen-button {
+  display: none !important;
+}
+
+/* Ensure video can go fullscreen on iOS and Android */
+@media only screen and (max-width: 768px) {
+  .project__illustration video {
+    width: 100% !important;
+    height: auto !important;
+    -webkit-appearance: none !important;
+  }
+}
+
+/* ------------------------------------------------*/
+/* Video Fullscreen Fix End */
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Image and Video Fullscreen Buttons Start */
+/* ------------------------------------------------*/
+
+/* Ensure images can have fullscreen button positioned correctly */
+.project__illustration {
+  position: relative;
+}
+
+.project-image-bg {
+  position: relative;
+}
+
+/* ------------------------------------------------*/
+/* Image and Video Fullscreen Buttons End */
 /* ------------------------------------------------*/
