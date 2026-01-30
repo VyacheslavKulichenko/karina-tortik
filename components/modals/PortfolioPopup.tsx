@@ -77,7 +77,6 @@ const ImageWithFullscreen = ({ src, alt }: { src: string; alt: string }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '20px',
             }}
             onClick={(e) => {
               e.stopPropagation();
@@ -89,21 +88,18 @@ const ImageWithFullscreen = ({ src, alt }: { src: string; alt: string }) => {
               e.stopPropagation();
             }}
           >
-            <div style={{ position: 'relative', maxWidth: '100%', maxHeight: '100%' }}>
-              <Image
-                alt={alt}
-                src={src}
-                width={1920}
-                height={1440}
-                style={{
-                  maxWidth: '100%',
-                  maxHeight: '100vh',
-                  width: 'auto',
-                  height: 'auto',
-                  objectFit: 'contain',
-                }}
-              />
-            </div>
+            <Image
+              alt={alt}
+              src={src}
+              width={1920}
+              height={1440}
+              style={{
+                width: '100%',
+                height: 'auto',
+                maxHeight: '100vh',
+                objectFit: 'contain',
+              }}
+            />
             {/* Close button for fullscreen mode */}
             <button
               onClick={handleFullscreenClick}
