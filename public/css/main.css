@@ -7255,59 +7255,39 @@ button#next-logo,
 /* Video Fullscreen Fix Start */
 /* ------------------------------------------------*/
 
-/* Ensure video and ALL its parent containers don't create stacking context that blocks fullscreen */
-.popup,
-.popup__container,
-.project,
-.project__block,
-.project__illustrations,
-.project__illustration,
-.project__illustration video {
-  contain: none !important;
-  isolation: auto !important;
-}
-
-/* Remove clip-path and masks that block fullscreen */
-.popup,
-.mfp-content,
-.project__illustration video {
-  clip-path: none !important;
-  -webkit-clip-path: none !important;
-  mask: none !important;
-  -webkit-mask: none !important;
-}
+/* Note: We use Portal for fullscreen, so we don't need to remove stacking context */
 
 /* Hide standard fullscreen button and overflow menu (3 dots) */
-.project__illustration video::-webkit-media-controls-fullscreen-button {
+.project__illustration video:not(.intro-video)::-webkit-media-controls-fullscreen-button {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
 }
 
-.project__illustration video::-webkit-media-controls-overflow-button {
+.project__illustration video:not(.intro-video)::-webkit-media-controls-overflow-button {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
 }
 
-.project__illustration video::-webkit-media-controls-panel-container {
+.project__illustration video:not(.intro-video)::-webkit-media-controls-panel-container {
   overflow: visible !important;
 }
 
-.project__illustration video::-webkit-media-controls-enclosure {
+.project__illustration video:not(.intro-video)::-webkit-media-controls-enclosure {
   overflow: visible !important;
 }
 
 /* For Firefox */
-.project__illustration video::-moz-media-controls-fullscreen-button {
+.project__illustration video:not(.intro-video)::-moz-media-controls-fullscreen-button {
   display: none !important;
 }
 
 /* Ensure video can go fullscreen on iOS and Android */
 @media only screen and (max-width: 768px) {
-  .project__illustration video {
+  .project__illustration video:not(.intro-video) {
     width: 100% !important;
     height: auto !important;
     -webkit-appearance: none !important;

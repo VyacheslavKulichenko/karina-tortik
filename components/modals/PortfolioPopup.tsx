@@ -4,116 +4,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { createPortal } from "react-dom";
 
-// Fullscreen button component for existing images (like hero images)
-const ImageFullscreenButton = ({ src, alt }: { src: string; alt: string }) => {
-  const [isFullscreen, setIsFullscreen] = useState(false);
-
-  const handleFullscreenClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    setIsFullscreen(!isFullscreen);
-  };
-
-  // Render portal when fullscreen
-  if (isFullscreen && typeof window !== 'undefined') {
-    return createPortal(
-      <div
-        data-video-fullscreen-portal="true"
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          background: '#000',
-          zIndex: 999999,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '20px',
-        }}
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        onMouseDown={(e) => {
-          e.stopPropagation();
-        }}
-        onTouchStart={(e) => {
-          e.stopPropagation();
-        }}
-      >
-        <div style={{ position: 'relative', maxWidth: '100%', maxHeight: '100%' }}>
-          <Image
-            alt={alt}
-            src={src}
-            width={1920}
-            height={1080}
-            style={{
-              maxWidth: '100%',
-              maxHeight: '100vh',
-              width: 'auto',
-              height: 'auto',
-              objectFit: 'contain',
-            }}
-          />
-          {/* Close button */}
-          <button
-            onClick={handleFullscreenClick}
-            style={{
-              position: 'absolute',
-              top: '10px',
-              right: '10px',
-              width: '40px',
-              height: '40px',
-              background: 'rgba(0, 0, 0, 0.7)',
-              border: 'none',
-              borderRadius: '4px',
-              color: 'white',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '20px',
-              zIndex: 10,
-            }}
-            aria-label="Close fullscreen"
-          >
-            ✕
-          </button>
-        </div>
-      </div>,
-      document.body
-    );
-  }
-
-  // Floating button over existing image
-  return (
-    <button
-      onClick={handleFullscreenClick}
-      style={{
-        position: 'absolute',
-        bottom: '10px',
-        right: '10px',
-        width: '40px',
-        height: '40px',
-        background: 'rgba(0, 0, 0, 0.7)',
-        border: 'none',
-        borderRadius: '4px',
-        color: 'white',
-        cursor: 'pointer',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '20px',
-        zIndex: 10,
-      }}
-      aria-label="Toggle fullscreen"
-    >
-      ⛶
-    </button>
-  );
-};
-
 // Custom fullscreen image component using React Portal
 const ImageWithFullscreen = ({ src, alt }: { src: string; alt: string }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -243,12 +133,12 @@ const ImageWithFullscreen = ({ src, alt }: { src: string; alt: string }) => {
 };
 
 // Custom fullscreen video component using React Portal
-const VideoWithFullscreen = ({ src, num }: { src: string; num: number }) => {
+const VideoWithFullscreen = ({ src }: { src: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPortalFullscreen, setIsPortalFullscreen] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const savedTimeRef = useRef(0);
+  const savedPlayingRef = useRef(false);
 
   const handleFullscreenClick = (e: React.MouseEvent) => {
     // Stop event propagation to prevent closing modal
@@ -258,34 +148,25 @@ const VideoWithFullscreen = ({ src, num }: { src: string; num: number }) => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Check if iOS Safari native fullscreen is available
-    if ((video as any).webkitEnterFullscreen && typeof (video as any).webkitDisplayingFullscreen !== 'undefined') {
-      // iOS Safari - use native fullscreen
-      try {
-        (video as any).webkitEnterFullscreen();
-      } catch (error) {
-        console.log('iOS fullscreen not available, using portal');
-        // Fallback to portal
-        setCurrentTime(video.currentTime);
-        setIsPlaying(!video.paused);
-        setIsPortalFullscreen(!isPortalFullscreen);
-      }
-    } else {
-      // Android or other - use portal fullscreen
-      setCurrentTime(video.currentTime);
-      setIsPlaying(!video.paused);
-      setIsPortalFullscreen(!isPortalFullscreen);
-    }
+    // Save current state
+    savedTimeRef.current = video.currentTime;
+    savedPlayingRef.current = !video.paused;
+
+    // Toggle fullscreen
+    setIsPortalFullscreen(!isPortalFullscreen);
   };
 
   // Sync video state when switching to/from portal
   useEffect(() => {
+    if (!isPortalFullscreen) return;
+
     const video = videoRef.current;
     if (!video) return;
 
-    video.currentTime = currentTime;
-    if (isPlaying) {
-      video.play();
+    // Restore saved state
+    video.currentTime = savedTimeRef.current;
+    if (savedPlayingRef.current) {
+      video.play().catch(() => {});
     }
   }, [isPortalFullscreen]);
 
@@ -308,14 +189,10 @@ const VideoWithFullscreen = ({ src, num }: { src: string; num: number }) => {
         webkit-playsinline="true"
         x-webkit-airplay="allow"
         style={{
-          isolation: 'auto',
           width: '100%',
           height: '100%',
           display: 'block'
         }}
-        onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
       >
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
@@ -538,7 +415,6 @@ export default function PortfolioPopup() {
                                         <div className="project__illustration">
                                           <VideoWithFullscreen
                                             src={`/video/${selectedPortfolio.videoFolder}/${num}.mp4`}
-                                            num={num}
                                           />
                                         </div>
                                       </div>
