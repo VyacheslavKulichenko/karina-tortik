@@ -15,8 +15,8 @@ const urbanist = Urbanist({
 });
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Natasha-CV",
-  description: "Natasha - Personal Portfolio & Resume",
+  title: "Darina-CV",
+  description: "Darina - Personal Portfolio & Resume",
   authors: [{ name: "Slava" }],
 };
 

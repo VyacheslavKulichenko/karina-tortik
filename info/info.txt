@@ -277,7 +277,7 @@
     - Сейчас: 0 (минимальный)
     - Чтобы увеличить: margin-top: 2rem; или margin-top: 50px;
 
-    Нижний отступ (между фото и текстом "Hello! I am Natasha"):
+    Нижний отступ (между фото и текстом "Hello! I am Darina"):
     - Строка 4787: margin-bottom: 3rem;
     - Сейчас: 3rem (примерно 48px)
     - Чтобы уменьшить: margin-bottom: 1rem;

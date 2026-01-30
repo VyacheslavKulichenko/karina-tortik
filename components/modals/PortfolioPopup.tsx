@@ -88,11 +88,7 @@ export default function PortfolioPopup() {
                               />{" "}
                             </>
                           )}
-                          <div className="project__title">
-                            <h3 className="light">
-                              {selectedPortfolio?.title || ""}
-                            </h3>
-                          </div>
+                          {/* Text on image removed */}
                         </div>
                         {/* Project Block - Title with Image End */}
                         {/* Project Block - Description Start */}
@@ -109,7 +105,7 @@ export default function PortfolioPopup() {
                                           Date
                                         </p>
                                         <p className="data__descr small type-basic-160lh">
-                                          27.05.2024
+                                          {selectedPortfolio?.date || ""}
                                         </p>
                                       </div>
                                     </div>

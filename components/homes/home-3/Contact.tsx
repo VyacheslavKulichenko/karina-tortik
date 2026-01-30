@@ -295,7 +295,7 @@ export default function Contact() {
                             <div className="row g-0">
                               <div className="col-12 col-lg-3 contact-data__item grid-item">
                                 <a
-                                  href="https://t.me/nara_web"
+                                  // href="https://t.me/nara_web"
                                   className="footer-logo logo-text animate-in-up"
                                 >
                                   {/* logo icon */}
@@ -345,7 +345,7 @@ export default function Contact() {
                                     </g>
                                   </svg>
                                   {/* logo text */}
-                                  <span>@Nara_web*</span>
+                                  <span>Darina*</span>
                                 </a>
                               </div>
                               <div className="col-12 col-md-4 col-lg-3 contact-data__item grid-item">
@@ -371,9 +371,9 @@ export default function Contact() {
                                 <p className="contact-data__text small type-basic-160lh">
                                   <a
                                     className="link-small-160lh animate-in-up"
-                                    href="tel:+380952083089"
+                                    href="tel:"
                                   >
-                                    +38095-208-30-89
+
                                   </a>
                                   <br />
                                   <a

@@ -9,6 +9,7 @@ export type Portfolio = {
   portrait?: string;
   landscape?: string;
   videoFolder?: string;
+  date?: string;
 };
 
 type PortfolioContextValue = {

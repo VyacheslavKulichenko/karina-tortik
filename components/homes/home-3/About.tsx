@@ -57,7 +57,7 @@ export default function About() {
                       </div>
                       <div className="col-12 col-md-4 col-xxl-3 grid-item about-info pre-title">
                         <div className="about-info__item animate-in-up">
-                          <h6>Natasha</h6>
+                          <h6>Darina</h6>
                         </div>
                         <div className="about-info__item animate-in-up">
                           <h6>
@@ -73,7 +73,7 @@ export default function About() {
                           <h6>
                             <a
                               className="link-inline text-link"
-                              href="mailto:natasha@example.com?subject=Message%20from%20your%20site"
+                              href="mailto:darina@example.com?subject=Message%20from%20your%20site"
                             >
                               hello@yourdomain.com
                             </a>

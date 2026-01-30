@@ -10,8 +10,8 @@ import Resume from "@/components/homes/home-3/Resume";
 import Services from "@/components/homes/home-3/Services";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Natasha-CV",
-  description: "Natasha - Personal Portfolio & Resume",
+  title: "Darina-CV",
+  description: "Darina - Personal Portfolio & Resume",
 };
 export default function page() {
   return (
