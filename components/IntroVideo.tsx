@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { FEATURES } from "@/config/features";
 
 export default function IntroVideo() {
-  const [isVisible, setIsVisible] = useState(FEATURES.SHOW_INTRO_VIDEO);
+  const [isVisible, setIsVisible] = useState<boolean>(FEATURES.SHOW_INTRO_VIDEO);
   const [isClosing, setIsClosing] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [showPlayButton, setShowPlayButton] = useState(false);
@@ -38,7 +38,7 @@ export default function IntroVideo() {
             if (!videoRef.current.muted) {
               setIsMuted(false);
             }
-          } catch (e) {
+          } catch {
             // Если не получилось, оставляем muted
             setIsMuted(true);
           }

@@ -127,9 +127,12 @@ export default function PortfolioPopup() {
                                       {/* Photo */}
                                       <div className="col-12 col-md-6 col-xl-3 grid-item">
                                         <div className="project__illustration">
-                                          <img
+                                          <Image
                                             alt={`Work Illustration ${num}`}
                                             src={`/video/${selectedPortfolio.videoFolder}/${num}.jpg`}
+                                            width={800}
+                                            height={600}
+                                            style={{ width: '100%', height: 'auto' }}
                                           />
                                         </div>
                                       </div>

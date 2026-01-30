@@ -1,0 +1,22 @@
+   ▲ Next.js 15.5.9 (Turbopack)
+   Creating an optimized production build ...
+ ✓ Finished writing to disk in 29ms
+ ✓ Compiled successfully in 8.1s
+   Linting and checking validity of types ...
+./components/IntroVideo.tsx
+41:20  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+./components/modals/PortfolioPopup.tsx
+130:43  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+Failed to compile.
+./components/IntroVideo.tsx:86:20
+Type error: Argument of type 'false' is not assignable to parameter of type 'SetStateAction<true>'.
+  84 |     setIsClosing(true);
+  85 |     setTimeout(() => {
+> 86 |       setIsVisible(false);
+     |                    ^
+  87 |     }, 300);
+  88 |   };
+  89 |
+Next.js build worker exited with code: 1 and signal: null
+Error: Command "npm run build" exited with 1
