@@ -28,13 +28,13 @@ const ImageWithFullscreen = ({ src, alt }: { src: string; alt: string }) => {
         onClick={handleFullscreenClick}
         style={{
           position: 'absolute',
-          bottom: '10px',
+          top: '10px',
           right: '10px',
-          width: '40px',
-          height: '40px',
-          background: 'rgba(0, 0, 0, 0.7)',
-          border: 'none',
-          borderRadius: '4px',
+          width: '44px',
+          height: '44px',
+          background: 'rgba(0, 0, 0, 0.6)',
+          border: '1px solid rgba(255, 255, 255, 0.3)',
+          borderRadius: '50%',
           color: 'white',
           cursor: 'pointer',
           display: 'flex',
@@ -42,6 +42,7 @@ const ImageWithFullscreen = ({ src, alt }: { src: string; alt: string }) => {
           justifyContent: 'center',
           fontSize: '20px',
           zIndex: 10,
+          backdropFilter: 'blur(4px)',
         }}
         aria-label="Toggle fullscreen"
       >
@@ -202,13 +203,13 @@ const VideoWithFullscreen = ({ src }: { src: string }) => {
         onClick={handleFullscreenClick}
         style={{
           position: 'absolute',
-          bottom: '10px',
+          top: '10px',
           right: '10px',
-          width: '40px',
-          height: '40px',
-          background: 'rgba(0, 0, 0, 0.7)',
-          border: 'none',
-          borderRadius: '4px',
+          width: '44px',
+          height: '44px',
+          background: 'rgba(0, 0, 0, 0.6)',
+          border: '1px solid rgba(255, 255, 255, 0.3)',
+          borderRadius: '50%',
           color: 'white',
           cursor: 'pointer',
           display: 'flex',
@@ -216,6 +217,7 @@ const VideoWithFullscreen = ({ src }: { src: string }) => {
           justifyContent: 'center',
           fontSize: '20px',
           zIndex: 10,
+          backdropFilter: 'blur(4px)',
         }}
         aria-label="Toggle fullscreen"
       >
