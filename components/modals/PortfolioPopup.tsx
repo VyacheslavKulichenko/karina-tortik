@@ -19,15 +19,11 @@ const ImageWithFullscreen = ({ src, alt }: { src: string; alt: string }) => {
       <Image
         alt={alt}
         src={src}
-        width={isFullscreen ? 1920 : 800}
-        height={isFullscreen ? 1440 : 600}
+        width={800}
+        height={600}
         style={{
-          width: isFullscreen ? 'auto' : '100%',
-          height: isFullscreen ? 'auto' : 'auto',
-          maxWidth: '100%',
-          maxHeight: isFullscreen ? '100vh' : 'none',
-          display: 'block',
-          objectFit: 'contain'
+          width: '100%',
+          height: 'auto',
         }}
       />
       {/* Custom fullscreen button - only show in normal mode */}
