@@ -2615,7 +2615,7 @@ form textarea:required:valid {
 
 .intro-bg-02__01 {
   top: auto;
-  bottom: 40px;
+  bottom: 90px;
   right: 0;
   width: 160px;
   height: auto;
@@ -2623,7 +2623,7 @@ form textarea:required:valid {
 @media only screen and (min-width: 768px) {
   .intro-bg-02__01 {
     top: auto;
-    bottom: 50px;
+    bottom: 100px;
     right: 0;
     width: 260px;
     height: auto;
@@ -2632,7 +2632,7 @@ form textarea:required:valid {
 @media only screen and (min-width: 992px) {
   .intro-bg-02__01 {
     top: auto;
-    bottom: 100px;
+    bottom: 150px;
     right: 0;
     width: 340px;
     height: auto;
@@ -2641,7 +2641,7 @@ form textarea:required:valid {
 @media only screen and (min-width: 1200px) {
   .intro-bg-02__01 {
     top: auto;
-    bottom: 200px;
+    bottom: 250px;
     right: 0;
     width: 330px;
     height: auto;
@@ -2650,7 +2650,7 @@ form textarea:required:valid {
 @media only screen and (min-width: 1400px) {
   .intro-bg-02__01 {
     top: auto;
-    bottom: 250px;
+    bottom: 300px;
     right: 0;
     width: 350px;
     height: auto;
@@ -2659,7 +2659,7 @@ form textarea:required:valid {
 @media only screen and (min-width: 1600px) {
   .intro-bg-02__01 {
     top: auto;
-    bottom: 230px;
+    bottom: 280px;
     right: 0;
     width: 530px;
     height: auto;
@@ -4568,7 +4568,7 @@ form textarea:required:valid {
   margin-bottom: 3.9rem;
 }
 .project__block.grid-items {
-  margin-top: 3.8rem;
+  margin-top: 1.5rem;
 }
 .project__block.normal-size {
   margin-top: 6rem;
@@ -4824,6 +4824,14 @@ button#next-logo,
 @media only screen and (max-width: 767px) {
   .hero-photo-container {
     margin-bottom: 2rem;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
   }
 }
 

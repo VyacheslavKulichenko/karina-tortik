@@ -46,18 +46,18 @@ export default function Hero() {
                 id="headline"
                 className="headline headline-95-desktop d-flex align-items-start flex-column loading-wrap"
               >
-                {/* Hero Photo */}
+                {/* Hero Video */}
                 <div
                   className="hero-photo-container"
                   data-duration="0.7"
                   data-delay="100"
                 >
-                  <Image
-                    src="/img/hero-photo.png"
-                    alt="Natasha"
-                    width={400}
-                    height={533}
-                    priority
+                  <video
+                    src="/video/cat0.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="hero-photo"
                   />
                 </div>
@@ -66,7 +66,9 @@ export default function Hero() {
                   data-delay="500"
                   className="headline__subtitle hero-animate-in-up space-top animated-type loading__item"
                 >
-                  Hello! I am Darina
+                  Привет! Меня зовут Карина.
+                  <br />
+                  Готовлю для вас:
                   <br />
                   <TypedText />
                 </p>

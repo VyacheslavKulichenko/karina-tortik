@@ -4,7 +4,6 @@ const defaultMenuItems = [
   { href: "#portfolio", caption: "Portfolio", icon: "ph ph-squares-four" },
   { href: "#about", caption: "About Me", icon: "ph ph-user" },
   { href: "#services", caption: "Services", icon: "ph ph-sticker" },
-  { href: "#resume", caption: "Resume", icon: "ph ph-article" },
   { href: "#contact", caption: "Contact", icon: "ph ph-envelope" },
 ];
 

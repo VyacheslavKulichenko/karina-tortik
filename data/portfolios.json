@@ -102,7 +102,7 @@
       "landscape": "/img/works/1920x1080_w01.webp",
       "videoFolder": "video-current-time",
       "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, nesciunt.",
-      "date": "2026"
+      "date": "Торты на день рождения"
     },
     {
       "id": 2,
@@ -113,7 +113,7 @@
       "landscape": "/img/works/1920x1080_w02.webp",
       "videoFolder": "video-25",
       "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, nesciunt.",
-      "date": "2025"
+      "date": "Свадебные торты"
     },
     {
       "id": 3,
@@ -124,7 +124,7 @@
       "landscape": "/img/works/1920x1080_w03.webp",
       "videoFolder": "video-24",
       "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, nesciunt.",
-      "date": "2024"
+      "date": "Тематические торты"
     },
     {
       "id": 4,
@@ -135,7 +135,7 @@
       "landscape": "/img/works/1920x1080_w04.webp",
       "videoFolder": "video-23",
       "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, nesciunt.",
-      "date": "2023"
+      "date": "Детские торты"
     }
   ]
 }

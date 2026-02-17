@@ -6,7 +6,6 @@ import BottomBackground from "@/components/homes/home-3/BottomBackground";
 import Contact from "@/components/homes/home-3/Contact";
 import Hero from "@/components/homes/home-3/Hero";
 import Portfolios from "@/components/homes/home-3/Portfolios";
-import Resume from "@/components/homes/home-3/Resume";
 import Services from "@/components/homes/home-3/Services";
 import { Metadata } from "next";
 export const metadata: Metadata = {
@@ -24,7 +23,6 @@ export default function page() {
         <Portfolios />
         <About />
         <Services />
-        <Resume />
         <Contact />
       </main>
       <BottomBackground />

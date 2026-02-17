@@ -27,9 +27,9 @@ export default function TypedText() {
   return (
     <>
       <span id="typed-strings">
-        <b>UI/UX designer</b>
-        <b>3D Artist</b>
-        <b>Illustrator</b>
+        <b>все виды тортов</b>
+        <b>самые вкусные десерты</b>
+        <b>чизкейк и пирожные</b>
       </span>
       <span id="typed" ref={el} />
     </>

@@ -409,9 +409,6 @@ export default function PortfolioPopup() {
                                     <div className="row g-0">
                                       {/* project data single item */}
                                       <div className="col-12 col-md-6 grid-item pdata__item">
-                                        <p className="data__title tagline-chapter small type-basic-160lh">
-                                          Date
-                                        </p>
                                         <p className="data__descr small type-basic-160lh">
                                           {selectedPortfolio?.date || ""}
                                         </p>
