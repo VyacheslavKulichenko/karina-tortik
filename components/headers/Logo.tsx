@@ -7,7 +7,7 @@ export default function Logo() {
       data-duration="1.2"
       data-delay="300"
     >
-      <a href="#" className="logo__link">
+      <a href="https://t.me/kasiapeya8" className="logo__link">
         {/* logo icon - NEW: cat.webp image */}
         <Image
           src="/img/cat.webp"
@@ -57,7 +57,7 @@ export default function Logo() {
         */}
 
         {/* logo text */}
-        <span className="logo-text">Darina*</span>
+        <span className="logo-text">Karina*</span>
       </a>
     </div>
   );

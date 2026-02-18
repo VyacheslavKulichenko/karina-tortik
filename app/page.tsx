@@ -9,8 +9,8 @@ import Portfolios from "@/components/homes/home-3/Portfolios";
 import Services from "@/components/homes/home-3/Services";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Darina-CV",
-  description: "Darina - Personal Portfolio & Resume",
+  title: "Karina-tortik",
+  description: "Karina-tortik — авторские торты на заказ",
 };
 export default function page() {
   return (

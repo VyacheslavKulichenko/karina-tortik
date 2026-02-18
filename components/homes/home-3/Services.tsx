@@ -14,7 +14,7 @@ export default function Services() {
                 {/* Content Block - Section Name Start */}
                 <div className="content__block name-block">
                   <span className="section-name icon-right animate-in-up">
-                    <span className="section-name-caption">Services</span>
+                    <span className="section-name-caption"> Виды тортов</span>
                     <i className="ph ph-arrow-down-right" />
                   </span>
                 </div>
@@ -29,9 +29,13 @@ export default function Services() {
                 <div className="content__block section-grid-title">
                   <div className="block__descr">
                     <RevealText as="h2" className=" animate-in-up">
-                      Creating
-                      <br />
-                      impactful projects
+                    Бисквитные
+                    <br />
+                    Творожные
+                    <br />
+                    Слоеные
+                    <br />
+                    Песочные
                     </RevealText>
                   </div>
                 </div>

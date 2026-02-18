@@ -10,9 +10,9 @@
     },
     {
       "id": 2,
-      "title": "Frontend\ndevelopment",
+      "title": "Бисквитный торт\nСНЕЖИНКА",
       "icon": "ph-thin ph-code",
-      "text": "I work with HTML/CSS, Framer and WordPress.",
+      "text": "Бисквитные — легкие и воздушные. Бисквит составляет основу большинства тортов.",
       "imgS": "/img/services/1200x1000_s02.webp",
       "imgM": "/img/services/800x1000_s02.webp"
     },
@@ -62,26 +62,26 @@
   "home3": [
     {
       "id": 1,
-      "title": "Frontend\ndevelopment",
-      "text": "I work with HTML/CSS, Framer and WordPress.",
+      "title": "Бисквитный торт\nСНЕЖИНКА",
+      "text": "Бисквитные — легкие и воздушные. Бисквит составляет основу большинства тортов.",
       "src": "/img/services/1200x1200_s01.webp"
     },
     {
       "id": 2,
-      "title": "Graphic\ndesign",
-      "text": "I use Adobe Fresco and Blender to create illustrations and 3D renders.",
+      "title": "Творожный торт\nСЛЁЗЫ АНГЕЛА",
+      "text": "Творожные — полезные и нежные. Часто комбинируются с начинкой из ягод.",
       "src": "/img/services/1200x1200_s02.webp"
     },
     {
       "id": 3,
-      "title": "Brand\nidentity",
-      "text": "I help my clients to develop a personality and brand voice, design the brand look and logo.",
+      "title": "Слоёный торт\nНАПОЛЕОН",
+      "text": "Слоеные — интересная комбинация тончайшего теста и крема. Самый популярный представитель этого типа — Наполеон.",
       "src": "/img/services/1200x1200_s03.webp"
     },
     {
       "id": 4,
-      "title": "Digital\nmarketing",
-      "text": "Social media content plans, media monitoring, email and text messaging and search engine optimization.",
+      "title": "Песочный торт\nЛИНЦСКИЙ",
+      "text": "Песочные — довольно плотные и в то же время рассыпчатые. В основе теста — сливочное масло, мука и сахар.",
       "src": "/img/services/1200x1200_s04.webp"
     }
   ]

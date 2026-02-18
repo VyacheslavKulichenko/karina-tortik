@@ -49,7 +49,7 @@ export default function Contact() {
                 {/* Content Block - Section Name Start */}
                 <div className="content__block name-block">
                   <span className="section-name icon-right animate-in-up">
-                    <span className="section-name-caption">Contact</span>
+                    <span className="section-name-caption">Мои контакты</span>
                     <i className="ph ph-arrow-down-right" />
                   </span>
                 </div>
@@ -64,12 +64,10 @@ export default function Contact() {
                 <div className="content__block section-form-title">
                   <div className="block__descr">
                     <RevealText as="h2" className=" animate-in-up">
-                      Just say hello!
+                      Напишите мне!
                     </RevealText>
                     <p className="h2__text type-basic-160lh animate-in-up">
-                      Want to know more about me, tell me about your project or
-                      just to say hello? Drop me a line and I&apos;ll get back
-                      as soon as possible.
+                      Если вы хотите сделать заказ, напишите мне на электронную почту, или в любом удобном вам месенджере.
                     </p>
                   </div>
                 </div>
@@ -245,16 +243,7 @@ export default function Contact() {
                       </HoverCursorEffect>
                     </li>
                     {/* socials cards single item */}
-                    <li className="socials-cards__item grid-item d-flex animate-in-up">
-                      <HoverCursorEffect
-                        as="a"
-                        className="socials-cards__link d-flex align-items-center justify-content-center"
-                        href="https://www.pinterest.com/"
-                        target="_blank"
-                      >
-                        <i className="ph ph-pinterest-logo" />
-                      </HoverCursorEffect>
-                    </li>
+
                   </ul>
                 </div>
                 {/* Content Block - Socials Cards End */}
@@ -271,9 +260,9 @@ export default function Contact() {
                               as="div"
                               className="footer__text animate-in-up"
                             >
-                              Got an idea?
+                              Готовы сделать заказ?
                               <br />
-                              Tell me!
+                              Сообщите мне!
                             </RevealText>
                             <div className="footer__btn animate-in-up">
                               <HoverCursorEffect
@@ -295,7 +284,7 @@ export default function Contact() {
                             <div className="row g-0">
                               <div className="col-12 col-lg-3 contact-data__item grid-item">
                                 <a
-                                  // href="https://t.me/nara_web"
+                                   href="https://t.me/kasiapeya8"
                                   className="footer-logo logo-text animate-in-up"
                                 >
                                   {/* logo icon */}
@@ -345,7 +334,7 @@ export default function Contact() {
                                     </g>
                                   </svg>
                                   {/* logo text */}
-                                  <span>Darina*</span>
+                                  <span>Карина*</span>
                                 </a>
                               </div>
                               <div className="col-12 col-md-4 col-lg-3 contact-data__item grid-item">
@@ -393,14 +382,14 @@ export default function Contact() {
                                     className="link-small-160lh animate-in-up"
                                     href="mailto:example@example.com"
                                   >
-                                    hello@example.com
+                                    hello@karina.com
                                   </a>
                                   <br />
                                   <a
                                     className="link-small-160lh animate-in-up"
                                     href="mailto:example@example.com?subject=Message%20from%20your%20site"
                                   >
-                                    support@example.com
+                                    support@slava.com
                                   </a>
                                 </p>
                               </div>

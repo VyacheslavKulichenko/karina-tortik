@@ -26,7 +26,7 @@ export default function Hero() {
           </ParallaxItem>
           <ParallaxItem speed={0.8} className="intro-bg-02__02">
             <Image
-              alt="Blayden Decorative Image"
+              alt="Decorative Image"
               src="/img/backgrounds/1200x1553_bg04.webp"
               width={1200}
               height={1553}
@@ -542,9 +542,9 @@ export default function Hero() {
                   <div className="row g-0">
                     <div className="col-12">
                       <RevealText as="blockquote" className=" animate-in-up">
-                          I can professionally create any turnkey design for your
-                          website or web app. I also develop designs for mobile apps
-                          of any complexity and with a user-friendly experience.
+                          Приготовлю для вас самые вкусные торты любых видов размеров и дизайна,
+                          для любых праздников и торжеств. А также если просто захотите побаловать
+                          себя или своих любимых восхитительным тортом или десертом.
                       </RevealText>
                     </div>
                   </div>

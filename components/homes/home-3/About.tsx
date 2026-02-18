@@ -13,7 +13,7 @@ export default function About() {
                 {/* Content Block - Section Name Start */}
                 <div className="content__block name-block">
                   <span className="section-name icon-right animate-in-up">
-                    <span className="section-name-caption">About me</span>
+                    <span className="section-name-caption">О моей выпечке</span>
                     <i className="ph ph-arrow-down-right" />
                   </span>
                 </div>
@@ -28,9 +28,9 @@ export default function About() {
                 <div className="content__block section-text-title">
                   <div className="block__descr">
                     <RevealText as="h2" className=" animate-in-up">
-                      Approach and
+                      Продукты и
                       <br />
-                      philosophy
+                      ингридиенты
                     </RevealText>
                   </div>
                 </div>
@@ -41,56 +41,22 @@ export default function About() {
                     <div className="row g-0 justify-content-between">
                       <div className="col-12 col-md-8 col-lg-7 col-xxl-8 grid-item about-descr pre-title">
                         <p className="about-descr__text type-basic-160lh animate-in-up">
-                            My job isn&apos;t just to design, but to understand what the client really wants, because sometimes it&apos;s hard to convey everything in words, and that&apos;s where my ability to sense the client&apos;s mood and wishes comes in handy, and I then translate them into stunning designs!
+                            Большое значение имеет не только внешний вид торта и его вкус, но и в первую очередь продукты из которых его готовят. В своём производстве я использую только качественные натуральные продукты и ингридиенты, в которых отсутствуют транс жиры и пальмовое масло.
+
                         </p>
                         <div className="btn-group about-descr__btnholder animate-in-up">
                           <HoverCursorEffect
                             as="a"
                             className="btn btn-default hover-default"
-                            href="/resume-sample.pdf"
+                            href="/cake-price.pdf"
                             target="_blank"
                             download
                           >
-                            <span className="btn-caption"> Download CV </span>
+                            <span className="btn-caption"> Скачать прайс </span>
                           </HoverCursorEffect>
                         </div>
                       </div>
-                      <div className="col-12 col-md-4 col-xxl-3 grid-item about-info pre-title">
-                        <div className="about-info__item animate-in-up">
-                          <h6>Darina</h6>
-                        </div>
-                        <div className="about-info__item animate-in-up">
-                          <h6>
-                            <a
-                              className="link-inline text-link"
-                              href="tel:+380952083069"
-                            >
 
-                            </a>
-                          </h6>
-                        </div>
-                        <div className="about-info__item animate-in-up">
-                          <h6>
-                            <a
-                              className="link-inline text-link"
-                              href="mailto:darina@example.com?subject=Message%20from%20your%20site"
-                            >
-                              hello@yourdomain.com
-                            </a>
-                          </h6>
-                        </div>
-                        <div className="about-info__item animate-in-up">
-                          <h6>
-                            <a
-                              className="link-inline text-link"
-                              href="https://maps.app.goo.gl/xMJXTEUeHkv6kYRQ6"
-                              target="_blank"
-                            >
-                              Kharkov, Ukraine
-                            </a>
-                          </h6>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -113,28 +79,28 @@ export default function About() {
                     <div className="achievements__item d-flex flex-column grid-item animate-in-up">
                       <div className="achievements__card">
                         <p className="achievements__number animate-in-up">
-                          40+
+                          100+
                         </p>
                         <p className="achievements__descr animate-in-up">
-                          Happy clients
+                          Счастливых клиентов
                         </p>
                       </div>
                     </div>
                     <div className="achievements__item d-flex flex-column grid-item animate-in-up">
                       <div className="achievements__card">
-                        <p className="achievements__number animate-in-up">2+</p>
+                        <p className="achievements__number animate-in-up">7+</p>
                         <p className="achievements__descr animate-in-up">
-                          Years of experience
+                          Лет опыта
                         </p>
                       </div>
                     </div>
                     <div className="achievements__item d-flex flex-column grid-item animate-in-up">
                       <div className="achievements__card">
                         <p className="achievements__number animate-in-up">
-                          50+
+                          500+
                         </p>
                         <p className="achievements__descr animate-in-up">
-                          Projects done
+                          Приготовленных тортов
                         </p>
                       </div>
                     </div>
