@@ -9,5 +9,5 @@ export const FEATURES = {
    * true = видео показывается
    * false = видео не показывается, сразу основное приложение
    */
-  SHOW_INTRO_VIDEO: true,
+  SHOW_INTRO_VIDEO: false,
 } as const;
