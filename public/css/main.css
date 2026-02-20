@@ -7409,13 +7409,19 @@ button#next-logo,
   z-index: 999;
 }
 
+@media only screen and (min-width: 768px) {
+  .language-switcher {
+    top: 3rem;
+  }
+}
+
 .language-switcher__wrapper {
   display: flex;
   gap: 0.5rem;
   background: var(--neutral);
   border: 1px solid var(--neutral-border);
   border-radius: 2rem;
-  padding: 0.5rem;
+  padding: 0.75rem;
   backdrop-filter: blur(10px);
 }
 
@@ -7424,14 +7430,28 @@ button#next-logo,
   background: transparent;
   border: none;
   color: var(--t-normal);
-  font-size: 0.875rem;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
   border-radius: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: var(--font-urbanist);
   text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .language-switcher__btn {
+    font-size: 1.5rem;
+    padding: 1rem 1.75rem;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .language-switcher__btn {
+    font-size: 1.75rem;
+    padding: 1.125rem 2rem;
+  }
 }
 
 .language-switcher__btn:hover {
@@ -7440,9 +7460,10 @@ button#next-logo,
 }
 
 .language-switcher__btn.active {
-  background: var(--accent);
-  color: var(--t-opp-bright);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
   pointer-events: none;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
 }
 
 .language-switcher__btn.loading {
@@ -7461,12 +7482,12 @@ button#next-logo,
 
   .language-switcher__wrapper {
     gap: 0.25rem;
-    padding: 0.25rem;
+    padding: 0.5rem;
   }
 
   .language-switcher__btn {
-    font-size: 0.75rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 1.125rem;
+    padding: 0.625rem 1.125rem;
   }
 }
 
