@@ -1,12 +1,14 @@
 "use client";
 import StackCards from "@/components/animation/StackCards";
 import { usePortfolio } from "@/contexts/PortfolioContext";
+import { useTranslations } from "next-intl";
 
 import portfoliosData from "@/data/portfolios.json";
 
 const home3 = portfoliosData.home3;
 export default function Portfolios() {
   const { setSelectedPortfolio } = usePortfolio();
+  const t = useTranslations("portfolios");
 
   return (
     <section
@@ -25,29 +27,35 @@ export default function Portfolios() {
                     stackName="portfolio-stack"
                     className="stack-wrapper"
                   >
-                    {home3.map((item, index) => (
-                      <div
-                        key={index}
-                        onClick={() => setSelectedPortfolio(item)}
-                        className={`portfolio-stack__inner popup-trigger portfolio-item-${
-                          index + 1
-                        }`}
-                        style={{ backgroundImage: `url(${item.landscape})` }}
-                      >
-                        <div className="portfolio-stack__descr">
-                          <h3
-                            className={`portfolio-stack__title ${item.style}`}
-                          >
-                            {item.title}
-                          </h3>
-                          <p
-                            className={`portfolio-stack__text type-basic-160lh  ${item.style} `}
-                          >
-                            {item.text}
-                          </p>
+                    {home3.map((item, index) => {
+                      const categoryKey =
+                        index === 0 ? "birthday" :
+                        index === 1 ? "wedding" :
+                        index === 2 ? "themed" : "kids";
+                      return (
+                        <div
+                          key={index}
+                          onClick={() => setSelectedPortfolio(item)}
+                          className={`portfolio-stack__inner popup-trigger portfolio-item-${
+                            index + 1
+                          }`}
+                          style={{ backgroundImage: `url(${item.landscape})` }}
+                        >
+                          <div className="portfolio-stack__descr">
+                            <h3
+                              className={`portfolio-stack__title ${item.style}`}
+                            >
+                              {item.title}
+                            </h3>
+                            <p
+                              className={`portfolio-stack__text type-basic-160lh  ${item.style} `}
+                            >
+                              {t(categoryKey)}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </StackCards>
                 </div>
                 {/* Content Block - Portfolio Stacking Cards End */}

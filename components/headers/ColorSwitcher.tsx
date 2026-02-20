@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import HoverCursorEffect from "../animation/HoverCursorEffect";
 
 export default function ThemeSwitcherButton({
-  parentClass = "color loading__fade",
+  parentClass = "color",
   hasBuyBtn = false,
 }) {
   const [showSwitcher, setShowSwitcher] = useState(false);
@@ -34,11 +34,7 @@ export default function ThemeSwitcherButton({
     setColorScheme((prev) => (prev === "light" ? "dark" : "light"));
   };
   return (
-    <div
-      className={parentClass + " " + "fade-in"}
-      data-duration="1.2"
-      data-delay="300"
-    >
+    <div className={parentClass}>
       {showSwitcher ? (
         <button
           id="color-switcher"

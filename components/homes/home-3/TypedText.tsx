@@ -1,14 +1,18 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
+import { useTranslations } from "next-intl";
 
 export default function TypedText() {
-  const el = useRef<HTMLSpanElement | null>(null); // Element where Typed will attach
-  const typedInstance = useRef<Typed | null>(null); // Store Typed instance
+  const t = useTranslations("hero.typed");
+  const el = useRef<HTMLSpanElement | null>(null);
+  const typedInstance = useRef<Typed | null>(null);
+  const stringsRef = useRef<HTMLSpanElement | null>(null);
+
   useEffect(() => {
-    if (el.current) {
+    if (el.current && stringsRef.current) {
       typedInstance.current = new Typed(el.current, {
-        stringsElement: "#typed-strings",
+        stringsElement: stringsRef.current,
         loop: true,
         typeSpeed: 60,
         backSpeed: 30,
@@ -16,20 +20,19 @@ export default function TypedText() {
       });
     }
 
-    // Cleanup on component unmount
     return () => {
       if (typedInstance.current) {
         typedInstance.current.destroy();
       }
     };
-  }, []);
+  }, [t]);
 
   return (
     <>
-      <span id="typed-strings">
-        <b>все виды тортов</b>
-        <b>самые вкусные десерты</b>
-        <b>чизкейк и пирожные</b>
+      <span ref={stringsRef} style={{ display: "none" }}>
+        <b>{t("allCakes")}</b>
+        <b>{t("tastyDesserts")}</b>
+        <b>{t("cheesecakes")}</b>
       </span>
       <span id="typed" ref={el} />
     </>

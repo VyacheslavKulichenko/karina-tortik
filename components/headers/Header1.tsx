@@ -48,9 +48,7 @@ export default function Header1({
   return (
     <header
       id="header"
-      className="header d-flex justify-content-center loading__fade fade-in"
-      data-duration="1.2"
-      data-delay="300"
+      className="header d-flex justify-content-center"
     >
       {/* Navigation Menu Start */}
       <div className="header__navigation d-flex justify-content-start">

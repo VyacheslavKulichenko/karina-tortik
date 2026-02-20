@@ -3,7 +3,10 @@
     "allow": [
       "Bash(mkdir:*)",
       "Bash(tree:*)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(grep:*)",
+      "Bash(npm install:*)",
+      "Bash(ls:*)"
     ]
   }
 }

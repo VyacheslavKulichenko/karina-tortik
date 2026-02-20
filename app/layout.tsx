@@ -8,6 +8,9 @@ import { PortfolioProvider } from "@/contexts/PortfolioContext";
 import PortfolioPopup from "@/components/modals/PortfolioPopup";
 import ScrollTop from "@/components/scroll/ScrollTop";
 import IntroVideo from "@/components/IntroVideo";
+import ColorSwitcher from "@/components/headers/ColorSwitcher";
+import Header1 from "@/components/headers/Header1";
+import Logo from "@/components/headers/Logo";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -41,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="uk"
       color-scheme="dark"
       suppressHydrationWarning
       className="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"
@@ -53,6 +56,10 @@ export default function RootLayout({
         <PortfolioProvider>
           {/* Intro video overlay */}
           <IntroVideo />
+          {/* Static elements that should not re-render on locale change */}
+          <Header1 />
+          <Logo />
+          <ColorSwitcher />
           {children}
           <LenisSmoothScroll />
           <ScrollTop />

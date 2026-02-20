@@ -2,11 +2,7 @@ import Image from "next/image";
 
 export default function Logo() {
   return (
-    <div
-      className="logo loading__fade fade-in"
-      data-duration="1.2"
-      data-delay="300"
-    >
+    <div className="logo">
       <a href="https://t.me/kasiapeya8" className="logo__link">
         {/* logo icon - NEW: cat.webp image */}
         <Image

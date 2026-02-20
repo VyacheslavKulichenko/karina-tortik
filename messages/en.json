@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "greeting": "Hello! My name is Karina.",
+    "preparing": "I make for you:",
+    "typed": {
+      "allCakes": "all types of cakes",
+      "tastyDesserts": "the most delicious desserts",
+      "cheesecakes": "cheesecakes and pastries"
+    },
+    "description": "I will make the most delicious cakes for you of any type, size and design, for any celebration or occasion. And also if you simply want to treat yourself or your loved ones to an amazing cake or dessert."
+  },
+  "about": {
+    "sectionName": "About my baking",
+    "title": "Products and\ningredients",
+    "description": "Great importance is not only the appearance of the cake and its taste, but first of all the products from which it is made. In my production, I use only high-quality natural products and ingredients that do not contain trans fats and palm oil.",
+    "downloadPrice": "Download price list",
+    "achievements": {
+      "clients": "Happy clients",
+      "experience": "Years of experience",
+      "cakes": "Cakes made"
+    }
+  },
+  "services": {
+    "sectionName": "Types of cakes",
+    "types": {
+      "biscuit": "Sponge",
+      "curd": "Cottage cheese",
+      "puff": "Puff pastry",
+      "shortcrust": "Shortbread"
+    },
+    "items": {
+      "snowflake": {
+        "title": "Sponge cake\nSNOWFLAKE",
+        "description": "Sponge cakes — light and airy. Sponge forms the basis of most cakes."
+      },
+      "angelTears": {
+        "title": "Cottage cheese cake\nANGEL TEARS",
+        "description": "Cottage cheese cakes — healthy and delicate. Often combined with berry filling."
+      },
+      "napoleon": {
+        "title": "Puff pastry cake\nNAPOLEON",
+        "description": "Puff pastry cakes — an interesting combination of the finest dough and cream. The most popular representative of this type is Napoleon."
+      },
+      "linz": {
+        "title": "Shortbread cake\nLINZ",
+        "description": "Shortbread cakes — quite dense and at the same time crumbly. The dough is based on butter, flour and sugar."
+      }
+    }
+  },
+  "portfolios": {
+    "birthday": "Birthday cakes",
+    "wedding": "Wedding cakes",
+    "themed": "Themed cakes",
+    "kids": "Kids cakes"
+  },
+  "contact": {
+    "sectionName": "My contacts",
+    "title": "Write to me!",
+    "description": "If you want to place an order, write to me by email or in any messenger convenient for you.",
+    "form": {
+      "name": "Your name*",
+      "company": "Company name",
+      "email": "Email*",
+      "phone": "Phone",
+      "message": "A few words about your order*",
+      "submit": "Submit request",
+      "success": "Message sent — thanks!",
+      "error": "Submission failed — please try again later.",
+      "doneTitle": "Done!",
+      "doneText": "Thanks for your message. I'll get back as soon as possible."
+    },
+    "footer": {
+      "ready": "Ready to place an order?\nLet me know!",
+      "name": "Karina*",
+      "location": "Location",
+      "phone": "Phone",
+      "email": "Email"
+    }
+  }
+}

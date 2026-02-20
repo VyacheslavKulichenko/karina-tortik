@@ -1,11 +1,13 @@
 import RevealText from "@/components/animation/RevealText";
 import VelocityMarquee from "@/components/animation/VelocityMarquee";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 import TypedText from "./TypedText";
 import ParallaxItem from "@/components/animation/Parallax";
 
 export default function Hero() {
+  const t = useTranslations("hero");
   return (
     <section id="home" className="main home">
       {/* Main Section Intro Start */}
@@ -66,9 +68,9 @@ export default function Hero() {
                   data-delay="500"
                   className="headline__subtitle hero-animate-in-up space-top animated-type loading__item"
                 >
-                  Привет! Меня зовут Карина.
+                  {t("greeting")}
                   <br />
-                  Готовлю для вас:
+                  {t("preparing")}
                   <br />
                   <TypedText />
                 </p>
@@ -542,9 +544,7 @@ export default function Hero() {
                   <div className="row g-0">
                     <div className="col-12">
                       <RevealText as="blockquote" className=" animate-in-up">
-                          Приготовлю для вас самые вкусные торты любых видов размеров и дизайна,
-                          для любых праздников и торжеств. А также если просто захотите побаловать
-                          себя или своих любимых восхитительным тортом или десертом.
+                        {t("description")}
                       </RevealText>
                     </div>
                   </div>

@@ -1,8 +1,10 @@
 import RevealText from "@/components/animation/RevealText";
 import Image from "next/image";
 import { home3 } from "@/data/services.json";
+import { useTranslations } from "next-intl";
 
 export default function Services() {
+  const t = useTranslations("services");
   return (
     <section id="services" className="inner inner-grid-bottom services">
       <div className="inner__wrapper">
@@ -14,7 +16,7 @@ export default function Services() {
                 {/* Content Block - Section Name Start */}
                 <div className="content__block name-block">
                   <span className="section-name icon-right animate-in-up">
-                    <span className="section-name-caption"> Виды тортов</span>
+                    <span className="section-name-caption">{t("sectionName")}</span>
                     <i className="ph ph-arrow-down-right" />
                   </span>
                 </div>
@@ -29,13 +31,13 @@ export default function Services() {
                 <div className="content__block section-grid-title">
                   <div className="block__descr">
                     <RevealText as="h2" className=" animate-in-up">
-                    Бисквитные
-                    <br />
-                    Творожные
-                    <br />
-                    Слоеные
-                    <br />
-                    Песочные
+                      {t("types.biscuit")}
+                      <br />
+                      {t("types.curd")}
+                      <br />
+                      {t("types.puff")}
+                      <br />
+                      {t("types.shortcrust")}
                     </RevealText>
                   </div>
                 </div>
@@ -44,35 +46,41 @@ export default function Services() {
                 <div className="content__block grid-block">
                   <div className="container-fluid p-0">
                     <div className="row g-0 align-items-stretch cards">
-                      {home3.map((it, idx) => (
-                        <div
-                          key={it.id}
-                          className="col-12 col-md-6 cards__item grid-item animate-in-up"
-                          data-delay={idx % 2 === 0 ? "0" : "600"}
-                        >
-                          <div className="cards__card d-flex flex-column">
-                            <div className="cards__descr">
-                              <h3
-                                className="cards__title animate-in-up"
-                                dangerouslySetInnerHTML={{
-                                  __html: it.title.replace(/\n/g, "<br />"),
-                                }}
-                              />
-                              <p className="cards__text type-basic-160lh animate-in-up">
-                                {it.text}
-                              </p>
-                            </div>
-                            <div className="cards__image d-flex animate-in-up">
-                              <Image
-                                alt="Service/Feature Image"
-                                src={it.src}
-                                width={1200}
-                                height={1200}
-                              />
+                      {home3.map((it, idx) => {
+                        const itemKey =
+                          it.id === 1 ? "snowflake" :
+                          it.id === 2 ? "angelTears" :
+                          it.id === 3 ? "napoleon" : "linz";
+                        return (
+                          <div
+                            key={it.id}
+                            className="col-12 col-md-6 cards__item grid-item animate-in-up"
+                            data-delay={idx % 2 === 0 ? "0" : "600"}
+                          >
+                            <div className="cards__card d-flex flex-column">
+                              <div className="cards__descr">
+                                <h3
+                                  className="cards__title animate-in-up"
+                                  dangerouslySetInnerHTML={{
+                                    __html: t(`items.${itemKey}.title`).replace(/\n/g, "<br />"),
+                                  }}
+                                />
+                                <p className="cards__text type-basic-160lh animate-in-up">
+                                  {t(`items.${itemKey}.description`)}
+                                </p>
+                              </div>
+                              <div className="cards__image d-flex animate-in-up">
+                                <Image
+                                  alt="Service/Feature Image"
+                                  src={it.src}
+                                  width={1200}
+                                  height={1200}
+                                />
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

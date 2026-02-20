@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "greeting": "¡Hola! Me llamo Karina.",
+    "preparing": "Preparo para ustedes:",
+    "typed": {
+      "allCakes": "todo tipo de pasteles",
+      "tastyDesserts": "los postres más deliciosos",
+      "cheesecakes": "tarta de queso y pastelitos"
+    },
+    "description": "Prepararé para ustedes los pasteles más deliciosos de cualquier tipo, tamaño y diseño, para cualquier celebración u ocasión. Y también si simplemente quieren mimarse a sí mismos o a sus seres queridos con un pastel o postre increíble."
+  },
+  "about": {
+    "sectionName": "Sobre mi repostería",
+    "title": "Productos e\ningredientes",
+    "description": "Gran importancia tiene no solo la apariencia del pastel y su sabor, sino ante todo los productos con los que se elabora. En mi producción, utilizo solo productos e ingredientes naturales de alta calidad que no contienen grasas trans ni aceite de palma.",
+    "downloadPrice": "Descargar lista de precios",
+    "achievements": {
+      "clients": "Clientes felices",
+      "experience": "Años de experiencia",
+      "cakes": "Pasteles preparados"
+    }
+  },
+  "services": {
+    "sectionName": "Tipos de pasteles",
+    "types": {
+      "biscuit": "Bizcocho",
+      "curd": "Queso cottage",
+      "puff": "Hojaldre",
+      "shortcrust": "Masa quebrada"
+    },
+    "items": {
+      "snowflake": {
+        "title": "Pastel de bizcocho\nCOPO DE NIEVE",
+        "description": "Bizcochos — ligeros y esponjosos. El bizcocho forma la base de la mayoría de los pasteles."
+      },
+      "angelTears": {
+        "title": "Pastel de queso cottage\nLÁGRIMAS DE ÁNGEL",
+        "description": "Pasteles de queso cottage — saludables y delicados. A menudo se combinan con relleno de bayas."
+      },
+      "napoleon": {
+        "title": "Pastel de hojaldre\nNAPOLEÓN",
+        "description": "Pasteles de hojaldre — una combinación interesante de la masa más fina y crema. El representante más popular de este tipo es Napoleón."
+      },
+      "linz": {
+        "title": "Pastel de masa quebrada\nLINZ",
+        "description": "Pasteles de masa quebrada — bastante densos y al mismo tiempo quebradizos. La masa se basa en mantequilla, harina y azúcar."
+      }
+    }
+  },
+  "portfolios": {
+    "birthday": "Pasteles de cumpleaños",
+    "wedding": "Pasteles de boda",
+    "themed": "Pasteles temáticos",
+    "kids": "Pasteles infantiles"
+  },
+  "contact": {
+    "sectionName": "Mis contactos",
+    "title": "¡Escríbeme!",
+    "description": "Si quieres hacer un pedido, escríbeme por correo electrónico o en cualquier mensajero que te resulte conveniente.",
+    "form": {
+      "name": "Tu nombre*",
+      "company": "Nombre de la empresa",
+      "email": "Email*",
+      "phone": "Teléfono",
+      "message": "Unas palabras sobre tu pedido*",
+      "submit": "Enviar solicitud",
+      "success": "Mensaje enviado — ¡gracias!",
+      "error": "Error al enviar — inténtalo de nuevo más tarde.",
+      "doneTitle": "¡Listo!",
+      "doneText": "Gracias por tu mensaje. Te responderé lo antes posible."
+    },
+    "footer": {
+      "ready": "¿Listo para hacer un pedido?\n¡Avísame!",
+      "name": "Karina*",
+      "location": "Ubicación",
+      "phone": "Teléfono",
+      "email": "Email"
+    }
+  }
+}

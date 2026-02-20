@@ -1,7 +1,9 @@
 import HoverCursorEffect from "@/components/animation/HoverCursorEffect";
 import RevealText from "@/components/animation/RevealText";
+import { useTranslations } from "next-intl";
 
 export default function About() {
+  const t = useTranslations("about");
   return (
     <section id="about" className="inner inner-grid-bottom about">
       <div className="inner__wrapper">
@@ -13,7 +15,7 @@ export default function About() {
                 {/* Content Block - Section Name Start */}
                 <div className="content__block name-block">
                   <span className="section-name icon-right animate-in-up">
-                    <span className="section-name-caption">О моей выпечке</span>
+                    <span className="section-name-caption">{t("sectionName")}</span>
                     <i className="ph ph-arrow-down-right" />
                   </span>
                 </div>
@@ -28,9 +30,7 @@ export default function About() {
                 <div className="content__block section-text-title">
                   <div className="block__descr">
                     <RevealText as="h2" className=" animate-in-up">
-                      Продукты и
-                      <br />
-                      ингридиенты
+                      {t("title")}
                     </RevealText>
                   </div>
                 </div>
@@ -41,8 +41,7 @@ export default function About() {
                     <div className="row g-0 justify-content-between">
                       <div className="col-12 col-md-8 col-lg-7 col-xxl-8 grid-item about-descr pre-title">
                         <p className="about-descr__text type-basic-160lh animate-in-up">
-                            Большое значение имеет не только внешний вид торта и его вкус, но и в первую очередь продукты из которых его готовят. В своём производстве я использую только качественные натуральные продукты и ингридиенты, в которых отсутствуют транс жиры и пальмовое масло.
-
+                          {t("description")}
                         </p>
                         <div className="btn-group about-descr__btnholder animate-in-up">
                           <HoverCursorEffect
@@ -52,7 +51,7 @@ export default function About() {
                             target="_blank"
                             download
                           >
-                            <span className="btn-caption"> Скачать прайс </span>
+                            <span className="btn-caption">{t("downloadPrice")}</span>
                           </HoverCursorEffect>
                         </div>
                       </div>
@@ -82,7 +81,7 @@ export default function About() {
                           100+
                         </p>
                         <p className="achievements__descr animate-in-up">
-                          Счастливых клиентов
+                          {t("achievements.clients")}
                         </p>
                       </div>
                     </div>
@@ -90,7 +89,7 @@ export default function About() {
                       <div className="achievements__card">
                         <p className="achievements__number animate-in-up">7+</p>
                         <p className="achievements__descr animate-in-up">
-                          Лет опыта
+                          {t("achievements.experience")}
                         </p>
                       </div>
                     </div>
@@ -100,7 +99,7 @@ export default function About() {
                           500+
                         </p>
                         <p className="achievements__descr animate-in-up">
-                          Приготовленных тортов
+                          {t("achievements.cakes")}
                         </p>
                       </div>
                     </div>

@@ -10,8 +10,10 @@ import React from "react";
 import { useForm } from "@formspree/react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
+  const t = useTranslations("contact");
   const {
     register,
     handleSubmit,
@@ -28,10 +30,10 @@ export default function Contact() {
     try {
       await fsSubmit(data);
       reset();
-      toast.success("Message sent — thanks!");
+      toast.success(t("form.success"));
     } catch {
       // ignore
-      toast.error("Submission failed — please try again later.");
+      toast.error(t("form.error"));
     }
   };
 
@@ -49,7 +51,7 @@ export default function Contact() {
                 {/* Content Block - Section Name Start */}
                 <div className="content__block name-block">
                   <span className="section-name icon-right animate-in-up">
-                    <span className="section-name-caption">Мои контакты</span>
+                    <span className="section-name-caption">{t("sectionName")}</span>
                     <i className="ph ph-arrow-down-right" />
                   </span>
                 </div>
@@ -64,10 +66,10 @@ export default function Contact() {
                 <div className="content__block section-form-title">
                   <div className="block__descr">
                     <RevealText as="h2" className=" animate-in-up">
-                      Напишите мне!
+                      {t("title")}
                     </RevealText>
                     <p className="h2__text type-basic-160lh animate-in-up">
-                      Если вы хотите сделать заказ, напишите мне на электронную почту, или в любом удобном вам месенджере.
+                      {t("description")}
                     </p>
                   </div>
                 </div>
@@ -78,10 +80,9 @@ export default function Contact() {
                     {/* Reply Messages Start */}
                     <div className="form__reply centered text-center">
                       <i className="ph-thin ph-smiley reply__icon" />
-                      <p className="reply__title">Done!</p>
+                      <p className="reply__title">{t("form.doneTitle")}</p>
                       <span className="reply__text">
-                        Thanks for your message. I&apos;ll get back as soon as
-                        possible.
+                        {t("form.doneText")}
                       </span>
                     </div>
                     {/* Reply Messages End */}
@@ -115,7 +116,7 @@ export default function Contact() {
                               {...register("Name")}
                               type="text"
                               name="Name"
-                              placeholder="Your name*"
+                              placeholder={t("form.name")}
                             />
                             {errors.Name && (
                               <p className="form-error">
@@ -128,7 +129,7 @@ export default function Contact() {
                               {...register("Company")}
                               type="text"
                               name="Company"
-                              placeholder="Company name"
+                              placeholder={t("form.company")}
                             />
                             {errors.Company && (
                               <p className="form-error">
@@ -141,7 +142,7 @@ export default function Contact() {
                               {...register("E-mail")}
                               type="email"
                               name="E-mail"
-                              placeholder="Email*"
+                              placeholder={t("form.email")}
                             />
                             {errs["E-mail"] && (
                               <p className="form-error">
@@ -154,7 +155,7 @@ export default function Contact() {
                               {...register("Phone")}
                               type="tel"
                               name="Phone"
-                              placeholder="Phone"
+                              placeholder={t("form.phone")}
                             />
                             {errors.Phone && (
                               <p className="form-error">
@@ -166,7 +167,7 @@ export default function Contact() {
                             <textarea
                               {...register("Message")}
                               name="Message"
-                              placeholder="A few words about your project*"
+                              placeholder={t("form.message")}
                               defaultValue={""}
                             />
                             {errors.Message && (
@@ -183,7 +184,7 @@ export default function Contact() {
                               disabled={isSubmitting || fsState.submitting}
                             >
                               <span className="btn-caption">
-                                Submit request
+                                {t("form.submit")}
                               </span>
                             </HoverCursorEffect>
                           </div>
@@ -260,9 +261,7 @@ export default function Contact() {
                               as="div"
                               className="footer__text animate-in-up"
                             >
-                              Готовы сделать заказ?
-                              <br />
-                              Сообщите мне!
+                              {t("footer.ready")}
                             </RevealText>
                             <div className="footer__btn animate-in-up">
                               <HoverCursorEffect
@@ -334,12 +333,12 @@ export default function Contact() {
                                     </g>
                                   </svg>
                                   {/* logo text */}
-                                  <span>Карина*</span>
+                                  <span>{t("footer.name")}</span>
                                 </a>
                               </div>
                               <div className="col-12 col-md-4 col-lg-3 contact-data__item grid-item">
                                 <p className="contact-data__title tagline-chapter animate-in-up">
-                                  Location
+                                  {t("footer.location")}
                                 </p>
                                 <p className="contact-data__text small type-basic-160lh">
                                   <a
@@ -355,7 +354,7 @@ export default function Contact() {
                               </div>
                               <div className="col-12 col-md-4 col-lg-3 contact-data__item grid-item">
                                 <p className="contact-data__title tagline-chapter animate-in-up">
-                                  Phone
+                                  {t("footer.phone")}
                                 </p>
                                 <p className="contact-data__text small type-basic-160lh">
                                   <a
@@ -375,7 +374,7 @@ export default function Contact() {
                               </div>
                               <div className="col-12 col-md-4 col-lg-3 contact-data__item grid-item">
                                 <p className="contact-data__title tagline-chapter animate-in-up">
-                                  Email
+                                  {t("footer.email")}
                                 </p>
                                 <p className="contact-data__text small type-basic-160lh">
                                   <a
