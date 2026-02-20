@@ -1,9 +1,20 @@
+"use client";
+
 import HoverCursorEffect from "@/components/animation/HoverCursorEffect";
 import RevealText from "@/components/animation/RevealText";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+
+const priceFileMap: Record<string, string> = {
+  uk: "/cake-price-ukr.pdf",
+  ru: "/cake-price-rus.pdf",
+  en: "/cake-price-en.pdf",
+  es: "/cake-price-esp.pdf",
+};
 
 export default function About() {
   const t = useTranslations("about");
+  const locale = useLocale();
+  const priceFile = priceFileMap[locale] || "/cake-price.pdf";
   return (
     <section id="about" className="inner inner-grid-bottom about">
       <div className="inner__wrapper">
@@ -47,7 +58,7 @@ export default function About() {
                           <HoverCursorEffect
                             as="a"
                             className="btn btn-default hover-default"
-                            href="/cake-price.pdf"
+                            href={priceFile}
                             target="_blank"
                             download
                           >

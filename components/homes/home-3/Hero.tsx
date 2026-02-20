@@ -1,15 +1,50 @@
+"use client";
+
 import RevealText from "@/components/animation/RevealText";
 import VelocityMarquee from "@/components/animation/VelocityMarquee";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 import TypedText from "./TypedText";
 import ParallaxItem from "@/components/animation/Parallax";
 
 export default function Hero() {
   const t = useTranslations("hero");
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!heroRef.current) return;
+
+    // Trigger animations for hero elements
+    const heroElements = heroRef.current.querySelectorAll('.hero-animate-in-up');
+    const loadingItems = heroRef.current.querySelectorAll('.loading__item');
+
+    heroElements.forEach((el) => {
+      const element = el as HTMLElement;
+      const duration = parseFloat(element.dataset.duration || '0.7');
+      const delay = parseFloat(element.dataset.delay || '0') / 1000;
+
+      gsap.fromTo(element,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration, delay, ease: 'power2.out' }
+      );
+    });
+
+    loadingItems.forEach((el) => {
+      const element = el as HTMLElement;
+      const duration = parseFloat(element.dataset.duration || '0.7');
+      const delay = parseFloat(element.dataset.delay || '0') / 1000;
+
+      gsap.fromTo(element,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration, delay, ease: 'power2.out' }
+      );
+    });
+  }, []);
   return (
-    <section id="home" className="main home">
+    <section id="home" className="main home" ref={heroRef}>
       {/* Main Section Intro Start */}
       <div className="main__intro intro-95-desktop">
         {/* Intro Background Start */}

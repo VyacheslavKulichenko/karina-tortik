@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { locales } from '@/i18n/index';
 import type { Locale } from '@/i18n/index';
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import PortfolioPopup from "@/components/modals/PortfolioPopup";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -28,6 +29,8 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <LanguageSwitcher />
       {children}
+      {/* Global popup rendered after body content so it's not nested inside specific sections */}
+      <PortfolioPopup />
     </NextIntlClientProvider>
   );
 }

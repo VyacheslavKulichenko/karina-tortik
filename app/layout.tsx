@@ -5,7 +5,6 @@ import "yet-another-react-lightbox/plugins/captions.css";
 import { Urbanist } from "next/font/google";
 import LenisSmoothScroll from "@/components/scroll/LenisSmoothScroll";
 import { PortfolioProvider } from "@/contexts/PortfolioContext";
-import PortfolioPopup from "@/components/modals/PortfolioPopup";
 import ScrollTop from "@/components/scroll/ScrollTop";
 import IntroVideo from "@/components/IntroVideo";
 import ColorSwitcher from "@/components/headers/ColorSwitcher";
@@ -63,8 +62,6 @@ export default function RootLayout({
           {children}
           <LenisSmoothScroll />
           <ScrollTop />
-          {/* Global popup rendered after body content so it's not nested inside specific sections */}
-          <PortfolioPopup />
           <InitScroll />
         </PortfolioProvider>
       </body>

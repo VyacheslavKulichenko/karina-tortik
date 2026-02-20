@@ -1,9 +1,9 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { usePathname as useNextPathname } from "next/navigation";
 import { locales } from "@/i18n/index";
-import { useTransition } from "react";
+import Link from "next/link";
 
 const languageNames = {
   uk: "УКР",
@@ -14,34 +14,35 @@ const languageNames = {
 
 export default function LanguageSwitcher() {
   const locale = useLocale();
-  const pathname = usePathname();
-  const [isPending, startTransition] = useTransition();
-  const router = useRouter();
+  const pathname = useNextPathname();
 
-  const handleLanguageChange = (newLocale: string) => {
-    if (newLocale === locale) return;
-
-    startTransition(() => {
-      // Use next-intl's router which properly handles locale switching
-      router.replace(pathname, { locale: newLocale as any });
-    });
+  const getLocalizedPath = (newLocale: string) => {
+    // Extract the path without locale prefix
+    const segments = pathname.split('/').filter(Boolean);
+    const pathWithoutLocale = segments.slice(1).join('/');
+    return `/${newLocale}${pathWithoutLocale ? '/' + pathWithoutLocale : ''}`;
   };
 
   return (
     <div className="language-switcher">
       <div className="language-switcher__wrapper">
         {locales.map((loc) => (
-          <button
+          <Link
             key={loc}
-            onClick={() => handleLanguageChange(loc)}
+            href={getLocalizedPath(loc)}
             className={`language-switcher__btn ${
               locale === loc ? "active" : ""
-            } ${isPending ? "loading" : ""}`}
+            }`}
             aria-label={`Switch to ${languageNames[loc]}`}
-            disabled={isPending || locale === loc}
+            aria-current={locale === loc ? "page" : undefined}
+            onClick={(e) => {
+              if (locale === loc) {
+                e.preventDefault();
+              }
+            }}
           >
             {languageNames[loc]}
-          </button>
+          </Link>
         ))}
       </div>
     </div>

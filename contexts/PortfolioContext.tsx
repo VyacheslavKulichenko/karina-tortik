@@ -5,6 +5,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 export type Portfolio = {
   id: number | string;
   title?: string;
+  category?: string;
   style?: string;
   portrait?: string;
   landscape?: string;

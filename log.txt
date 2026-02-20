@@ -1,62 +1,24 @@
- ⨯ ./i18n/navigation.ts:1:1
-Export createSharedPathnamesNavigation doesn't exist in target module
-> 1 | import { createSharedPathnamesNavigation } from 'next-intl/navigation';
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 | import { locales, defaultLocale } from './index';
-  3 |
-  4 | export const { Link, redirect, usePathname, useRouter } =
+ ⨯ Error: Failed to call `useTranslations` because the context from `NextIntlClientProvider` was not found.
 
-The export createSharedPathnamesNavigation was not found in module [project]/node_modules/next-intl/dist/esm/development/navigation.react-client.js [app-client] (ecmascript).
-Did you mean to import createNavigation?
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-
-Import traces:
-  Client Component Browser:
-    ./i18n/navigation.ts [Client Component Browser]
-    ./components/LanguageSwitcher.tsx [Client Component Browser]
-    ./components/LanguageSwitcher.tsx [Server Component]
-    ./app/[locale]/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./i18n/navigation.ts [Client Component SSR]
-    ./components/LanguageSwitcher.tsx [Client Component SSR]
-    ./components/LanguageSwitcher.tsx [Server Component]
-    ./app/[locale]/layout.tsx [Server Component]
-
-
-
-./i18n/navigation.ts:1:1
-Export createSharedPathnamesNavigation doesn't exist in target module
-> 1 | import { createSharedPathnamesNavigation } from 'next-intl/navigation';
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 | import { locales, defaultLocale } from './index';
-  3 |
-  4 | export const { Link, redirect, usePathname, useRouter } =
-
-The export createSharedPathnamesNavigation was not found in module [project]/node_modules/next-intl/dist/esm/development/navigation.react-client.js [app-ssr] (ecmascript).
-Did you mean to import createNavigation?
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-
-Import traces:
-  Client Component Browser:
-    ./i18n/navigation.ts [Client Component Browser]
-    ./components/LanguageSwitcher.tsx [Client Component Browser]
-    ./components/LanguageSwitcher.tsx [Server Component]
-    ./app/[locale]/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./i18n/navigation.ts [Client Component SSR]
-    ./components/LanguageSwitcher.tsx [Client Component SSR]
-    ./components/LanguageSwitcher.tsx [Server Component]
-    ./app/[locale]/layout.tsx [Server Component]
-
-
- ○ Compiling /_error ...
- ✓ Compiled /_error in 2.9s
- GET /uk 500 in 12502ms
+This can happen because:
+1) You intended to render this component as a Server Component, the render
+   failed, and therefore React attempted to render the component on the client
+   instead. If this is the case, check the console for server errors.
+2) You intended to render this component on the client side, but no context was found.
+   Learn more about this error here: https://next-intl.dev/docs/environments/server-client-components#missing-context
+    at PortfolioPopup (components\modals\PortfolioPopup.tsx:305:28)
+  303 | export default function PortfolioPopup() {
+  304 |   const { selectedPortfolio, setSelectedPortfolio } = usePortfolio();
+> 305 |   const t = useTranslations("portfolios");
+      |                            ^
+  306 |
+  307 |   const contentRef = useRef<HTMLDivElement | null>(null); // .mfp-content
+  308 |   const popupRef = useRef<HTMLDivElement | null>(null); // .popup {
+  digest: '1165256435'
+}
+ GET /uk 500 in 11972ms
  ⚠ Cross origin request detected from 192.168.1.68 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
 Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
  ○ Compiling /favicon.ico ...
- ✓ Compiled /favicon.ico in 689ms
- GET /favicon.ico 500 in 758ms
- GET /favicon.ico 500 in 126ms
+ ✓ Compiled /favicon.ico in 677ms
+ GET /favicon.ico 200 in 1159ms

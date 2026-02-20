@@ -7,27 +7,18 @@ export default function ThemeSwitcherButton({
   hasBuyBtn = false,
 }) {
   const [showSwitcher, setShowSwitcher] = useState(false);
-  const [colorScheme, setColorScheme] = useState<"light" | "dark">(() => {
-    if (typeof window !== "undefined") {
-      return (
-        (localStorage.getItem("color-scheme") as "light" | "dark") || "dark"
-      );
-    }
-    return "dark";
-  });
+  const [colorScheme, setColorScheme] = useState<"light" | "dark">("dark");
   useEffect(() => {
+    // Initialize from localStorage or default to dark
+    const savedScheme = (localStorage.getItem("color-scheme") as "light" | "dark") || "dark";
+    setColorScheme(savedScheme);
+    document.documentElement.setAttribute("color-scheme", savedScheme);
     setShowSwitcher(true);
   }, []);
 
   useEffect(() => {
-    // Only set if not already set to the same value
-    const currentScheme = document.documentElement.getAttribute("color-scheme");
-    if (currentScheme !== colorScheme) {
-      document.documentElement.setAttribute("color-scheme", colorScheme);
-    }
-    if (localStorage.getItem("color-scheme") !== colorScheme) {
-      localStorage.setItem("color-scheme", colorScheme);
-    }
+    document.documentElement.setAttribute("color-scheme", colorScheme);
+    localStorage.setItem("color-scheme", colorScheme);
   }, [colorScheme]);
 
   const handleColorSwitch = () => {

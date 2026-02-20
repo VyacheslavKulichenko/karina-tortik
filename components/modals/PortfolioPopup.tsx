@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { usePortfolio } from "@/contexts/PortfolioContext";
 import { createPortal } from "react-dom";
+import { useTranslations } from "next-intl";
 
 // Custom fullscreen image component using React Portal
 const ImageWithFullscreen = ({ src, alt }: { src: string; alt: string }) => {
@@ -301,6 +302,7 @@ const VideoWithFullscreen = ({ src }: { src: string }) => {
 
 export default function PortfolioPopup() {
   const { selectedPortfolio, setSelectedPortfolio } = usePortfolio();
+  const t = useTranslations("portfolios");
 
   const contentRef = useRef<HTMLDivElement | null>(null); // .mfp-content
   const popupRef = useRef<HTMLDivElement | null>(null); // .popup
@@ -393,10 +395,9 @@ export default function PortfolioPopup() {
                                 src={selectedPortfolio?.landscape || ""}
                                 width={1920}
                                 height={800}
-                              />{" "}
+                              />
                             </>
                           )}
-                          {/* Text on image removed */}
                         </div>
                         {/* Project Block - Title with Image End */}
                         {/* Project Block - Description Start */}
@@ -410,7 +411,7 @@ export default function PortfolioPopup() {
                                       {/* project data single item */}
                                       <div className="col-12 col-md-6 grid-item pdata__item">
                                         <p className="data__descr small type-basic-160lh">
-                                          {selectedPortfolio?.date || ""}
+                                          {selectedPortfolio?.category && t(selectedPortfolio.category)}
                                         </p>
                                       </div>
                                     </div>

@@ -41,6 +41,9 @@ export default function Portfolios() {
                           }`}
                           style={{ backgroundImage: `url(${item.landscape})` }}
                         >
+                          <div className="portfolio-stack__category-title">
+                            <h2>{t(categoryKey)}</h2>
+                          </div>
                           <div className="portfolio-stack__descr">
                             <h3
                               className={`portfolio-stack__title ${item.style}`}
