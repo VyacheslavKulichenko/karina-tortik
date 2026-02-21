@@ -4,7 +4,7 @@ import { useLocale } from "next-intl";
 import { usePathname as useNextPathname } from "next/navigation";
 import { locales } from "@/i18n/index";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const languageNames = {
   uk: "УКР",
@@ -17,6 +17,7 @@ export default function LanguageSwitcher() {
   const locale = useLocale();
   const pathname = useNextPathname();
   const switcherRef = useRef<HTMLDivElement>(null);
+  const [isPositioned, setIsPositioned] = useState(false);
 
   useEffect(() => {
     const positionSwitcher = () => {
@@ -36,31 +37,30 @@ export default function LanguageSwitcher() {
         // Position the switcher at the center point
         switcher.style.left = `${centerPoint}px`;
         switcher.style.transform = 'translateX(-50%)';
+        setIsPositioned(true);
       }
     };
 
-    // Use requestAnimationFrame to ensure DOM is fully rendered
-    const initPosition = () => {
-      requestAnimationFrame(() => {
-        positionSwitcher();
-      });
+    // Multiple attempts to ensure correct positioning
+    let attempts = 0;
+    const maxAttempts = 10;
+
+    const tryPosition = () => {
+      positionSwitcher();
+      attempts++;
+
+      if (attempts < maxAttempts) {
+        requestAnimationFrame(tryPosition);
+      }
     };
 
-    // Position with slight delay to ensure all elements are rendered
-    const timeoutId = setTimeout(initPosition, 100);
+    // Start positioning attempts
+    setTimeout(tryPosition, 50);
 
-    // Also position on load event
-    window.addEventListener('load', initPosition);
+    // Also position on resize
     window.addEventListener('resize', positionSwitcher);
 
-    // Position again after fonts are loaded
-    if (document.fonts) {
-      document.fonts.ready.then(initPosition);
-    }
-
     return () => {
-      clearTimeout(timeoutId);
-      window.removeEventListener('load', initPosition);
       window.removeEventListener('resize', positionSwitcher);
     };
   }, []);
@@ -73,7 +73,11 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="language-switcher" ref={switcherRef}>
+    <div
+      className="language-switcher"
+      ref={switcherRef}
+      style={{ opacity: isPositioned ? 1 : 0, transition: 'opacity 0.2s' }}
+    >
       <div className="language-switcher__wrapper">
         {locales.map((loc) => (
           <Link
