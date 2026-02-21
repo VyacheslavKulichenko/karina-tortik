@@ -6,7 +6,12 @@ import { locales } from "@/i18n/index";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
-const languageData = {
+type LanguageData = {
+  flag?: string;
+  name: string;
+};
+
+const languageData: Record<string, LanguageData> = {
   uk: { flag: "🇺🇦", name: "Українська" },
   ru: { name: "Русский" },
   en: { flag: "🇬🇧", name: "English" },
@@ -89,7 +94,7 @@ export default function LanguageSwitcher() {
     return `/${newLocale}${pathWithoutLocale ? '/' + pathWithoutLocale : ''}`;
   };
 
-  const currentLangData = languageData[displayLocale as keyof typeof languageData];
+  const currentLangData = languageData[displayLocale] || languageData['uk'];
 
   return (
     <div
@@ -114,7 +119,7 @@ export default function LanguageSwitcher() {
         <div className="language-switcher__dropdown">
           {locales.map((loc) => {
             if (loc === displayLocale) return null;
-            const lang = languageData[loc as keyof typeof languageData];
+            const lang = languageData[loc];
             return (
               <Link
                 key={loc}

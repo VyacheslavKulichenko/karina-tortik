@@ -1,24 +1,51 @@
- ⨯ Error: Failed to call `useTranslations` because the context from `NextIntlClientProvider` was not found.
-
-This can happen because:
-1) You intended to render this component as a Server Component, the render
-   failed, and therefore React attempted to render the component on the client
-   instead. If this is the case, check the console for server errors.
-2) You intended to render this component on the client side, but no context was found.
-   Learn more about this error here: https://next-intl.dev/docs/environments/server-client-components#missing-context
-    at PortfolioPopup (components\modals\PortfolioPopup.tsx:305:28)
-  303 | export default function PortfolioPopup() {
-  304 |   const { selectedPortfolio, setSelectedPortfolio } = usePortfolio();
-> 305 |   const t = useTranslations("portfolios");
-      |                            ^
-  306 |
-  307 |   const contentRef = useRef<HTMLDivElement | null>(null); // .mfp-content
-  308 |   const popupRef = useRef<HTMLDivElement | null>(null); // .popup {
-  digest: '1165256435'
-}
- GET /uk 500 in 11972ms
- ⚠ Cross origin request detected from 192.168.1.68 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
-Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
- ○ Compiling /favicon.ico ...
- ✓ Compiled /favicon.ico in 677ms
- GET /favicon.ico 200 in 1159ms
+14:47:50.763
+  run `npm fund` for details
+14:47:50.791
+Detected Next.js version: 15.5.9
+14:47:50.795
+Running "npm run build"
+14:47:50.890
+14:47:50.890
+> Darina-cv@1.1.0 build
+14:47:50.891
+> next build --turbopack
+14:47:50.891
+14:47:52.030
+   ▲ Next.js 15.5.9 (Turbopack)
+14:47:52.031
+14:47:52.119
+   Creating an optimized production build ...
+14:48:05.560
+ ✓ Finished writing to disk in 17ms
+14:48:05.579
+ ✓ Compiled successfully in 12.8s
+14:48:05.582
+   Linting and checking validity of types ...
+14:48:13.077
+Failed to compile.
+14:48:13.077
+14:48:13.078
+./components/LanguageSwitcher.tsx:106:26
+14:48:13.079
+Type error: Property 'flag' does not exist on type '{ flag: string; name: string; } | { name: string; } | { flag: string; name: string; } | { flag: string; name: string; }'.
+14:48:13.079
+  Property 'flag' does not exist on type '{ name: string; }'.
+14:48:13.079
+14:48:13.079
+  104 |         aria-expanded={isOpen}
+14:48:13.079
+  105 |       >
+14:48:13.079
+> 106 |         {currentLangData.flag && (
+14:48:13.079
+      |                          ^
+14:48:13.079
+  107 |           <span className="language-switcher__flag">{currentLangData.flag}</span>
+14:48:13.079
+  108 |         )}
+14:48:13.079
+  109 |         <span className="language-switcher__name">{currentLangData.name}</span>
+14:48:13.111
+Next.js build worker exited with code: 1 and signal: null
+14:48:13.135
+Error: Command "npm run build" exited with 1
