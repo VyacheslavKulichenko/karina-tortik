@@ -39,11 +39,28 @@ export default function LanguageSwitcher() {
       }
     };
 
-    // Position on mount and on resize
-    positionSwitcher();
+    // Use requestAnimationFrame to ensure DOM is fully rendered
+    const initPosition = () => {
+      requestAnimationFrame(() => {
+        positionSwitcher();
+      });
+    };
+
+    // Position with slight delay to ensure all elements are rendered
+    const timeoutId = setTimeout(initPosition, 100);
+
+    // Also position on load event
+    window.addEventListener('load', initPosition);
     window.addEventListener('resize', positionSwitcher);
 
+    // Position again after fonts are loaded
+    if (document.fonts) {
+      document.fonts.ready.then(initPosition);
+    }
+
     return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('load', initPosition);
       window.removeEventListener('resize', positionSwitcher);
     };
   }, []);
