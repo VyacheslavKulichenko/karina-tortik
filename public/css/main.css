@@ -1155,7 +1155,7 @@ blockquote {
   border-radius: 5rem;
   border: 1px solid var(--neutral-bright);
   background-color: var(--neutral-bright);
-  font: normal var(--font-weight-medium) 1.8rem/10rem var(--_font-default);
+  font: normal var(--font-weight-medium) 3.2rem/10rem var(--_font-default);
   color: var(--t-opp-bright);
   white-space: nowrap;
 }
@@ -1173,7 +1173,7 @@ blockquote {
   .btn-default {
     border: 1px solid var(--stroke-controls);
     background-color: transparent;
-    font-size: 2rem;
+    font-size: 3.6rem;
     color: var(--t-bright);
   }
   .btn-default .btn-caption {
@@ -1183,7 +1183,7 @@ blockquote {
 }
 @media only screen and (min-width: 1400px) {
   .btn-default {
-    font-size: 2.2rem;
+    font-size: 4rem;
   }
 }
 @media only screen and (min-width: 1600px) {
@@ -1192,7 +1192,7 @@ blockquote {
     line-height: 11rem;
     -moz-border-radius: 6rem;
     border-radius: 6rem;
-    font-size: 2.6rem;
+    font-size: 4.6rem;
   }
 }
 
