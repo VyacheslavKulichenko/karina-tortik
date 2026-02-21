@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прайс-лист</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background: #ffffff;
+        }
+        #pdf-container {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+        }
+        canvas {
+            display: block;
+            width: 100% !important;
+            height: auto !important;
+        }
+        #loading {
+            color: #333;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            text-align: center;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">Загрузка...</div>
+    <div id="pdf-container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        // Получаем параметр файла из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const file = urlParams.get('file') || '/cake-price-ukr.pdf';
+
+        // Настройка PDF.js
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        const container = document.getElementById('pdf-container');
+        const loading = document.getElementById('loading');
+
+        // Загружаем PDF
+        pdfjsLib.getDocument(file).promise.then(function(pdf) {
+            loading.style.display = 'none';
+
+            // Рендерим каждую страницу
+            const numPages = pdf.numPages;
+
+            for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+                pdf.getPage(pageNum).then(function(page) {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+
+                    // Получаем изначальный viewport
+                    const viewport = page.getViewport({ scale: 1 });
+
+                    // Вычисляем scale для полной ширины экрана
+                    const scale = window.innerWidth / viewport.width;
+
+                    // Учитываем devicePixelRatio для четкости на Retina дисплеях
+                    const outputScale = window.devicePixelRatio || 1;
+
+                    const scaledViewport = page.getViewport({ scale: scale });
+
+                    // Устанавливаем размер canvas с учетом devicePixelRatio
+                    canvas.width = Math.floor(scaledViewport.width * outputScale);
+                    canvas.height = Math.floor(scaledViewport.height * outputScale);
+
+                    // Устанавливаем CSS размеры для правильного отображения
+                    canvas.style.width = Math.floor(scaledViewport.width) + 'px';
+                    canvas.style.height = Math.floor(scaledViewport.height) + 'px';
+
+                    const transform = outputScale !== 1
+                        ? [outputScale, 0, 0, outputScale, 0, 0]
+                        : null;
+
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: scaledViewport,
+                        transform: transform
+                    };
+
+                    page.render(renderContext);
+                    container.appendChild(canvas);
+                });
+            }
+        }).catch(function(error) {
+            loading.textContent = 'Ошибка загрузки PDF: ' + error.message;
+        });
+    </script>
+</body>
+</html>

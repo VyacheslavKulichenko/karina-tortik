@@ -5,16 +5,17 @@ import RevealText from "@/components/animation/RevealText";
 import { useTranslations, useLocale } from "next-intl";
 
 const priceFileMap: Record<string, string> = {
-  uk: "/cake-price-ukr.pdf",
-  ru: "/cake-price-rus.pdf",
-  en: "/cake-price-en.pdf",
-  es: "/cake-price-esp.pdf",
+  uk: "cake-price-ukr.pdf",
+  ru: "cake-price-rus.pdf",
+  en: "cake-price-en.pdf",
+  es: "cake-price-esp.pdf",
 };
 
 export default function About() {
   const t = useTranslations("about");
   const locale = useLocale();
-  const priceFile = priceFileMap[locale] || "/cake-price.pdf";
+  const priceFile = priceFileMap[locale] || "cake-price-ukr.pdf";
+
   return (
     <section id="about" className="inner inner-grid-bottom about">
       <div className="inner__wrapper">
@@ -58,9 +59,9 @@ export default function About() {
                           <HoverCursorEffect
                             as="a"
                             className="btn btn-default hover-default"
-                            href={priceFile}
+                            href={`/view-pdf.html?file=/${priceFile}`}
                             target="_blank"
-                            download
+                            rel="noopener noreferrer"
                           >
                             <span className="btn-caption">{t("downloadPrice")}</span>
                           </HoverCursorEffect>

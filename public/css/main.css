@@ -1157,6 +1157,12 @@ blockquote {
   background-color: var(--neutral-bright);
   font: normal var(--font-weight-medium) 1.8rem/10rem var(--_font-default);
   color: var(--t-opp-bright);
+  white-space: nowrap;
+}
+@media only screen and (max-width: 575px) {
+  .btn-default {
+    padding: 0 3rem;
+  }
 }
 @media only screen and (min-width: 576px) {
   .btn-default {
