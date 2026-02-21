@@ -64,12 +64,14 @@ export default function Hero() {
             </div>
           </ParallaxItem>
           <ParallaxItem speed={0.8} className="intro-bg-02__02">
-            <Image
-              alt="Decorative Image"
-              src="/img/backgrounds/1200x1553_bg04.webp"
-              width={1200}
-              height={1553}
-            />
+            <div className="animated-cake animated-cake-glow">
+              <Image
+                alt="Decorative Image"
+                src="/img/backgrounds/1200x1553_bg04.webp"
+                width={1200}
+                height={1553}
+              />
+            </div>
           </ParallaxItem>
         </div>
         {/* Intro Background End */}
