@@ -1,5 +1,6 @@
 import InitScroll from "@/components/scroll/InitScroll";
 import "../public/css/styles.css";
+import "../public/css/cake-animation.css";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 import { Urbanist } from "next/font/google";

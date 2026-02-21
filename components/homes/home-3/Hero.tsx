@@ -54,12 +54,14 @@ export default function Hero() {
           data-delay="100"
         >
           <ParallaxItem speed={0.6} className="intro-bg-02__01">
-            <Image
-              alt="Blayden Decorative Image"
-              src="/img/backgrounds/1200x1200_bg03.webp"
-              width={1200}
-              height={1200}
-            />
+            <div className="animated-cake animated-cake-glow">
+              <Image
+                alt="Blayden Decorative Image"
+                src="/img/backgrounds/1200x1200_bg03.webp"
+                width={1200}
+                height={1200}
+              />
+            </div>
           </ParallaxItem>
           <ParallaxItem speed={0.8} className="intro-bg-02__02">
             <Image
